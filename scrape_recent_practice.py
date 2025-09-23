@@ -171,7 +171,7 @@ print('Converted to DataFrame . . .')
 practice_data['lap_time'] = practice_data["lap_time"].dt.total_seconds()
 practice_data['position'] = practice_data['position'].astype(float)
 practice_data['laps'] = practice_data['laps'].astype(int)
-
+print('Changed datatypes . . .')
 
 
 # Set the practice session list to use in file name
