@@ -1,3 +1,6 @@
+* = Can get from F1 website
+e = Engineered feature
+f = Can get from FastF1 API
 
 RACE AND CIRCUIT
 | Attribute                            | Example                   | Meaning                 | Type   | Notes                              | Why Needed                                     |
@@ -70,6 +73,7 @@ e| classified\_status    | `"Finished"`            | DNF, DSQ, DNS     | string 
 *| laps\_completed       | `66`                    | Laps done         | int          | Helps with DNFs     |                              |
 | fastest\_lap\_time\_s | `83.502`                | Best lap in race  | float        | Secondary           | Shows pace potential         |
 *| pit\_stops            | `2`                     | Number of stops   | int          | NA if DNF           | Strategy impact              |
+e| avg pit time          | `22.1`                  | avg length in puts| float        |                     | Strategy impact              |
 | tyre\_stints          | `["MED","HARD","SOFT"]` | Stints used       | string/array | Optional but useful | Race pace influenced by tyre |
 
 WEATHER (per session)
