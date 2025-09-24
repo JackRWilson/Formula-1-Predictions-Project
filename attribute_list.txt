@@ -2,71 +2,74 @@
 RACE AND CIRCUIT
 | Attribute                            | Example                   | Meaning                 | Type   | Notes                              | Why Needed                                     |
 | ------------------------------------ | ------------------------- | ----------------------- | ------ | ---------------------------------- | ---------------------------------------------- |
-| race\_id                             | `"2023_ESP"`              | Unique race identifier  | string | FK for joins                       | Needed to link all tables                      |
-| season                               | `2023`                    | Season year             | int    | Useful for trend features          | Captures regulation/era changes                |
-| round\_number                        | `6`                       | Race order in season    | int    | Low = early season, less form data | Useful for modeling driver/team form evolution |
-| circuit\_id                          | `"circuit_esp_barcelona"` | Unique track identifier | string | FK for joins                       | Needed to merge with circuit attributes        |
+*| race\_id                             | `"2023_ESP"`              | Unique race identifier  | string | FK for joins                       | Needed to link all tables                      |
+*| season                               | `2023`                    | Season year             | int    | Useful for trend features          | Captures regulation/era changes                |
+*| round\_number                        | `6`                       | Race order in season    | int    | Low = early season, less form data | Useful for modeling driver/team form evolution |
+*| circuit\_id                          | `"circuit_esp_barcelona"` | Unique track identifier | string | FK for joins                       | Needed to merge with circuit attributes        |
 | circuit\_length\_km                  | `4.675`                   | Track lap length        | float  | Stable per circuit                 | Affects lap times, stint lengths               |
 | number\_of\_corners                  | `16`                      | Count of turns          | int    | Static attribute                   | Differentiates high/low downforce circuits     |
 | circuit\_type                        | `"permanent"`             | Track type              | string | street/permanent/hybrid            | Affects overtaking and safety car chances      |
 | altitude\_m                          | `109`                     | Track elevation         | int    | Approximate                        | High altitude impacts engines (PU performance) |
-| historical\_safety\_car\_probability | `0.42`                    | Probability of SC/VSC   | float  | Derived from history               | SC affects race outcome randomness             |
-| historical\_rain\_probability        | `0.18`                    | Probability of rain     | float  | Derived                            | Circuit-specific climate factor                |
+| safety\_car\_count  | `1`                       | Safety Car deployments         | int    | Race-level             | Needed to derive SC probability |
+| vsc\_count          | `2`                       | Virtual Safety Car deployments | int    | Race-level             | Same                            |
+| red\_flag\_count    | `0`                       | Red flags in race              | int    | Race-level             | Adds disruption context         |
+e| historical\_safety\_car\_probability | `0.42`                    | Probability of SC/VSC   | float  | Derived from history               | SC affects race outcome randomness             |
+e| historical\_rain\_probability        | `0.18`                    | Probability of rain     | float  | Derived                            | Circuit-specific climate factor                |
 
 DRIVER
 | Attribute                    | Example               | Meaning                     | Type   | Notes                     | Why Needed                                        |
 | ---------------------------- | --------------------- | --------------------------- | ------ | ------------------------- | ------------------------------------------------- |
-| driver\_id                   | `"driver_verstappen"` | Unique driver identifier    | string | FK for joins              | Needed to link driver history                     |
-| driver\_name                 | `"Max Verstappen"`    | Full driver name            | string | Not used in ML            | Only for reference                                |
-| driver\_experience\_years    | `9`                   | Years in F1 prior           | int    | Derived from past seasons | Experience affects consistency and quali pace     |
-| rookie\_flag                 | `0`                   | 1 = rookie, 0 = experienced | int    | Simple binary             | Helps with cold starts (rookies less predictable) |
-| career\_points\_before\_race | `1800.5`              | Career total points         | float  | Rolling total             | Proxy for long-term skill                         |
-| driver\_form\_last\_5\_races | `22.4`                | Avg points in last 5 races  | float  | Engineered feature        | Captures short-term momentum                      |
+*| driver\_id                   | `"driver_verstappen"` | Unique driver identifier    | string | FK for joins              | Needed to link driver history                     |
+*| driver\_name                 | `"Max Verstappen"`    | Full driver name            | string | Not used in ML            | Only for reference                                |
+e| driver\_experience\_years    | `9`                   | Years in F1 prior           | int    | Derived from past seasons | Experience affects consistency and quali pace     |
+e| rookie\_flag                 | `0`                   | 1 = rookie, 0 = experienced | int    | Simple binary             | Helps with cold starts (rookies less predictable) |
+e| career\_points\_before\_race | `1800.5`              | Career total points         | float  | Rolling total             | Proxy for long-term skill                         |
+e| career\_wins\_before\_race   | `40`                  | Career total wins           | int    | Rolling total             | Proxy for long-term skill                         |
+e| driver\_form\_last\_5\_races | `22.4`                | Avg points in last 5 races  | float  | Engineered feature        | Captures short-term momentum                      |
 
 TEAM
 | Attribute                  | Example             | Meaning                      | Type   | Notes          | Why Needed                                            |
 | -------------------------- | ------------------- | ---------------------------- | ------ | -------------- | ----------------------------------------------------- |
-| team\_id                   | `"team_redbull"`    | Unique team identifier       | string | FK for joins   | Needed to link results                                |
-| team\_name                 | `"Red Bull Racing"` | Constructor name             | string | Not used in ML | For display only                                      |
-| constructor\_championships | `5`                 | Titles won historically      | int    | Stable         | Proxy for long-term team strength                     |
-| team\_form\_last\_5\_races | `35.6`              | Avg points per race (last 5) | float  | Engineered     | Current team performance trend                        |
-| team\_engine               | `"Honda RBPT"`      | Power unit supplier          | string | Categorical    | Helps if certain PUs perform better at altitude/temps |
+*| team\_id                   | `"team_redbull"`    | Unique team identifier       | string | FK for joins   | Needed to link results                                |
+*| team\_name                 | `"Red Bull Racing"` | Constructor name             | string | Not used in ML | For display only                                      |
+e| team\_form\_last\_5\_races | `35.6`              | Avg points per race (last 5) | float  | Engineered     | Current team performance trend                        |
 
 PRACTICE
 | Attribute               | Example               | Meaning                  | Type   | Notes                       | Why Needed                        |
 | ----------------------- | --------------------- | ------------------------ | ------ | --------------------------- | --------------------------------- |
-| race\_id                | `"2023_ESP"`          | FK                       | string |                             | For linking                       |
-| driver\_id              | `"driver_verstappen"` | FK                       | string |                             | For linking                       |
-| team\_id                | `"team_redbull"`      | FK                       | string |                             | For linking                       |
-| session\_type           | `"FP2"`               | Practice session         | string | FP1/FP2/FP3                 | FP2 most predictive (race trim)   |
-| best\_lap\_time\_s      | `82.456`              | Best lap time            | float  | Convert all times → seconds | Proxy for pace                    |
-| lap\_count              | `26`                  | Laps completed           | int    | More laps = more reliable   | Helps weight pace reliability     |
+*| race\_id                | `"2023_ESP"`          | FK                       | string |                             | For linking                       |
+*| driver\_id              | `"driver_verstappen"` | FK                       | string |                             | For linking                       |
+*| team\_id                | `"team_redbull"`      | FK                       | string |                             | For linking                       |
+*| session\_type           | `"FP2"`               | Practice session         | string | FP1/FP2/FP3                 | FP2 most predictive (race trim)   |
+*| best\_lap\_time\_s      | `82.456`              | Best lap time            | float  | Convert all times → seconds | Proxy for pace                    |
+*| lap\_count              | `26`                  | Laps completed           | int    | More laps = more reliable   | Helps weight pace reliability     |
 | long\_run\_avg\_pace\_s | `84.2`                | Avg pace in ≥5-lap stint | float  | Engineered                  | Best predictor of race pace       |
-| position                | `3`                   | Rank in session          | int    | Secondary                   | Correlates with quali performance |
+*| position                | `3`                   | Rank in session          | int    | Secondary                   | Correlates with quali performance |
 
 QUALIFYING
 | Attribute            | Example               | Meaning               | Type   | Notes             | Why Needed               |
 | -------------------- | --------------------- | --------------------- | ------ | ----------------- | ------------------------ |
-| race\_id             | `"2023_ESP"`          | FK                    | string |                   | For linking              |
-| driver\_id           | `"driver_verstappen"` | FK                    | string |                   | For linking              |
-| team\_id             | `"team_redbull"`      | FK                    | string |                   | For linking              |
-| q1\_time\_s          | `82.901`              | Q1 lap                | float  | NA if eliminated  | Early pace baseline      |
-| q2\_time\_s          | `82.455`              | Q2 lap                | float  | NA if not reached | Semi-final pace          |
-| q3\_time\_s          | `82.135`              | Q3 lap                | float  | NA if not reached | Pole-level pace          |
-| qualifying\_position | `2`                   | Session result        | int    | Post-quali        | Directly predicts grid   |
-| grid\_position       | `2`                   | Start after penalties | int    | Post-penalty grid | Real race start position |
+*| race\_id             | `"2023_ESP"`          | FK                    | string |                   | For linking              |
+*| driver\_id           | `"driver_verstappen"` | FK                    | string |                   | For linking              |
+*| team\_id             | `"team_redbull"`      | FK                    | string |                   | For linking              |
+*| q1\_time\_s          | `82.901`              | Q1 lap                | float  | NA if eliminated  | Early pace baseline      |
+*| q2\_time\_s          | `82.455`              | Q2 lap                | float  | NA if not reached | Semi-final pace          |
+*| q3\_time\_s          | `82.135`              | Q3 lap                | float  | NA if not reached | Pole-level pace          |
+*| qualifying\_position | `2`                   | Session result        | int    | Post-quali        | Directly predicts grid   |
+*| grid\_position       | `2`                   | Start after penalties | int    | Post-penalty grid | Real race start position |
 
 RACE RESULTS
 | Attribute             | Example                 | Meaning           | Type         | Notes               | Why Needed                   |
 | --------------------- | ----------------------- | ----------------- | ------------ | ------------------- | ---------------------------- |
-| race\_id              | `"2023_ESP"`            | FK                | string       |                     | For linking                  |
-| driver\_id            | `"driver_verstappen"`   | FK                | string       |                     | For linking                  |
-| team\_id              | `"team_redbull"`        | FK                | string       |                     | For linking                  |
-| final\_position       | `1`                     | Race finish place | int          | Target variable     | Label for race prediction    |
-| classified\_status    | `"Finished"`            | DNF, DSQ, DNS     | string       | Classification      | Needed to filter DNFs        |
-| laps\_completed       | `66`                    | Laps done         | int          | Helps with DNFs     |                              |
+*| race\_id              | `"2023_ESP"`            | FK                | string       |                     | For linking                  |
+*| driver\_id            | `"driver_verstappen"`   | FK                | string       |                     | For linking                  |
+*| team\_id              | `"team_redbull"`        | FK                | string       |                     | For linking                  |
+*| final\_position       | `1`                     | Race finish place | int          | Target variable     | Label for race prediction    |
+*| points                | `10`                    | Total points      | float        |                     | Points per race              |
+e| classified\_status    | `"Finished"`            | DNF, DSQ, DNS     | string       | Classification      | Needed to filter DNFs        |
+*| laps\_completed       | `66`                    | Laps done         | int          | Helps with DNFs     |                              |
 | fastest\_lap\_time\_s | `83.502`                | Best lap in race  | float        | Secondary           | Shows pace potential         |
-| pit\_stops            | `2`                     | Number of stops   | int          | NA if DNF           | Strategy impact              |
+*| pit\_stops            | `2`                     | Number of stops   | int          | NA if DNF           | Strategy impact              |
 | tyre\_stints          | `["MED","HARD","SOFT"]` | Stints used       | string/array | Optional but useful | Race pace influenced by tyre |
 
 WEATHER (per session)
@@ -74,8 +77,8 @@ WEATHER (per session)
 | --------------------- | ------------ | ------------------ | ------ | ------------ | ------------------------- |
 | race\_id              | `"2023_ESP"` | FK                 | string |              | For linking               |
 | session\_type         | `"Race"`     | FP/Quali/Race      | string |              | Context                   |
-| track\_temperature\_c | `42.3`       | Track surface temp | float  |              | Affects tyres & pace      |
-| air\_temperature\_c   | `28.5`       | Air temp           | float  |              | Engine & tyres            |
-| humidity\_percent     | `65`         | Humidity           | int    |              | Rain chance               |
-| rain\_flag            | `0`          | 1 = wet, 0 = dry   | int    | Key variable | Major race outcome impact |
-| wind\_speed\_kmh      | `12.4`       | Wind speed         | float  | Optional     | Affects aero balance      |
+f| track\_temperature\_c | `42.3`       | Track surface temp | float  |              | Affects tyres & pace      |
+f| air\_temperature\_c   | `28.5`       | Air temp           | float  |              | Engine & tyres            |
+f| humidity\_percent     | `65`         | Humidity           | int    |              | Rain chance               |
+e| rain\_flag            | `0`          | 1 = wet, 0 = dry   | int    | Key variable | Major race outcome impact |
+f| wind\_speed\_kmh      | `12.4`       | Wind speed         | float  | Optional     | Affects aero balance      |
