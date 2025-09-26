@@ -5,6 +5,8 @@ Jack Wilson
 - This file scrapes the most recent practice data from the most recent race
 - Saves scraped data to a .csv
 - Deletes old practice data from the folder
+
+DEV COMMENT: WILL NEED TO FIX TIME COLLECTION. SUB 1 MIN TIMES DONT GET COLLECTED. SEE SCRAPING FOR CODE
 '''
 
 # Import modules
