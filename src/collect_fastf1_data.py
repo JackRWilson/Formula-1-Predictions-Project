@@ -1,18 +1,25 @@
-import os
-import sys
+import os, sys, gc, time, pickle, subprocess
 import fastf1
 import pandas as pd
-import time
-import gc
-import subprocess
-import pickle
-from ipynb.fs.full.data_scraping import load_id_map
+
+def load_id_map(path: str, default: dict | list | None = None):
+    """
+    Load the pickle file ID maps if they exist, otherwise return an empty dictionary or list
+    
+    """
+    if os.path.exists(path):
+        with open(path, 'rb') as f:
+            return pickle.load(f)
+    else:
+        return {} if default is None else default
+
+
 
 # If we're inside a subprocess, these will be passed in as args
 if len(sys.argv) > 1 and sys.argv[1] == "--race":
     # Subprocess mode: handle a single race
     year = int(sys.argv[2])
-    gp = sys.argv[3]
+    gp = sys.argv[3].replace('_', ' ')
     race_id_value = sys.argv[4]
     cache_dir = sys.argv[5]
     output_dir = sys.argv[6]
@@ -80,7 +87,7 @@ for idx, url in enumerate(urls):
 
     # Launch a new Python process for this race
     subprocess.run(
-        [sys.executable, __file__, "--race", str(year), gp, str(race_id_value), CACHE_DIR, OUTPUT_DIR],
+        [sys.executable, __file__, "--race", str(year), gp.replace(' ', '_'), str(race_id_value), CACHE_DIR, OUTPUT_DIR],
         check=False,
     )
 
