@@ -12,3 +12,6 @@ __pycache__/
 
 # Data Cache
 cache/
+
+# Individual raw data files
+fastf1/
