@@ -6,6 +6,7 @@ from data_functions import load_id_map
 
 # Passed as args when inside subprocess
 if len(sys.argv) > 1 and sys.argv[1] == "--race":
+    
     # Subprocess mode - handle a single race
     year = int(sys.argv[2])
     gp = sys.argv[3].replace('_', ' ')
