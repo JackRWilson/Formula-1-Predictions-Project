@@ -1,32 +1,23 @@
+# Import modules
 import os, sys, gc, time, pickle, subprocess
 import fastf1
 import pandas as pd
+from data_functions import load_id_map
 
-def load_id_map(path: str, default: dict | list | None = None):
-    """
-    Load the pickle file ID maps if they exist, otherwise return an empty dictionary or list
-    
-    """
-    if os.path.exists(path):
-        with open(path, 'rb') as f:
-            return pickle.load(f)
-    else:
-        return {} if default is None else default
-
-
-
-# If we're inside a subprocess, these will be passed in as args
+# Passed as args when inside subprocess
 if len(sys.argv) > 1 and sys.argv[1] == "--race":
-    # Subprocess mode: handle a single race
+    # Subprocess mode - handle a single race
     year = int(sys.argv[2])
     gp = sys.argv[3].replace('_', ' ')
     race_id_value = sys.argv[4]
     cache_dir = sys.argv[5]
     output_dir = sys.argv[6]
 
+    # Set up sessions
     sessions = ['FP1', 'FP2', 'FP3', 'Qualifying', 'Race']
     fastf1.Cache.enable_cache(cache_dir)
 
+    # Main loop per session
     for s in sessions:
         try:
             gc.collect()
@@ -34,17 +25,18 @@ if len(sys.argv) > 1 and sys.argv[1] == "--race":
             session.load(laps=True, telemetry=False, weather=True, messages=True)
             print(f" Loaded {year} {gp} {s}")
 
-            # Extract safely
+            # Extract data
             laps = getattr(session, 'laps', pd.DataFrame())
             weather = getattr(session, 'weather_data', pd.DataFrame())
             messages = getattr(session, 'race_control_messages', pd.DataFrame())
 
+            # Get race_id and session for merging later
             for df in [laps, weather, messages]:
                 if isinstance(df, pd.DataFrame) and not df.empty:
                     df["race_id"] = race_id_value
                     df["session"] = s
 
-            # Save
+            # Save as parquet
             prefix = f"{output_dir}/{year}_{gp}_{s}"
             if not laps.empty:
                 laps.to_parquet(f"{prefix}_laps.parquet")
@@ -53,6 +45,7 @@ if len(sys.argv) > 1 and sys.argv[1] == "--race":
             if not messages.empty:
                 messages.to_parquet(f"{prefix}_messages.parquet")
 
+            # Clean up session
             print(f" Saved {year} {gp} {s}")
             del session
             gc.collect()
@@ -61,17 +54,29 @@ if len(sys.argv) > 1 and sys.argv[1] == "--race":
         except Exception as e:
             print(f" Error for {year} {gp} {s}: {e}")
             time.sleep(3)
+    
+    # Exit subprocess after finishing a race
     sys.exit(0)
 
-# === Main controller ===
-CACHE_DIR = "../data/cache"
-OUTPUT_DIR = "../data/raw/fastf1"
+# This runs if --race isnt passed, collect directories
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+CACHE_DIR = os.path.join(PROJECT_ROOT, "data", "cache")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "data", "raw", "fastf1")
 os.makedirs(CACHE_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-urls = load_id_map('../data/raw/links_2018+.pkl')
-race_id_map = load_id_map('../data/raw/race_id_map.pkl')
+urls = load_id_map(os.path.join(PROJECT_ROOT, 'data', 'raw', 'links_2018+.pkl'))
+race_id_map = load_id_map(os.path.join(PROJECT_ROOT, 'data', 'raw', 'race_id_map.pkl'))
 
+# Print info when script is run
+print(f"Project root: {PROJECT_ROOT}")
+print(f"Cache directory: {CACHE_DIR}")
+print(f"Output directory: {OUTPUT_DIR}")
+print(f"Number of URLs to process: {len(urls)}")
+
+# Loop through all races, extract gp, year, and race ID
 for idx, url in enumerate(urls):
     year = int(url.split('/')[5])
     gp = (
@@ -83,9 +88,10 @@ for idx, url in enumerate(urls):
     race_key = f"{gp}_{year}"
     race_id_value = race_id_map.get(race_key, "unknown")
 
+    # Status update
     print(f"\n=== {idx+1}/{len(urls)} | {year} {gp} ===")
 
-    # Launch a new Python process for this race
+    # Launch a new subprocess for this race
     subprocess.run(
         [sys.executable, __file__, "--race", str(year), gp.replace(' ', '_'), str(race_id_value), CACHE_DIR, OUTPUT_DIR],
         check=False,
