@@ -2,9 +2,13 @@
 import os, sys, gc, time, pickle, subprocess
 import fastf1
 import pandas as pd
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_dir)
+sys.path.insert(0, project_root)
+
 from src.data_functions import load_id_map
 
-'''
 # Passed as args when inside subprocess
 if len(sys.argv) > 1 and sys.argv[1] == "--race":
     
@@ -101,4 +105,3 @@ for idx, url in enumerate(urls):
 
     # Pause briefly between races
     time.sleep(5)
-'''
