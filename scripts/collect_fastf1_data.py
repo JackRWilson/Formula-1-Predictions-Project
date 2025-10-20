@@ -2,8 +2,9 @@
 import os, sys, gc, time, pickle, subprocess
 import fastf1
 import pandas as pd
-from data_functions import load_id_map
+from src.data_functions import load_id_map
 
+'''
 # Passed as args when inside subprocess
 if len(sys.argv) > 1 and sys.argv[1] == "--race":
     
@@ -100,3 +101,4 @@ for idx, url in enumerate(urls):
 
     # Pause briefly between races
     time.sleep(5)
+'''
