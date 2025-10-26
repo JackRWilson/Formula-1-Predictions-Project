@@ -274,10 +274,10 @@ def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: lis
 # IV. Aggregate Column Values
 # ==============================================================================================
 
-def aggregate_columns(df, columns: list = None, boolean_columns: list = None):
+def aggregate_columns(df, columns: list = None, boolean_columns: list = None, string_columns: list = None):
     """
-    Universal aggregation function that returns mean, min, max, and std values for numeric columns
-    and boolean aggregation for True/False columns
+    Universal aggregation function that returns mean, min, max, and std values for numeric columns,
+    boolean aggregation for True/False columns, and the first value for string columns.
     
     Parameters
     ----------
@@ -287,6 +287,8 @@ def aggregate_columns(df, columns: list = None, boolean_columns: list = None):
         List of numeric column names to aggregate. If None, aggregates all numeric columns.
     boolean_columns : list
         List of boolean column names to check for any True values.
+    string_columns : list
+        List of string column names to extract (just takes first value).
     
     Returns
     -------
@@ -315,6 +317,12 @@ def aggregate_columns(df, columns: list = None, boolean_columns: list = None):
                 agg[f'{col}_any'] = bool(df[col].any())
                 agg[f'{col}_mean'] = df[col].mean()
     
+    # Handle string columns
+    if string_columns is not None:
+        for col in string_columns:
+            if col in df.columns:
+                agg[col] = df[col].iloc[0]
+
     return pd.Series(agg)
 
 
