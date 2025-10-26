@@ -292,8 +292,8 @@ def aggregate_columns(df, columns: list = None, boolean_columns: list = None, st
     
     Returns
     -------
-    pd.Series
-        Aggregated statistics for the specified columns
+    pd.DataFrame
+        Aggregated statistics for the specified columns with a single row
 
     """
     agg = {}
@@ -323,7 +323,7 @@ def aggregate_columns(df, columns: list = None, boolean_columns: list = None, st
             if col in df.columns:
                 agg[col] = df[col].iloc[0]
 
-    return pd.Series(agg)
+    return pd.DataFrame([agg])
 
 
 # ==============================================================================================
