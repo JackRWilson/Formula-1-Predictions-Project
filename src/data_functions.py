@@ -100,7 +100,7 @@ def init_col_map(col_map: dict):
 # III. Scrape Data from URL
 # ==============================================================================================
 
-def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: list, page_lvl_cols: list = None, data_folder: str = '../data/raw', id_mask: dict = None, auto_url_id: bool = False) -> pd.DataFrame:
+def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: list = None, page_lvl_cols: list = None, data_folder: str = '../data/raw', id_mask: dict = None, auto_url_id: bool = False) -> pd.DataFrame:
     """
     Scrapes a table from a website and returns a dataframe of scraped values
 
@@ -114,7 +114,7 @@ def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: lis
     col_idx_map : dict
         A dictionary mapping desired column names to column indices
         Example: {'race_id': None, 'start_pos': 1, 'driver_name': 3...}
-    id_cols : list
+    id_cols : list, optional
         List of the names of ID columns in the col_idx_map
     page_lvl_cols : list, optional
         List of columns that need scraping on the page level, index will
@@ -190,8 +190,8 @@ def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: lis
                             if col_info['index'] == None:
                                 continue
                             
-                            # Create IDs and ID maps
-                            if col_name in id_cols:
+                            # Create IDs and ID maps only if id_cols is provided and column is in id_cols
+                            if id_cols and col_name in id_cols:
                                 
                                 # Load or create ID map
                                 if data_folder:
