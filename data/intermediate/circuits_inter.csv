@@ -1,33 +1,33 @@
-,type,direction,length,turns,circuit_id,circuit_name
-50,Street circuit,Anti-clockwise,6.201,17,34,Las Vegas
-55,Street circuit,Anti-clockwise,5.412,19,33,Miami
-47,Street circuit,Anti-clockwise,6.174,27,32,Saudi Arabia
-52,Race circuit,Clockwise,5.419,16,31,Qatar
-33,Race circuit,Clockwise,4.259,14,30,Netherlands
-78,Race circuit,Clockwise,3.543,11,29,Sakhir
-46,Race circuit,Anti-clockwise,5.338,14,28,Turkey
-9,Race circuit,Anti-clockwise,4.909,19,27,Emilia-Romagna
-4,Race circuit,Clockwise,4.653,15,26,Portugal
-59,Race circuit,Clockwise,5.148,15,25,Eifel
-8,Race circuit,Clockwise,5.245,15,24,Tuscany
-76,Race circuit,Anti-clockwise,5.281,15,21,Abu Dhabi
-10,Race circuit,Anti-clockwise,4.309,15,20,Brazil
-6,Race circuit,Clockwise,4.304,17,19,Mexico
-31,Race circuit,Anti-clockwise,5.513,20,18,United States
-72,Race circuit,Figure eight,5.807,18,17,Japan
-71,Race circuit,Clockwise,5.848,15,16,Russia
-54,Street circuit,Anti-clockwise,4.94,19,15,Singapore
-11,Race circuit,Clockwise,5.793,11,14,Italy
-27,Race circuit,Clockwise,7.004,20,13,Belgium
-44,Race circuit,Clockwise,4.381,14,12,Hungary
-43,Race circuit,Clockwise,4.574,16,11,Germany
-70,Race circuit,Clockwise,5.891,18,10,70th Anniversary
-63,Race circuit,Clockwise,4.318,10,9,Austria
-32,Race circuit,Clockwise,5.842,15,8,France
-29,Street circuit,Clockwise,4.361,14,7,Canada
-23,Street circuit,Clockwise,3.337,19,6,Monaco
-22,Race circuit,Clockwise,4.657,14,5,Spain
-15,Street circuit,Anti-clockwise,6.003,20,4,Azerbaijan
-69,Race circuit,Clockwise,5.451,16,3,China
-14,Race circuit,Clockwise,5.412,15,2,Bahrain
-3,Street circuit,Clockwise,5.278,14,1,Australia
+type,direction,length,turns,circuit_id,circuit_name
+Street circuit,Anti-clockwise,6.201,17,34,Las Vegas
+Street circuit,Anti-clockwise,5.412,19,33,Miami
+Street circuit,Anti-clockwise,6.174,27,32,Saudi Arabia
+Race circuit,Clockwise,5.419,16,31,Qatar
+Race circuit,Clockwise,4.259,14,30,Netherlands
+Race circuit,Clockwise,3.543,11,29,Sakhir
+Race circuit,Anti-clockwise,5.338,14,28,Turkey
+Race circuit,Anti-clockwise,4.909,19,27,Emilia-Romagna
+Race circuit,Clockwise,4.653,15,26,Portugal
+Race circuit,Clockwise,5.148,15,25,Eifel
+Race circuit,Clockwise,5.245,15,24,Tuscany
+Race circuit,Anti-clockwise,5.281,15,21,Abu Dhabi
+Race circuit,Anti-clockwise,4.309,15,20,Brazil
+Race circuit,Clockwise,4.304,17,19,Mexico
+Race circuit,Anti-clockwise,5.513,20,18,United States
+Race circuit,Figure eight,5.807,18,17,Japan
+Race circuit,Clockwise,5.848,15,16,Russia
+Street circuit,Anti-clockwise,4.94,19,15,Singapore
+Race circuit,Clockwise,5.793,11,14,Italy
+Race circuit,Clockwise,7.004,20,13,Belgium
+Race circuit,Clockwise,4.381,14,12,Hungary
+Race circuit,Clockwise,4.574,16,11,Germany
+Race circuit,Clockwise,5.891,18,10,70th Anniversary
+Race circuit,Clockwise,4.318,10,9,Austria
+Race circuit,Clockwise,5.842,15,8,France
+Street circuit,Clockwise,4.361,14,7,Canada
+Street circuit,Clockwise,3.337,19,6,Monaco
+Race circuit,Clockwise,4.657,14,5,Spain
+Street circuit,Anti-clockwise,6.003,20,4,Azerbaijan
+Race circuit,Clockwise,5.451,16,3,China
+Race circuit,Clockwise,5.412,15,2,Bahrain
+Street circuit,Clockwise,5.278,14,1,Australia
