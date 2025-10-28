@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 import os, time, tempfile, shutil
 import pickle
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -796,3 +797,60 @@ constructor_mapping = {'team_id': {
     'Forti Ford': 'Forti',
     'Lambo Lamborghini': 'Modena'
 }}
+
+
+# ==============================================================================================
+# VI. Constructors Common Name Map
+# ==============================================================================================
+
+def get_location_data(place, city, country):
+    """
+    Get latitude, longitude, and elevation for a location.
+    
+    Parameters
+    ----------
+    place : str
+        The name of the place/landmark
+    city : str
+        The city name
+    country : str
+        The country name
+    
+    Returns
+    -------
+    dict
+        A dictionary with keys 'latitude', 'longitude', and 'elevation'
+        Returns None if location is not found or an error occurs
+    """
+    try:
+        # Combine inputs into a single query string
+        query = f"{place}, {city}, {country}"
+        
+        # Get coordinates from Photon API
+        url = f"https://photon.komoot.io/api/?q={query}"
+        response = requests.get(url).json()
+        
+        if not response['features']:
+            print("No results found")
+            return None
+        
+        coords = response['features'][0]['geometry']['coordinates']
+        lat, lon = coords[1], coords[0]
+        
+        # Get elevation from Open Elevation API
+        elevation_url = f"https://api.open-elevation.com/api/v1/lookup?locations={lat},{lon}"
+        elevation_response = requests.get(elevation_url).json()
+        elevation = elevation_response['results'][0]['elevation']
+        
+        return {
+            'latitude': lat,
+            'longitude': lon,
+            'elevation': elevation
+        }
+    
+    except requests.exceptions.RequestException as e:
+        print(f"Request error: {e}")
+        return None
+    except (KeyError, IndexError) as e:
+        print(f"Error parsing response: {e}")
+        return None
