@@ -1,33 +1,33 @@
-type,direction,length,turns,circuit_id,circuit_name
-Street circuit,Anti-clockwise,6.201,17,34,Las Vegas
-Street circuit,Anti-clockwise,5.412,19,33,Miami
-Street circuit,Anti-clockwise,6.174,27,32,Saudi Arabia
-Race circuit,Clockwise,5.419,16,31,Qatar
-Race circuit,Clockwise,4.259,14,30,Netherlands
-Race circuit,Clockwise,3.543,11,29,Sakhir
-Race circuit,Anti-clockwise,5.338,14,28,Turkey
-Race circuit,Anti-clockwise,4.909,19,27,Emilia-Romagna
-Race circuit,Clockwise,4.653,15,26,Portugal
-Race circuit,Clockwise,5.148,15,25,Eifel
-Race circuit,Clockwise,5.245,15,24,Tuscany
-Race circuit,Anti-clockwise,5.281,15,21,Abu Dhabi
-Race circuit,Anti-clockwise,4.309,15,20,Brazil
-Race circuit,Clockwise,4.304,17,19,Mexico
-Race circuit,Anti-clockwise,5.513,20,18,United States
-Race circuit,Figure eight,5.807,18,17,Japan
-Race circuit,Clockwise,5.848,15,16,Russia
-Street circuit,Anti-clockwise,4.94,19,15,Singapore
-Race circuit,Clockwise,5.793,11,14,Italy
-Race circuit,Clockwise,7.004,20,13,Belgium
-Race circuit,Clockwise,4.381,14,12,Hungary
-Race circuit,Clockwise,4.574,16,11,Germany
-Race circuit,Clockwise,5.891,18,10,70th Anniversary
-Race circuit,Clockwise,4.318,10,9,Austria
-Race circuit,Clockwise,5.842,15,8,France
-Street circuit,Clockwise,4.361,14,7,Canada
-Street circuit,Clockwise,3.337,19,6,Monaco
-Race circuit,Clockwise,4.657,14,5,Spain
-Street circuit,Anti-clockwise,6.003,20,4,Azerbaijan
-Race circuit,Clockwise,5.451,16,3,China
-Race circuit,Clockwise,5.412,15,2,Bahrain
-Street circuit,Clockwise,5.278,14,1,Australia
+name,type,direction,length,turns,circuit_id,circuit_name
+Las Vegas Strip Circuit,Street circuit,Anti-clockwise,6.201,17,34,Las Vegas
+Miami International Autodrome,Street circuit,Anti-clockwise,5.412,19,33,Miami
+Jeddah Corniche Circuit,Street circuit,Anti-clockwise,6.174,27,32,Saudi Arabia
+Lusail International Circuit,Race circuit,Clockwise,5.419,16,31,Qatar
+Circuit Zandvoort,Race circuit,Clockwise,4.259,14,30,Netherlands
+Bahrain International Outer Circuit,Race circuit,Clockwise,3.543,11,29,Sakhir
+Intercity Istanbul Park,Race circuit,Anti-clockwise,5.338,14,28,Turkey
+Autodromo Internazionale Enzo e Dino Ferrari,Race circuit,Anti-clockwise,4.909,19,27,Emilia-Romagna
+Algarve International Circuit,Race circuit,Clockwise,4.653,15,26,Portugal
+Nürburgring,Race circuit,Clockwise,5.148,15,25,Eifel
+Autodromo Internazionale del Mugello,Race circuit,Clockwise,5.245,15,24,Tuscany
+Yas Marina Circuit,Race circuit,Anti-clockwise,5.281,15,21,Abu Dhabi
+Autodromo José Carlos Pace,Race circuit,Anti-clockwise,4.309,15,20,Brazil
+Autódromo Hermanos Rodríguez,Race circuit,Clockwise,4.304,17,19,Mexico
+Circuit of the Americas,Race circuit,Anti-clockwise,5.513,20,18,United States
+Suzuka International Racing Course,Race circuit,Figure eight,5.807,18,17,Japan
+Sochi Autodrom,Race circuit,Clockwise,5.848,15,16,Russia
+Marina Bay Street Circuit,Street circuit,Anti-clockwise,4.94,19,15,Singapore
+Autodromo Nazionale di Monza,Race circuit,Clockwise,5.793,11,14,Italy
+Circuit de Spa-Francorchamps,Race circuit,Clockwise,7.004,20,13,Belgium
+Hungaroring,Race circuit,Clockwise,4.381,14,12,Hungary
+Hockenheimring,Race circuit,Clockwise,4.574,16,11,Germany
+Silverstone Circuit,Race circuit,Clockwise,5.891,18,10,70th Anniversary
+Red Bull Ring,Race circuit,Clockwise,4.318,10,9,Austria
+Circuit Paul Ricard,Race circuit,Clockwise,5.842,15,8,France
+Circuit Gilles-Villeneuve,Street circuit,Clockwise,4.361,14,7,Canada
+Circuit de Monaco,Street circuit,Clockwise,3.337,19,6,Monaco
+Circuit de Barcelona-Catalunya,Race circuit,Clockwise,4.657,14,5,Spain
+Baku City Circuit,Street circuit,Anti-clockwise,6.003,20,4,Azerbaijan
+Shanghai International Circuit,Race circuit,Clockwise,5.451,16,3,China
+Bahrain International Circuit,Race circuit,Clockwise,5.412,15,2,Bahrain
+Albert Park Circuit,Street circuit,Clockwise,5.278,14,1,Australia
