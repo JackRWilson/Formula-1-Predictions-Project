@@ -174,13 +174,6 @@ def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: lis
                     save_id_map('url_id_map.pkl', url_id_map)
 
         try:
-            # Get page-level data once per URL before processing rows
-            page_level_data = {}
-            if page_lvl_cols:
-                for col_name in page_lvl_cols:
-                    if col_name in col_data and callable(col_data[col_name]['index']):
-                        page_level_data[col_name] = col_data[col_name]['index'](browser)
-            
             # Find table data
             table = browser.find_elements(By.TAG_NAME, 'table')
             for tr in table:
@@ -211,7 +204,7 @@ def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: lis
                                 if isinstance(col_info['index'], int):
                                     scraped_value = cells[col_info['index']].text.strip()
                                 elif page_lvl_cols and col_name in page_lvl_cols:
-                                    scraped_value = page_level_data[col_name]
+                                    scraped_value = col_info['index'](browser)
                                 else:
                                     raise ValueError(f"Unsupported index type for {col_name}: {type(col_info['index'])}")
 
@@ -248,7 +241,7 @@ def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: lis
                                 if isinstance(col_info['index'], int):
                                     scraped_value = cells[col_info['index']].text.strip()
                                 elif page_lvl_cols and col_name in page_lvl_cols:
-                                    scraped_value = page_level_data[col_name]
+                                    scraped_value = col_info['index'](browser)
                                 else:
                                     raise ValueError(f"Unsupported index type for {col_name}: {type(col_info['index'])}")
                                 col_info['values'].append(scraped_value)
@@ -260,6 +253,7 @@ def scrape_url_table(urls: list, total_col: int, col_idx_map: dict, id_cols: lis
                             col_data['url_id']['values'].append(url_id_val)
                                 
         except Exception as e:
+            print(url)
             print(f'NO DATA FOUND ERROR: {e}')
     
     browser.close()
