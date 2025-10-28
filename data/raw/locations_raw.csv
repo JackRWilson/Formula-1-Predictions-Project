@@ -1,0 +1,79 @@
+original_name,cleaned_name,city,country,latitude,longitude,elevation
+Adelaide Street Circuit,Adelaide Street Circuit,Adelaide,Australia,-34.9302038,138.62012912219052,51.0
+Ain-Diab Circuit,Ain-Diab Circuit,Casablanca,Morocco,33.5811626,-7.6843877,26.0
+Aintree Motor Racing Circuit,Aintree Motor Racing Circuit,Aintree,United Kingdom,53.476005549999996,-2.9335986260733296,19.0
+Albert Park Circuit *,Albert Park Circuit,Melbourne,Australia,-37.840154850000005,144.95857268358537,8.0
+Algarve International Circuit,Algarve International Circuit,Portimão,Portugal,37.2303635,-8.627351585983046,102.0
+Autódromo do Estoril,Autódromo do Estoril,Estoril,Portugal,38.7502982,-9.39360902935184,134.0
+Autódromo Hermanos Rodríguez *,Autódromo Hermanos Rodríguez,Mexico City,Mexico,19.40516189208832,-99.09606356944226,2239.0
+Autódromo Internacional do Rio de Janeiro,Autódromo Internacional do Rio de Janeiro,Rio de Janeiro,Brazil,-22.9110137,-43.2093727,9.0
+Autodromo Internazionale del Mugello,Autodromo Internazionale del Mugello,Scarperia e San Piero,Italy,43.9993822,11.372364706819639,262.0
+Autodromo Internazionale Enzo e Dino Ferrari *,Autodromo Internazionale Enzo e Dino Ferrari,Imola,Italy,44.34103585,11.711617281218663,53.0
+Autodromo José Carlos Pace *,Autodromo José Carlos Pace,São Paulo,Brazil,-23.70182445,-46.69691577416339,754.0
+Autodromo Nazionale di Monza *,Autodromo Nazionale di Monza,Monza,Italy,45.6191059,9.282641,183.0
+Autódromo Oscar y Juan Gálvez,Autódromo Oscar y Juan Gálvez,Buenos Aires,Argentina,-34.68977015,-58.452546256257335,1.0
+AVUS,AVUS,Berlin,Germany,52.5003789613671,13.27985931580668,48.0
+Bahrain International Circuit *,Bahrain International Circuit,Sakhir,Bahrain,26.0354664,50.5114189450495,9.0
+Baku City Circuit *,Baku City Circuit,Baku,Azerbaijan,40.372926,49.852971483349975,-15.0
+Brands Hatch Circuit,Brands Hatch Circuit,West Kingsdown,United Kingdom,51.357488399999994,0.26000653975706034,144.0
+Buddh International Circuit,Buddh International Circuit,Greater Noida,India,28.3492531,77.53700501165349,195.0
+Bugatti Au Mans,Bugatti Au Mans,Le Mans,France,47.9677428,0.2100984,82.0
+Caesars Palace Grand Prix Circuit,Caesars Palace Grand Prix Circuit,Paradise,United States,,,
+Charade Circuit,Charade Circuit,Saint-Genès-Champanelle,France,45.742129250000005,3.0313492874417656,809.0
+Circuit Bremgarten,Circuit Bremgarten,Bern,Switzerland,46.9767749,7.4374969,525.0
+Circuit de Barcelona-Catalunya *,Circuit de Barcelona-Catalunya,Montmeló,Spain,41.562116950000004,2.2595671059934532,85.0
+Circuit de Monaco *,Circuit de Monaco,Monte Carlo,Monaco,43.7382624,7.4194983,70.0
+Circuit de Nevers Magny-Cours,Circuit de Nevers Magny-Cours,Magny-Cours,France,46.8637548,3.1662123213342817,220.0
+Circuit de Pedralbes,Circuit de Pedralbes,Barcelona,Spain,41.388544800000005,2.1172992471952092,86.0
+Circuit de Reims-Gueux,Circuit de Reims-Gueux,Gueux,France,49.25411065,3.9308340174426073,90.0
+Circuit de Spa-Francorchamps *,Circuit de Spa-Francorchamps,Stavelot,Belgium,50.431720049999996,5.961252091134005,373.0
+Circuit Dijon-Prenois,Circuit Dijon-Prenois,Prenois,France,47.3630753,4.900159520171957,481.0
+Circuit Gilles-Villeneuve *,Circuit Gilles-Villeneuve,Montreal,Canada,45.50278424100353,-73.52874834646913,13.0
+Circuit Mont-Tremblant,Circuit Mont-Tremblant,Mont-Tremblant,Canada,46.18871977178442,-74.60980394274335,210.0
+Circuit of the Americas *,Circuit of the Americas,Austin,United States,30.13563065,-97.63662002361559,161.0
+Circuit Paul Ricard,Circuit Paul Ricard,Le Castellet,France,43.248925259383604,5.802391897488826,435.0
+Circuit Zandvoort *,Circuit Zandvoort,Zandvoort,Netherlands,52.3894712,4.5428849,6.0
+Circuit Zolder,Circuit Zolder,Heusden-Zolder,Belgium,50.990236949999996,5.257665697426884,39.0
+Circuito da Boavista,Circuito da Boavista,Porto,Portugal,41.158902499999996,-8.630774821430535,83.0
+Circuito de Monsanto,Circuito de Monsanto,Lisbon,Portugal,38.7451256,-9.1900318,88.0
+Circuito Permanente de Jerez,Circuito Permanente de Jerez,Jerez de la Frontera,Spain,36.711836169283806,-6.034659849230687,37.0
+Circuito Permanente del Jarama,Circuito Permanente del Jarama,San Sebastián de los Reyes,Spain,40.6158234,-3.584888775840291,609.0
+Dallas Fair Park,Dallas Fair Park,Dallas,United States,32.7802467,-96.75937,149.0
+Detroit Street Circuit,Detroit Street Circuit,Detroit,United States,42.3315509,-83.0466403,186.0
+Donington Park,Donington Park,Castle Donington,United Kingdom,52.838061350000004,-1.3766393090176439,63.0
+Fuji Speedway,Fuji Speedway,Oyama,Japan,35.37147535,138.9316381674014,554.0
+Hockenheimring,Hockenheimring,Hockenheim,Germany,49.3297989,8.576299963213767,116.0
+Hungaroring *,Hungaroring,Mogyoród,Hungary,47.579879995689936,19.246516958002694,232.0
+Indianapolis Motor Speedway,Indianapolis Motor Speedway,Speedway,United States,39.79624785,-86.23481603684723,224.0
+Intercity Istanbul Park,Intercity Istanbul Park,Istanbul,Turkey,40.95720505,29.412820506941536,138.0
+Jeddah Corniche Circuit *,Jeddah Corniche Circuit,Jeddah,Saudi Arabia,21.637880556873917,39.10301498508674,6.0
+Korea International Circuit,Korea International Circuit,Yeongam,South Korea,34.73523385,126.41463439349846,0.0
+Kyalami Grand Prix Circuit,Kyalami Grand Prix Circuit,Midrand,South Africa,-25.997487333974544,28.065119665196733,1469.0
+Las Vegas Strip Circuit *,Las Vegas Strip Circuit,Paradise,United States,36.110214049999996,-115.16165772644479,637.0
+Long Beach Street Circuit,Long Beach Street Circuit,Long Beach,United States,33.7690164,-118.191604,13.0
+Lusail International Circuit *,Lusail International Circuit,Lusail,Qatar,25.4896575,51.45288493423636,16.0
+Madring †,Madring †,Barajas,Spain,40.478552637667505,-3.622643244168798,676.0
+Marina Bay Street Circuit *,Marina Bay Street Circuit,Marina Bay,Singapore,1.2887437016096093,103.86239086865197,18.0
+Miami International Autodrome *,Miami International Autodrome,Miami Gardens,United States,25.95747875,-80.23785615876416,13.0
+Montjuïc circuit,Montjuïc circuit,Barcelona,Spain,41.3662481,2.1569877,102.0
+Mosport International Raceway,Mosport International Raceway,Bowmanville,Canada,,,
+Nivelles-Baulers,Nivelles-Baulers,Nivelles,Belgium,50.6122598,4.3531816,112.0
+Nürburgring,Nürburgring,Nürburg,Germany,50.3309196,6.940674171000003,606.0
+Pescara Circuit,Pescara Circuit,Pescara,Italy,42.464111767379016,14.205421620933064,6.0
+Phoenix Street Circuit,Phoenix Street Circuit,Phoenix,United States,33.4484367,-112.074141,351.0
+Prince George Circuit,Prince George Circuit,East London,South Africa,-33.04683364000829,27.879027500101937,15.0
+Red Bull Ring *,Red Bull Ring,Spielberg,Austria,47.2221313,14.764316357509522,683.0
+Riverside International Raceway,Riverside International Raceway,Moreno Valley,United States,33.9375177,-117.2305791,502.0
+Rouen-Les-Essarts,Rouen-Les-Essarts,Orival,France,49.32953665,1.01832565,131.0
+Scandinavian Raceway,Scandinavian Raceway,Anderstorp,Sweden,57.2638107,13.602184157120409,154.0
+Sebring Raceway,Sebring Raceway,Sebring,United States,27.45349325,-81.35310383642708,20.0
+Sepang International Circuit,Sepang International Circuit,Sepang,Malaysia,2.7602187000000002,101.73687579817967,45.0
+Shanghai International Circuit *,Shanghai International Circuit,Shanghai,China,31.33997925,121.2195975921289,7.0
+Silverstone Circuit *,Silverstone Circuit,Silverstone,United Kingdom,52.071811600000004,-1.0142991241568577,156.0
+Sochi Autodrom,Sochi Autodrom,Sochi,Russia,43.409299027543106,39.95834968859443,-3.0
+Suzuka International Racing Course *,Suzuka International Racing Course,Suzuka,Japan,44.2763717,142.64245161634244,200.0
+TI Circuit Aida,TI Circuit Aida,Mimasaka,Japan,,,
+Valencia Street Circuit,Valencia Street Circuit,Valencia,Spain,39.4858132,-0.6286386493285684,147.0
+Watkins Glen International,Watkins Glen International,Watkins Glen,United States,42.336380500000004,-76.92504880603917,491.0
+Yas Marina Circuit *,Yas Marina Circuit,Abu Dhabi,United Arab Emirates,24.47184695,54.605802122845546,3.0
+Zeltweg Airfield,Zeltweg Airfield,Zeltweg,Austria,47.203821149999996,14.747025333969862,674.0
