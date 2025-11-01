@@ -1,0 +1,381 @@
+10/29/2025 11:36pm
+- Trying to figure out end schema so I can start cleaning and merging data
+- Use weather only from FP3 (no leakage)
+- Will also need to change pit stop data to find average stop time (or something similar). Maybe rolling average
+- Will also need to change flag data to be historical averages, not what actually happened in the race
+- Probably also need to scrap all lap-by-lap data and tyre aggregations
+
+
+10/29/2025 3:00pm
+- Create attribute list in excel
+- Can map out final dataframe, figure out data leakage, and decide which features are needed
+
+
+10/29/2025 12:26pm
+- Cleaning practice
+    - Add a new binary column that is crashed in practice or not (or something similar)
+    - Impute a time like +2s or *1.05 of the last recorded time
+
+--------------------------------------------------------------------------------
+
+10/28/2025 9:42pm
+- Will use team average finish position for last 3, 5, 10 races in first race cases
+    - Can calculate this stuff after merging
+- Clean 2018+ data next
+
+
+10/28/2025 11:33am
+- Need to scrape 2001-2017 dates, but for some reason keeps failing
+    - Some URLs might not have the date. Could be easier to scrape year and try to add round number to each
+    - Maybe due to scraping function?
+    - Use dates to get order of historcal races, then can find weighted average place or points performance across last 5-10 races
+- Also eventually want to re-run all of scraping code to make sure it all works and have up to date data
+
+--------------------------------------------------------------------------------
+
+10/27/2025 8:13am
+- Finished circuit cleaning
+- Want to set up notebook so there is a line for each CSV I will clean
+    - Finish setting up load and save markdowns
+
+--------------------------------------------------------------------------------
+
+10/26/2025 6:06pm
+- Working on cleaning circuits df
+    - Still need to change datatypes then save intermediate df
+    - Also probably want to replace Japan figure eight with both clockwise and anti
+
+
+10/26/2025 3:38pm
+- Need to fix circuit_id map and the id column in laps csv
+    - Austria & Styria (2020, 2021) are the same race
+    - Great Britain & 70th Anniversary (2020) are the same race
+
+
+10/26/2025 2:40pm
+- Finished flag aggregation
+- Look at attribute list to find what other data I have to scrape
+    - Track length, height, etc.?
+
+--------------------------------------------------------------------------------
+
+10/25/2025 9:53pm
+- Finished weather aggregation
+- Move on to flag data
+    - Found unique values in important columns
+    - SafetyCar and VSC have no difference in these columns, so need to look at actual message to see if the safety car is virtual or not
+    - Want # yellow, # double yellow, # red, # full SC, # VSC, % laps under SC or VSC, count of track clear/track wet (track condition changes), % laps w/ drs enabled/disabled
+
+--------------------------------------------------------------------------------
+
+10/24/2025 10:37am
+- Finished lap data aggregation
+- Move on to weather data
+
+--------------------------------------------------------------------------------
+
+10/23/2025 12:55pm
+- Can try to resolve tyre and lap results later
+    - Check beginning lap by lap data and see what data looks like
+        - Tyre Compounds: HYPERSOFT, SUPERSOFT, ULTRASOFT
+        - Different tyre compounds than ususal could cause issues if I try to map them to current compounds. Might just have to make new columns for them...
+    - Are there lots of pit in and out laps? Accurate flag? #1 flag code?
+- Start to aggregate flags or weather
+
+--------------------------------------------------------------------------------
+
+10/20/2025 11:40pm
+- Created master driver stats dataframe. 1138 rows with no tyre data so not super satisfied with the result
+
+
+10/20/2025 3:24pm
+- Aggregate data. Turn flag data into number of flags each
+- Circuit_id still broken
+- Should probably change laps_on_soft and similar to % (Can do this in data cleaning phase though)
+- Aggregate all data not working. Look into whats wrong
+
+
+10/20/2025 7:41am
+- Need to re-run driver code map code
+- Aggregate flag data into number of flags
+
+--------------------------------------------------------------------------------
+
+10/18/2025 1:24am
+- Confirm ID map, clean up comments/prints, make sure no duplicates in ID map
+- Move on to items below
+
+--------------------------------------------------------------------------------
+
+10/16/2025 10:56pm
+- Add driver_id, race_id, circuit_id, and session to filtered df
+- Add mechanism to loop through each file in fastf1 folder
+- Maybe try to get rid of function definitions if possible, or move them to functions file
+- Created driver_code_map to be able to derive driver_id, still need to add this in
+    - Check if ID map is accurate
+    - Also need to fix circuit_id not working (all NA)
+
+--------------------------------------------------------------------------------
+
+10/15/2025 11:37pm
+- Collect all/most of FastF1 API data
+- Once merge is complete, identify rows missing data and can run those sessions manually to make sure they actually have no data (Sprint weekend usually)
+- Need to figure out how to aggregate each session data and merge into one raw dataframe
+    - I want avg lap time, tyre life, stint... but for tyre compound would need multiple rows per driver for each compound, so will need to sort that out
+- Will also need to get driver ID from the driver code somehow
+- Could maybe find the favorite tyre compound per track, then have drivers performance with each compound. May help with machine learning
+
+
+10/15/2025 2:37pm
+- Still having trouble with FastF1 API
+- Moving things around and using regular python files to try and help
+- Weird pychache file in src
+- Still cant get the collection py file to work
+
+--------------------------------------------------------------------------------
+
+10/13/2025 2:19pm
+- FastF1 API still isnt working
+- Can get through 20 races before it starts failing
+    - I think I'm clearing everything so I dont know why its failing and I dont think separating it into smaller chunks will help
+
+
+10/13/2025 8:45am
+- Need to test raw data loop for fastf1
+- Saying no data for everying. Maybe wrong datatype
+
+--------------------------------------------------------------------------------
+
+10/11/2025 5:04pm
+- Weather data is fine
+- Messages data aggregate flags into dominant flag for that lap
+- Lap data have stint number, compound, stint length, avg stint pace, start lap, end lap
+
+--------------------------------------------------------------------------------
+
+10/10/2025 10:27pm
+- FastF1 API is super cool
+    - Cant get telemetry data, but dont think I need it
+    - With laps API
+        - Average lap time, tyre life, tyre compound, fresh tyre, speeds, stint
+    - With messages API
+        - Flag reasons and data, time deletions
+    - With weather API
+        - All weather info
+- Keep working on gathering weather, track, and flag data
+- Decide which data I actually need vs which data I think is interesting and WANT to keep
+
+
+10/10/2025 5:23pm
+- F1 website scaping is done
+- Move on to weather or cleaning/merging F1 website dataframes
+
+
+10/10/2025 3:05pm
+- Just need to scrape fastest laps now
+
+
+10/10/2025 12:35am
+- Practices are finished and race_id is set up
+- Fixed all the mapings and results data
+- Can move on to scraping qualifying
+
+--------------------------------------------------------------------------------
+
+10/9/2025 1:31pm
+- Practices isn't working because urls may be incorrect. Didnt scrape anything
+- Test practice URL creation thing
+
+--------------------------------------------------------------------------------
+
+10/8/2025 10:57am
+- Finished scraping race results and things look good
+- Move on to scraping practice, qualifying, etc.
+
+--------------------------------------------------------------------------------
+
+10/7/2025 9:59pm
+- Other scraping maps should be good now
+- Scrape function for 2018+ race results still isnt working, but tweaked some stuff already (still need to test)
+
+
+10/7/2025 11:55am
+- When trying to scrape year and circuit_id they dont have indexes, so having trouble giving them values
+    - Could maybe tying scraping the links and circuit_id/names separate then join later based on url_id aka race_id
+- Separating int index values from everything else so can be processed differently and used as a path
+    - Seems to be working for now
+    - Messed up all my other id_maps so will need to rescrape those
+
+
+10/7/2025 12:06am
+- Scraping function works pretty well
+- Scraped historic 2001-2017 results, so now can do 2017+ results
+
+--------------------------------------------------------------------------------
+
+10/6/2025 6:57pm
+- Adding a url_id for all entries
+- Test if whole function works now
+
+
+10/6/2025 1:08pm
+- ID scraping is half working. Works for driver_id
+    - Need to add in ability to input mappings like constructor_mapping so I can change the team name to common name before adding the ID map
+    - Race_id will be tricky because it is unique with each race so have to find a way to have a unique value it can look at for each race
+
+
+10/6/2025 6:55am
+- Should be appending value columns to the values list now
+- Instead of checking if 'index' is not None, check if 'type' is also 'VAL'
+- Still need to add a line for separating out IDs and creating them
+
+--------------------------------------------------------------------------------
+
+10/5/2025 7:51am
+- Added an 'ID' and 'VAL' identifier list to the col_data dictionary
+    - Can use to create pickle file, and create IDs
+
+--------------------------------------------------------------------------------
+
+10/3/2025 11:33am
+- Got the column mapping to work, still working on the larger function
+- Trying to make it universal for all URLS
+    - Figure out a way to create IDs without hardcoding
+        - Can have an input in the col_map like 'ID' and that will say that it is an ID column. Don't have to scrape for it, but will create or save a pickle file with its name, and update it with any new info
+        - Will have to ask AI about this because the scraper needs to know what the ID is based on, and I'm not sure how to not hardcode that
+- Could maybe use this same function for scraping the initial race links?
+    - Have a dictionary with the race_id as the key and the link as the value
+    - Would have to set up the automatic ID thing first though
+
+--------------------------------------------------------------------------------
+
+10/2/2025 1:47pm
+- Trying to map the col map to empty lists. Not sure how to do that
+- Keep building universal scrape function
+
+--------------------------------------------------------------------------------
+
+10/1/2025 11:05pm
+- Going to switch to creating functions
+    - This will be a lot of work initially, but should look much cleaner
+    - Also good practice because I dont work with functions often
+- Got a start on the function, need to do scraping portion now
+- Can maybe add optional inputs that say if its practice or round number and scrape different to include those
+- Will need to delete old pickle files later
+
+--------------------------------------------------------------------------------
+
+9/30/2025 2:15pm
+- Can start on scraping pit stops
+- When cleaning the qualifying, results, and starting grid data, will have to keep in mind that some races dont have a 20th place
+    - I think this is because if a driver has to start from the pit lane because of penalties or changing car parts, they dont get put on the starting grid
+    - I'm not sure if there are races where multiple drivers have this and so the max start position is 18th or something. Will have to look into it further when cleaning
+    - For these could impute places or append "pit lane" or something
+        - Will have to compare drivers that finished to drivers that started to find discrepencies
+
+
+9/30/2025 1:04pm
+- Starting grid scrape should be ready to run
+- Maybe better to set up a function
+
+--------------------------------------------------------------------------------
+
+9/28/2025 8:47pm
+- Issue with driver_id_map was in practice scraping
+    - Added a line to strip excess whitespace
+    - Added a line to look for driver last names too
+- Running scraping now but not sure if it will work
+    - Fixed
+- Can start work on starting grid scraping
+    - Need driver_id, team_id, race_id, and start pos
+
+--------------------------------------------------------------------------------
+
+9/27/2025 11:37pm
+- Qualifying scraping done
+- Having issues with the driver_id_map having duplicates values, one with the full name, one with a space then the surname
+    - This might be coming from the fallbacks on practice and qualifying for missing IDs
+    - Tried separating the saving of the data maps
+        - Still messed up, load each version of the ID maps to see where the issue is coming from
+
+--------------------------------------------------------------------------------
+
+9/26/2025 1:35pm
+- Practice scraping running into lots of errors, hopefully mostly fixed now
+- When cleaning practice times will need to replace "NULL" with NaN
+- At end of project when scraping most recent practice data, will need to make sure it can handle sub minute times
+    - See data scraping practice code
+- Make sure practice data is correct, then can move on
+
+
+9/26/2025 8:44am
+- Scraping of practice should be done
+- Make sure everything is correct and move onto qualifying
+
+--------------------------------------------------------------------------------
+
+9/25/2025 11:55pm
+- Finish practice scrapes
+    - Currently working on appending proper IDs and values to the lists
+    - Will need to import re and timedelta
+- Consolidating team name and team id should be done in a minute here, and can move on to finding the correct ID to append when scraping
+
+--------------------------------------------------------------------------------
+
+9/24/2025 11:42pm
+- 2018-2025 race results scraping is done
+- Still need to scrape practice, qual, etc. plus weather data and lap by lap from the API
+- Need to clean results data
+    - Do I want the aggregate numbers to represent the data before that race, or after that race is completed?
+    - How can I format it to where I will be able to input future practice data and still have it work/give me an output
+        - Could maybe do separate lines. Have a session column saying whether the line is qual, practice, or race
+
+
+9/24/2025 7:45pm
+- Got 2018 scraping code mostly set up
+- Circuit name is in a number format
+- Need to inspect other results further to make sure they are correct
+
+
+9/24/2025 2:54pm
+- Scraped 2001-2017 and aggregated data
+    - Should be ready for a merge when other data is scraped
+- Split scraping and cleaning notebooks
+- Can start coding the scraping of 2018-2025 next
+    - Will need to eventually find a way to scrape most recent race results, practice, etc and add it to the main dataframe to be used in future analysis
+
+
+9/24/2025 10:53am
+- Scrape Australia 2001 onward (Fernando Alonso start)
+- Start actual scraping at Australia 2018, because thats where weather data starts
+
+- 2001 -> 2017:
+    - Scrape race url
+        - Only need race-result
+        - Scrape position, driver name, points
+        - Filter out everyone but current drivers
+        - Aggregate these into total points (points might need to be inflation adjusted), and total wins
+            - Will continue at the 2018 season with those totals and increase as needed during those
+- 2018 -> 2025
+    - Scrape race url
+        - Race-result
+            - Race/Circuit: Raceid, season, round number, circuitid
+            - Driver: Driverid, driver name
+            - Team: Teamid, team name
+            - Race Results: Raceid, driverid, teamid, final position, points, laps completed
+        - Practice 1, 2, 3
+            - Practice: Raceid, driverid, teamid, session type, best lap time, lap count, position
+        - Qualifying
+            - Qualifying: Raceid, driverid, teamid, q1 time, q2 time, q3 time, qual position
+        - Starting Grid
+            - Qualifying: Grid position
+        - Pit Stop Summary
+            - # of pit stops
+        - Fastest Laps
+            - Who got fastest lap
+
+--------------------------------------------------------------------------------
+
+9/23/2025 2:17pm
+- Do I need lap by lap data or can use old data?
+- Scrape all data if needed (should I include practice? Sprint? Different model for sprint?)
