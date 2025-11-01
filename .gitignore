@@ -22,9 +22,9 @@ fastf1/
 # ==============================================================================================
 
 # Logs and reminders
-logs.txt/
-reminders.txt/
+logs.txt
+reminders.txt
 
 # Attribute lists and plans
-attribute_list.txt/
-attribute_list.xlsx/
+attribute_list.txt
+attribute_list.xlsx
