@@ -15,3 +15,16 @@ cache/
 
 # Individual raw data files
 fastf1/
+
+
+# ==============================================================================================
+# III. Logs
+# ==============================================================================================
+
+# Logs and reminders
+logs.txt/
+reminders.txt/
+
+# Attribute lists and plans
+attribute_list.txt/
+attribute_list.xlsx/
