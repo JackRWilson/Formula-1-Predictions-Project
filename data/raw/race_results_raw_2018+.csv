@@ -859,26 +859,26 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 43,103,9,12,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Lance Stroll,Racing Point BWT Mercedes,NC,0,20
 43,79,9,5,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Daniel Ricciardo,Renault,NC,0,17
 43,94,9,3,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Max Verstappen,Red Bull Racing Honda,NC,0,11
-44,57,22,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lewis Hamilton,Mercedes,1,25,71
-44,83,22,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Valtteri Bottas,Mercedes,2,18,71
-44,94,22,3,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Max Verstappen,Red Bull Racing Honda,3,15,71
-44,109,22,3,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Alexander Albon,Red Bull Racing Honda,4,12,71
-44,108,22,4,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lando Norris,McLaren Renault,5,10,71
-44,75,22,12,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sergio Perez,Racing Point BWT Mercedes,6,8,71
-44,103,22,12,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lance Stroll,Racing Point BWT Mercedes,7,6,71
-44,79,22,5,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniel Ricciardo,Renault,8,4,71
-44,93,22,4,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Carlos Sainz,McLaren Renault,9,3,70
-44,88,22,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniil Kvyat,AlphaTauri Honda,10,1,70
-44,6,22,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo Racing Ferrari,11,0,70
-44,87,22,10,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kevin Magnussen,Haas Ferrari,12,0,70
-44,67,22,10,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Romain Grosjean,Haas Ferrari,13,0,70
-44,102,22,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo Racing Ferrari,14,0,70
-44,104,22,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Pierre Gasly,AlphaTauri Honda,15,0,70
-44,110,22,8,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,George Russell,Williams Mercedes,16,0,69
-44,111,22,8,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Nicholas Latifi,Williams Mercedes,17,0,69
-44,101,22,5,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Esteban Ocon,Renault,NC,0,25
-44,106,22,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Charles Leclerc,Ferrari,NC,0,4
-44,60,22,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sebastian Vettel,Ferrari,NC,0,1
+44,57,9,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lewis Hamilton,Mercedes,1,25,71
+44,83,9,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Valtteri Bottas,Mercedes,2,18,71
+44,94,9,3,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Max Verstappen,Red Bull Racing Honda,3,15,71
+44,109,9,3,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Alexander Albon,Red Bull Racing Honda,4,12,71
+44,108,9,4,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lando Norris,McLaren Renault,5,10,71
+44,75,9,12,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sergio Perez,Racing Point BWT Mercedes,6,8,71
+44,103,9,12,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lance Stroll,Racing Point BWT Mercedes,7,6,71
+44,79,9,5,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniel Ricciardo,Renault,8,4,71
+44,93,9,4,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Carlos Sainz,McLaren Renault,9,3,70
+44,88,9,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniil Kvyat,AlphaTauri Honda,10,1,70
+44,6,9,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo Racing Ferrari,11,0,70
+44,87,9,10,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kevin Magnussen,Haas Ferrari,12,0,70
+44,67,9,10,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Romain Grosjean,Haas Ferrari,13,0,70
+44,102,9,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo Racing Ferrari,14,0,70
+44,104,9,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Pierre Gasly,AlphaTauri Honda,15,0,70
+44,110,9,8,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,George Russell,Williams Mercedes,16,0,69
+44,111,9,8,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Nicholas Latifi,Williams Mercedes,17,0,69
+44,101,9,5,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Esteban Ocon,Renault,NC,0,25
+44,106,9,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Charles Leclerc,Ferrari,NC,0,4
+44,60,9,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sebastian Vettel,Ferrari,NC,0,1
 45,57,12,2,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Lewis Hamilton,Mercedes,1,26,70
 45,94,12,3,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Max Verstappen,Red Bull Racing Honda,2,18,70
 45,83,12,2,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Valtteri Bottas,Mercedes,3,15,70
@@ -919,26 +919,26 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 46,88,10,13,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Daniil Kvyat,AlphaTauri Honda,NC,0,11
 46,87,10,10,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Kevin Magnussen,Haas Ferrari,NC,0,1
 46,70,10,12,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Nico Hulkenberg,Racing Point BWT Mercedes,NC,0,0
-47,94,23,3,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Max Verstappen,Red Bull Racing Honda,1,25,52
-47,57,23,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lewis Hamilton,Mercedes,2,19,52
-47,83,23,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Valtteri Bottas,Mercedes,3,15,52
-47,106,23,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Charles Leclerc,Ferrari,4,12,52
-47,109,23,3,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Alexander Albon,Red Bull Racing Honda,5,10,52
-47,103,23,12,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lance Stroll,Racing Point BWT Mercedes,6,8,52
-47,70,23,12,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nico Hulkenberg,Racing Point BWT Mercedes,7,6,52
-47,101,23,5,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Esteban Ocon,Renault,8,4,52
-47,108,23,4,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lando Norris,McLaren Renault,9,2,52
-47,88,23,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniil Kvyat,AlphaTauri Honda,10,1,52
-47,104,23,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Pierre Gasly,AlphaTauri Honda,11,0,52
-47,60,23,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Sebastian Vettel,Ferrari,12,0,52
-47,93,23,4,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Carlos Sainz,McLaren Renault,13,0,52
-47,79,23,5,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniel Ricciardo,Renault,14,0,51
-47,6,23,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kimi Räikkönen,Alfa Romeo Racing Ferrari,15,0,51
-47,67,23,10,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Romain Grosjean,Haas Ferrari,16,0,51
-47,102,23,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Antonio Giovinazzi,Alfa Romeo Racing Ferrari,17,0,51
-47,110,23,8,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,George Russell,Williams Mercedes,18,0,51
-47,111,23,8,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nicholas Latifi,Williams Mercedes,19,0,51
-47,87,23,10,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kevin Magnussen,Haas Ferrari,NC,0,43
+47,94,10,3,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Max Verstappen,Red Bull Racing Honda,1,25,52
+47,57,10,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lewis Hamilton,Mercedes,2,19,52
+47,83,10,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Valtteri Bottas,Mercedes,3,15,52
+47,106,10,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Charles Leclerc,Ferrari,4,12,52
+47,109,10,3,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Alexander Albon,Red Bull Racing Honda,5,10,52
+47,103,10,12,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lance Stroll,Racing Point BWT Mercedes,6,8,52
+47,70,10,12,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nico Hulkenberg,Racing Point BWT Mercedes,7,6,52
+47,101,10,5,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Esteban Ocon,Renault,8,4,52
+47,108,10,4,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lando Norris,McLaren Renault,9,2,52
+47,88,10,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniil Kvyat,AlphaTauri Honda,10,1,52
+47,104,10,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Pierre Gasly,AlphaTauri Honda,11,0,52
+47,60,10,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Sebastian Vettel,Ferrari,12,0,52
+47,93,10,4,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Carlos Sainz,McLaren Renault,13,0,52
+47,79,10,5,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniel Ricciardo,Renault,14,0,51
+47,6,10,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kimi Räikkönen,Alfa Romeo Racing Ferrari,15,0,51
+47,67,10,10,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Romain Grosjean,Haas Ferrari,16,0,51
+47,102,10,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Antonio Giovinazzi,Alfa Romeo Racing Ferrari,17,0,51
+47,110,10,8,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,George Russell,Williams Mercedes,18,0,51
+47,111,10,8,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nicholas Latifi,Williams Mercedes,19,0,51
+47,87,10,10,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kevin Magnussen,Haas Ferrari,NC,0,43
 48,57,5,2,2020,https://www.formula1.com/en/results/2020/races/1050/spain/race-result,Spain,Lewis Hamilton,Mercedes,1,25,66
 48,94,5,3,2020,https://www.formula1.com/en/results/2020/races/1050/spain/race-result,Spain,Max Verstappen,Red Bull Racing Honda,2,18,66
 48,83,5,2,2020,https://www.formula1.com/en/results/2020/races/1050/spain/race-result,Spain,Valtteri Bottas,Mercedes,3,16,66
@@ -1319,26 +1319,26 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 66,111,8,8,2021,https://www.formula1.com/en/results/2021/races/1070/france/race-result,France,Nicholas Latifi,Williams Mercedes,18,0,52
 66,115,8,10,2021,https://www.formula1.com/en/results/2021/races/1070/france/race-result,France,Mick Schumacher,Haas Ferrari,19,0,52
 66,116,8,10,2021,https://www.formula1.com/en/results/2021/races/1070/france/race-result,France,Nikita Mazepin,Haas Ferrari,20,0,52
-67,94,22,3,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Max Verstappen,Red Bull Racing Honda,1,25,71
-67,57,22,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lewis Hamilton,Mercedes,2,19,71
-67,83,22,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Valtteri Bottas,Mercedes,3,15,71
-67,75,22,3,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sergio Perez,Red Bull Racing Honda,4,12,71
-67,108,22,4,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lando Norris,McLaren Mercedes,5,10,70
-67,93,22,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Carlos Sainz,Ferrari,6,8,70
-67,106,22,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Charles Leclerc,Ferrari,7,6,70
-67,103,22,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lance Stroll,Aston Martin Mercedes,8,4,70
-67,12,22,15,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Fernando Alonso,Alpine Renault,9,2,70
-67,114,22,13,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Yuki Tsunoda,AlphaTauri Honda,10,1,70
-67,6,22,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo Racing Ferrari,11,0,70
-67,60,22,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sebastian Vettel,Aston Martin Mercedes,12,0,70
-67,79,22,4,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Daniel Ricciardo,McLaren Mercedes,13,0,70
-67,101,22,15,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Esteban Ocon,Alpine Renault,14,0,70
-67,102,22,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo Racing Ferrari,15,0,70
-67,115,22,10,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Mick Schumacher,Haas Ferrari,16,0,69
-67,111,22,8,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nicholas Latifi,Williams Mercedes,17,0,68
-67,116,22,10,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nikita Mazepin,Haas Ferrari,18,0,68
-67,110,22,8,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,George Russell,Williams Mercedes,NC,0,36
-67,104,22,13,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Pierre Gasly,AlphaTauri Honda,NC,0,1
+67,94,9,3,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Max Verstappen,Red Bull Racing Honda,1,25,71
+67,57,9,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lewis Hamilton,Mercedes,2,19,71
+67,83,9,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Valtteri Bottas,Mercedes,3,15,71
+67,75,9,3,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sergio Perez,Red Bull Racing Honda,4,12,71
+67,108,9,4,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lando Norris,McLaren Mercedes,5,10,70
+67,93,9,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Carlos Sainz,Ferrari,6,8,70
+67,106,9,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Charles Leclerc,Ferrari,7,6,70
+67,103,9,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lance Stroll,Aston Martin Mercedes,8,4,70
+67,12,9,15,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Fernando Alonso,Alpine Renault,9,2,70
+67,114,9,13,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Yuki Tsunoda,AlphaTauri Honda,10,1,70
+67,6,9,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo Racing Ferrari,11,0,70
+67,60,9,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sebastian Vettel,Aston Martin Mercedes,12,0,70
+67,79,9,4,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Daniel Ricciardo,McLaren Mercedes,13,0,70
+67,101,9,15,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Esteban Ocon,Alpine Renault,14,0,70
+67,102,9,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo Racing Ferrari,15,0,70
+67,115,9,10,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Mick Schumacher,Haas Ferrari,16,0,69
+67,111,9,8,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nicholas Latifi,Williams Mercedes,17,0,68
+67,116,9,10,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nikita Mazepin,Haas Ferrari,18,0,68
+67,110,9,8,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,George Russell,Williams Mercedes,NC,0,36
+67,104,9,13,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Pierre Gasly,AlphaTauri Honda,NC,0,1
 68,94,9,3,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Max Verstappen,Red Bull Racing Honda,1,26,71
 68,83,9,2,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Valtteri Bottas,Mercedes,2,18,71
 68,108,9,4,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Lando Norris,McLaren Mercedes,3,15,71
@@ -2398,16 +2398,16 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 120,93,31,1,2023,https://www.formula1.com/en/results/2023/races/1221/qatar/race-result,Qatar,Carlos Sainz,Ferrari,NC,0,0
 121,94,18,3,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Max Verstappen,Red Bull Racing Honda RBPT,1,25,56
 121,57,18,2,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Lewis Hamilton,Mercedes,DQ,0,56
-121,108,18,4,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Lando Norris,McLaren Mercedes,2,0,56
-121,93,18,1,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Carlos Sainz,Ferrari,3,0,56
-121,75,18,3,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Sergio Perez,Red Bull Racing Honda RBPT,4,0,56
+121,108,18,4,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Lando Norris,McLaren Mercedes,2,18,56
+121,93,18,1,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Carlos Sainz,Ferrari,3,15,56
+121,75,18,3,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Sergio Perez,Red Bull Racing Honda RBPT,4,12,56
 121,106,18,1,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Charles Leclerc,Ferrari,DQ,0,56
-121,110,18,2,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,George Russell,Mercedes,5,0,56
-121,104,18,15,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Pierre Gasly,Alpine Renault,6,0,56
-121,103,18,14,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Lance Stroll,Aston Martin Aramco Mercedes,7,0,56
-121,114,18,13,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Yuki Tsunoda,AlphaTauri Honda RBPT,8,0,56
-121,109,18,8,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Alexander Albon,Williams Mercedes,9,0,56
-121,119,18,8,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Logan Sargeant,Williams Mercedes,10,0,56
+121,110,18,2,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,George Russell,Mercedes,5,10,56
+121,104,18,15,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Pierre Gasly,Alpine Renault,6,8,56
+121,103,18,14,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Lance Stroll,Aston Martin Aramco Mercedes,7,6,56
+121,114,18,13,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Yuki Tsunoda,AlphaTauri Honda RBPT,8,5,56
+121,109,18,8,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Alexander Albon,Williams Mercedes,9,2,56
+121,119,18,8,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Logan Sargeant,Williams Mercedes,10,1,56
 121,70,18,10,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Nico Hulkenberg,Haas Ferrari,11,0,56
 121,83,18,11,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Valtteri Bottas,Alfa Romeo Ferrari,12,0,56
 121,117,18,11,2023,https://www.formula1.com/en/results/2023/races/1222/united-states/race-result,United States,Zhou Guanyu,Alfa Romeo Ferrari,13,0,55
