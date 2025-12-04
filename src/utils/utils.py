@@ -1,6 +1,6 @@
 # Jack Wilson
 # 10/15/2025
-# This file defines all functions to be used in other notebooks/scripts
+# This file defines general functions
 
 # ==============================================================================================
 # Import Modules
