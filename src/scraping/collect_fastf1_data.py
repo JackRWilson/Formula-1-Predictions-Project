@@ -7,7 +7,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
 sys.path.insert(0, project_root)
 
-from src.utils.data_functions import load_id_map
+from src.utils.utils import load_id_map
 
 # Passed as args when inside subprocess
 if len(sys.argv) > 1 and sys.argv[1] == "--race":
