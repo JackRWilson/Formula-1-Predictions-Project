@@ -15,7 +15,7 @@ PROJECT_ROOT = os.path.dirname(current_dir)
 SRC_DIR = os.path.join(PROJECT_ROOT, 'src')
 if SRC_DIR not in sys.path:
     sys.path.insert(0, SRC_DIR)
-from data_functions import load_id_map, save_id_map, scrape_url_table, constructor_mapping
+from utils.data_functions import load_id_map, save_id_map, scrape_url_table, constructor_mapping  # type: ignore
 
 # Establish web browser and initial variables
 browser = webdriver.Chrome()
