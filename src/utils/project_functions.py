@@ -3,6 +3,16 @@
 # This file defines general project specific functions and variables
 
 # ==============================================================================================
+# Import Modules
+# ==============================================================================================
+
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
+# ==============================================================================================
 # I. Constructors Common Name Map
 # ==============================================================================================
 
@@ -472,3 +482,26 @@ constructor_mapping = {'team_id': {
     'Forti Ford': 'Forti',
     'Lambo Lamborghini': 'Modena'
 }}
+
+
+# ==============================================================================================
+# II. Extract Date from Website
+# ==============================================================================================
+
+def get_date(browser):
+    """Extract date with wait and retry"""
+    try:
+        # Wait for the element to be present
+        element = WebDriverWait(browser, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//div[@class='Container-module_container__0e4ac']//p[contains(@class, 'display-s-bold')]"))
+        )
+        
+        # Wait a bit for any re-rendering to finish
+        time.sleep(0.5)
+        
+        # Get fresh reference to avoid stale element
+        element = browser.find_element(By.XPATH, "//div[@class='Container-module_container__0e4ac']//p[contains(@class, 'display-s-bold')]")
+        return element.text
+    except Exception as e:
+        print(f"Failed to extract date: {e}")
+        return None
