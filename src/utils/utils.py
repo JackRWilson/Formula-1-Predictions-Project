@@ -110,7 +110,8 @@ def scrape_url_table(
     page_lvl_cols: list = None,
     data_folder: str = '../data/raw',
     id_mask: dict = None,
-    auto_url_id: bool = False
+    auto_url_id: bool = False,
+    save_successful_urls: bool = False
     ) -> pd.DataFrame:
     """
     Scrapes a table from a website and returns a dataframe of scraped values
@@ -134,12 +135,15 @@ def scrape_url_table(
         contain path to scrape that data
     data_folder : str, optional
         File path of data folder for saving any ID maps
-        Default: ../data/raw
+        Default: '../data/raw'
     id_mask : dict, optional
         Dictionary mapping column names to value mapping dictionaries
         Example: {'team_name': {'Red Bull Racing': 'Red Bull'}}
     auto_url_id : bool, optional
         Whether to automatically create URL IDs for each row
+        Default: False
+    save_successful_urls : bool, optional
+        Whether to save a list of successfully scraped URLs to the data folder
         Default: False
     
 
@@ -162,6 +166,9 @@ def scrape_url_table(
             url_id_map = load_id_map(f'{data_folder}/url_id_map.pkl')
         else:
             url_id_map = load_id_map('url_id_map.pkl')
+
+    # Initialize list for successful URLs if saving is enabled
+    successful_urls = [] if save_successful_urls else None
 
     # Establish web browser
     browser = webdriver.Chrome()
@@ -302,11 +309,27 @@ def scrape_url_table(
                                 col_data['url_id'] = {'index': None, 'values': []}
                             col_data['url_id']['values'].append(url_id_val)
                                 
+            # Add URL to successful URLs list if data was found and saving is enabled
+            if save_successful_urls:
+                successful_urls.append(url)
+                                
         except Exception as e:
             print(f'URL: {url}')
             print(f'NO DATA FOUND ERROR: {e}')
     
     browser.close()
+    
+    # Save successful URLs to file if enabled
+    if save_successful_urls and successful_urls:
+        try:
+            if data_folder:
+                successful_urls_path = f'{data_folder}/successful_urls.pkl'
+            else:
+                successful_urls_path = 'successful_urls.pkl'
+            save_id_map(successful_urls_path, successful_urls)
+            print(f"Saved {len(successful_urls)} successful URLs to {successful_urls_path}")
+        except Exception as e:
+            print(f"Failed to save successful URLs: {e}")
     
     # Convert column data to DataFrame
     df_data = {}
