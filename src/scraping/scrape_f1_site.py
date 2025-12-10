@@ -140,23 +140,31 @@ def scrape_2018_links():
     year_begin = datetime.now().year
     new = True
     race_urls = []
-    round_number = []
-    existing_year = None
-    existing_round = 0
 
-    # Find existing rounds and links
+    # Find existing links and rounds
     existing_links = load_id_map(links_2018_path)
     rounds_path = os.path.join(PROJECT_ROOT, 'data/raw/rounds_raw.csv')
-    if os.path.exists(rounds_path):
-        print("   Existing rounds found...")
+    existing_year = None
+    existing_round = 0
+    
+    if os.path.exists(rounds_path) and len(existing_links) > 0:
+        print("   Existing links and rounds found...")
         existing_rounds = pd.read_csv(rounds_path)
         last_url = existing_rounds['race_url'].iloc[-1]
         existing_year = int(last_url.split('/')[5])
         existing_round = int(existing_rounds['round_number'].iloc[-1])
         print(f"   Last existing: Year {existing_year}, Round {existing_round}")
         print("   Scraping new links and rounds...")
-    else:
+    elif os.path.exists(rounds_path) and len(existing_links) <= 0:
+        print("   Existing rounds found...")
+        print("   No existing links found...")
+        print("   Scraping all links and rounds...")
+    elif len(existing_links) > 0:
         print("   No existing rounds found...")
+        print("   Existing links found...")
+        print("   Scraping all links and rounds...")
+    else:
+        print("   No existing links or rounds found...")
         print("   Scraping all links and rounds...")
 
     while new == True:
@@ -164,12 +172,6 @@ def scrape_2018_links():
         # If the scrape year goes below 2018, break
         if year_begin < year_end:
             break
-        
-        # Use existing year round if possible for starting round count
-        if existing_year is not None and year_begin == existing_year:
-            r = existing_round + 1
-        else:
-            r = 1
 
         # Use the years to crawl across season pages
         url = "https://www.formula1.com/en/results/" + str(year_begin) + "/races"
@@ -190,8 +192,6 @@ def scrape_2018_links():
                     new = False
                     break
                 race_urls.append(link)
-                round_number.append(r)
-                r += 1
             
             if new == False:
                 break
@@ -212,6 +212,30 @@ def scrape_2018_links():
             print(f"      {url}")
         print(f"      ...\n")
     
+    # Assign round numbers based on year of race
+    round_number = []
+    current_year = None
+    current_round = 0
+    
+    for url in race_urls:
+        race_year = int(url.split('/')[5])
+        
+        # Decide what round to append
+        if existing_year is not None and race_year == existing_year:
+            existing_round += 1
+            round_number.append(existing_round)
+            current_year = race_year
+            current_round = existing_round
+            existing_year = None 
+        elif race_year != current_year:
+            current_year = race_year
+            current_round = 1
+            round_number.append(current_round)
+        else:
+            current_round += 1
+            round_number.append(current_round)
+
+
     # Convert link data to dataframe
     link_data = pd.DataFrame({'race_url': race_urls, 'round_number': round_number})
     
