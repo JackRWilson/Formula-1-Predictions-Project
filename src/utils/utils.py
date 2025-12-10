@@ -13,6 +13,7 @@ import pickle
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 
 # ==============================================================================================
@@ -30,6 +31,7 @@ def load_id_map(path: str, default: dict | list | None = None):
     else:
         return {} if default is None else default
 
+
 def is_file_locked(filepath: str) -> bool:
     """
     Check if a file is currently locked by another process
@@ -41,6 +43,7 @@ def is_file_locked(filepath: str) -> bool:
         return False
     except (IOError, OSError):
         return True
+
 
 def save_id_map(path: str, id_map, max_retries: int = 3):
     """
@@ -100,6 +103,18 @@ def init_col_map(col_map: dict):
 # ==============================================================================================
 # III. Scrape Data from URL
 # ==============================================================================================
+
+def create_browser():
+    """
+    Creates a Chrome browser with logging suppressed
+
+    """
+    chrome_options = Options()
+    chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    browser = webdriver.Chrome(options=chrome_options)
+    browser.maximize_window()
+    return browser
+
 
 def scrape_url_table(
     urls: list,
@@ -171,8 +186,7 @@ def scrape_url_table(
     successful_urls = [] if save_successful_urls else None
 
     # Establish web browser
-    browser = webdriver.Chrome()
-    browser.maximize_window()
+    browser = create_browser()
     
     for url in urls:
         
