@@ -121,9 +121,9 @@ def scrape_url_table(
     min_col: int,
     max_col: int,
     col_idx_map: dict,
+    data_folder: str,
     id_cols: list = None,
     page_lvl_cols: list = None,
-    data_folder: str = '../data/raw',
     id_mask: dict = None,
     auto_url_id: bool = False,
     save_successful_urls: bool = False
@@ -470,3 +470,107 @@ def get_location_data(place, city, country):
     except (KeyError, IndexError) as e:
         print(f"Error parsing response: {e}")
         return None
+
+
+# ==============================================================================================
+# VII. Compare Two Files
+# ==============================================================================================
+
+def compare_data_files(file1_path, file2_path):
+    """
+    Compare two CSV files to see if the data inside matches
+    
+    """
+    print(f"\nComparing files:")
+    print(f"   File 1: {file1_path}")
+    print(f"   File 2: {file2_path}")
+    
+    # Check if both files exist
+    if not os.path.exists(file1_path):
+        print(f"   File 1 not found: {file1_path}")
+        return False
+    if not os.path.exists(file2_path):
+        print(f"   File 2 not found: {file2_path}")
+        return False
+    
+    try:
+        # Read both files
+        df1 = pd.read_csv(file1_path)
+        df2 = pd.read_csv(file2_path)
+        
+        print(f"   File 1 shape: {df1.shape}")
+        print(f"   File 2 shape: {df2.shape}")
+        
+        # Check if dataframes are equal
+        if df1.equals(df2):
+            print("   Files contain identical data")
+            return True
+        else:
+            print("   Files contain different data")
+            
+            # Check for differences in columns
+            if set(df1.columns) != set(df2.columns):
+                print("   - Column names differ")
+                print(f"      File 1 columns: {sorted(df1.columns)}")
+                print(f"      File 2 columns: {sorted(df2.columns)}")
+            
+            # Check row count differences
+            if len(df1) != len(df2):
+                print(f"   - Row count differs: {len(df1)} vs {len(df2)}")
+            
+            # Check for any NaN differences
+            nan_diff1 = df1.isna().sum().sum()
+            nan_diff2 = df2.isna().sum().sum()
+            if nan_diff1 != nan_diff2:
+                print(f"   - NaN count differs: {nan_diff1} vs {nan_diff2}")
+            
+            # Find and display row differences
+            print("   - Row differences:")
+            
+            # Align dataframes by index for comparison
+            if len(df1) > len(df2):
+                df1_aligned = df1.iloc[:len(df2)]
+                df2_aligned = df2
+            elif len(df2) > len(df1):
+                df1_aligned = df1
+                df2_aligned = df2.iloc[:len(df1)]
+            else:
+                df1_aligned = df1
+                df2_aligned = df2
+            
+            # Compare each row
+            different_rows = []
+            for idx in range(min(len(df1), len(df2))):
+                row1 = df1_aligned.iloc[idx]
+                row2 = df2_aligned.iloc[idx]
+                
+                if not row1.equals(row2):
+                    different_rows.append(idx)
+                    print(f"      Row {idx}:")
+                    
+                    # Find which columns are different
+                    diff_columns = []
+                    for col in df1_aligned.columns:
+                        if col in df2_aligned.columns:
+                            if not pd.isna(row1[col]) and not pd.isna(row2[col]):
+                                if row1[col] != row2[col]:
+                                    diff_columns.append(col)
+                            elif pd.isna(row1[col]) != pd.isna(row2[col]):
+                                diff_columns.append(col)
+                    
+                    if diff_columns:
+                        print(f"      Different columns: {diff_columns}")
+                        for col in diff_columns:
+                            val1 = row1[col] if not pd.isna(row1[col]) else "NaN"
+                            val2 = row2[col] if not pd.isna(row2[col]) else "NaN"
+                            print(f"         {col}: '{val1}' vs '{val2}'")
+            
+            if different_rows:
+                print(f"      Total different rows: {len(different_rows)}")
+                print(f"      Different row indices: {different_rows}")
+            
+            return False
+                
+    except Exception as e:
+        print(f"   Error comparing files: {e}")
+        return False
