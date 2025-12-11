@@ -32,42 +32,44 @@ links_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
 
 def scrape_2001_links():
     
+    # Check if file already exists
     if os.path.exists(links_2001_2017_path):
-        print("Links 2001-2017 already scraped")
-    else:
-        print("Scraping links (2001-2017)...")
+        print("\nLinks 2001-2017 already scraped\n")
+        return
+
+    print("\nScraping links (2001-2017)...")
+    
+    # Establish web browser and initial variables
+    browser = create_browser()
+    year_begin = 2001
+    year_end = 2017
+    race_urls = []
+
+    while year_begin <= year_end:
+
+        # Use the years to crawl across season pages
+        url = "https://www.formula1.com/en/results/" + str(year_begin) + "/races"
+        browser.get(url)
         
-        # Establish web browser and initial variables
-        browser = create_browser()
-        year_begin = 2001
-        year_end = 2017
-        race_urls = []
+        table = browser.find_elements(By.TAG_NAME, "table")
+        for tr in table:
+            rows = tr.find_elements(By.TAG_NAME, "tr")[1:]
+            for row in rows:
+                cells = row.find_elements(By.TAG_NAME, "td")
+                
+                # Url for each specific race
+                link = cells[0].find_element(By.TAG_NAME, "a")
+                race_urls.append(link.get_attribute("href"))
 
-        while year_begin <= year_end:
+        year_begin += 1
 
-            # Use the years to crawl across season pages
-            url = "https://www.formula1.com/en/results/" + str(year_begin) + "/races"
-            browser.get(url)
-            
-            table = browser.find_elements(By.TAG_NAME, "table")
-            for tr in table:
-                rows = tr.find_elements(By.TAG_NAME, "tr")[1:]
-                for row in rows:
-                    cells = row.find_elements(By.TAG_NAME, "td")
-                    
-                    # Url for each specific race
-                    link = cells[0].find_element(By.TAG_NAME, "a")
-                    race_urls.append(link.get_attribute("href"))
+    browser.close()
 
-            year_begin += 1
-
-        browser.close()
-
-        # Save links to file
-        print("   Saving links to file...")
-        load_id_map(links_2001_2017_path)
-        save_id_map(links_2001_2017_path, race_urls)
-        print("Link scraping complete\n")
+    # Save links to file
+    print("   Saving links to file...")
+    load_id_map(links_2001_2017_path)
+    save_id_map(links_2001_2017_path, race_urls)
+    print("Link scraping complete\n")
 
 
 # --------------------------------------------------------------------------------
@@ -75,6 +77,16 @@ def scrape_2001_links():
 
 def scrape_2001_results():
 
+    # Establish paths
+    results_2001_path = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2001-2017.csv')
+    
+    # Check if file already exists
+    if os.path.exists(results_2001_path):
+        print("\nResults 2001-2017 already scraped\n")
+        return
+
+    print("\nScraping results (2001-2017)...")
+    
     # Establish variables
     urls = load_id_map(links_2001_2017_path)
     min_col = 7
@@ -98,13 +110,26 @@ def scrape_2001_results():
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping)
-    df.to_csv(os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2001-2017.csv'), encoding='utf-8', index=False)
+    print("   Saving results to file...")
+    df.to_csv(results_2001_path, encoding='utf-8', index=False)
+    print("Result scraping complete\n")
+
 
 # --------------------------------------------------------------------------------
-# Pit Stops 2001-2017
+# Pit Stops 2016-2017
 
-def scrape_2001_pits():
+def scrape_2016_pits():
     
+    # Establish paths
+    pits_2016_path = os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw_2016-2017.csv')
+
+    # Check if file already exists
+    if os.path.exists(pits_2016_path):
+        print("\nPit stops 2016-2017 already scraped\n")
+        return
+
+    print("\nScraping pit stops (2016-2017)...")
+
     # Create pit stop URLs
     urls = load_id_map(links_2001_2017_path)
     pit_urls = []
@@ -135,7 +160,10 @@ def scrape_2001_pits():
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping)
-    df.to_csv(os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw_2016-2017.csv'), encoding='utf-8', index=False)
+    print("   Saving pit stops to file...")
+    df.to_csv(pits_2016_path, encoding='utf-8', index=False)
+    print("Pit stop scraping complete\n")
+
 
 # --------------------------------------------------------------------------------
 # Race Links 2018+
@@ -151,9 +179,11 @@ def scrape_2018_links():
     new = True
     race_urls = []
 
+    # Establish paths
+    rounds_path = os.path.join(PROJECT_ROOT, 'data/raw/rounds_raw.csv')
+
     # Find existing links and rounds
     existing_links = load_id_map(links_2018_path)
-    rounds_path = os.path.join(PROJECT_ROOT, 'data/raw/rounds_raw.csv')
     existing_year = None
     existing_round = 0
     
@@ -249,28 +279,26 @@ def scrape_2018_links():
     link_data = pd.DataFrame({'race_url': race_urls, 'round_number': round_number})
     
     # Check if rounds_raw.csv exists and append if it does
-    ROUNDS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/rounds_raw_TEMP.csv')
     if os.path.exists(rounds_path) and len(race_urls) > 0:
         print("   Appending new rounds to existing file...")
         existing_rounds = pd.read_csv(rounds_path)
         combined_rounds = pd.concat([existing_rounds, link_data], ignore_index=True)
-        combined_rounds.to_csv(ROUNDS_TEMP_PATH, encoding='utf-8', index=False)
+        combined_rounds.to_csv(rounds_path, encoding='utf-8', index=False)
     elif len(race_urls) > 0:
         print("   Creating new rounds file...")
-        link_data.to_csv(ROUNDS_TEMP_PATH, encoding='utf-8', index=False)
+        link_data.to_csv(rounds_path, encoding='utf-8', index=False)
     else:
         print("   No new rounds to save")
 
     # Check if links_2018+.pkl exists and append if it does
-    LINKS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+_TEMP.pkl')
     if os.path.exists(links_2018_path) and len(race_urls) > 0:
         print("   Appending new links to existing file...")
         existing_links = load_id_map(links_2018_path)
         combined_links = existing_links + race_urls
-        save_id_map(LINKS_TEMP_PATH, combined_links)
+        save_id_map(links_2018_path, combined_links)
     elif len(race_urls) > 0:
         print("   Creating new links file...")
-        save_id_map(LINKS_TEMP_PATH, race_urls)
+        save_id_map(links_2018_path, race_urls)
     else:
         print("   No new links to save")
 
@@ -285,12 +313,14 @@ def scrape_2018_results():
     print(f"\nScraping results (2018+)...")
     
     # Establish paths
-    successful_links_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
+    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    successful_urls_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
+    results_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+.csv')
     
     # Check for new URLs
     print("   Checking for new links...")
     existing_links = load_id_map(links_2018_path)
-    successful_links = load_id_map(successful_links_path)
+    successful_links = load_id_map(successful_urls_path)
     successful_links_set = set(successful_links)
     urls = [url for url in existing_links if url not in successful_links_set]
     
@@ -332,12 +362,21 @@ def scrape_2018_results():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
-    print("   Saving data to file...")
-    df.to_csv(os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+_TEMP.csv'), encoding='utf-8', index=False)
 
+    # Check if path exists and appends if it does
+    if os.path.exists(results_2018_path) and len(df) > 0:
+        print("   Appending new results to existing file...")
+        existing_df = pd.read_csv(results_2018_path, encoding='utf-8')
+        combined_df = pd.concat([existing_df, df], ignore_index=True)
+        combined_df = combined_df.drop_duplicates(subset=['race_id', 'driver_id'], keep='last')
+        combined_df.to_csv(results_2018_path, encoding='utf-8', index=False)
+    elif len(df) > 0:
+        print("   Creating new results file...")
+        df.to_csv(results_2018_path, encoding='utf-8', index=False)
+    else:
+        print("   No new results to save")
+        
     # Handle successful url file
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
     print("   Updating successful URL file...")
     try:
         if os.path.exists(successful_urls_temp_path):
