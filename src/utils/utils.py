@@ -341,7 +341,6 @@ def scrape_url_table(
             else:
                 successful_urls_path = 'successful_urls.pkl'
             save_id_map(successful_urls_path, successful_urls)
-            print(f"Saved {len(successful_urls)} successful URLs to {successful_urls_path}")
         except Exception as e:
             print(f"Failed to save successful URLs: {e}")
     
