@@ -116,6 +116,17 @@ def create_browser():
     return browser
 
 
+def print_progress_bar(current, total, bar_length=40):
+    """
+    Print a progress bar that updates on the same line
+     
+    """
+    percent = current * 100 // total
+    filled = bar_length * current // total
+    bar = '█' * filled + '-' * (bar_length - filled)
+    print(f"\r   Progress: [{bar}] {current}/{total} ({percent}%)", end='', flush=True)
+
+
 def scrape_url_table(
     urls: list,
     min_col: int,
@@ -188,15 +199,20 @@ def scrape_url_table(
     # Establish web browser
     browser = create_browser()
     
-    for url in urls:
+    total_urls = len(urls)
+    print(f"\n   Scraping {total_urls} URLs...")
+
+    for i, url in enumerate(urls, start=1):
+        
+        # Update progress bar
+        print_progress_bar(i, total_urls)
         
         # Validate URL
         try:
             browser.get(url)
-            # Add a small wait to ensure page is loaded
             time.sleep(0.5)
         except Exception as e:
-            print(f'URL ERROR: "{url}"\n{e}')
+            print(f'\nURL ERROR: "{url}"\n{e}')
             continue
 
         # Get or create URL ID only if auto_url_id is True
@@ -328,10 +344,12 @@ def scrape_url_table(
                 successful_urls.append(url)
                                 
         except Exception as e:
-            print(f'URL: {url}')
+            print(f'\nURL: {url}')
             print(f'NO DATA FOUND ERROR: {e}')
     
+    print()
     browser.close()
+    print()
     
     # Save successful URLs to file if enabled
     if save_successful_urls and successful_urls:
