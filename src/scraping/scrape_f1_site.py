@@ -291,7 +291,8 @@ def scrape_2018_results():
     print("   Checking for new links...")
     existing_links = load_id_map(links_2018_path)
     successful_links = load_id_map(successful_links_path)
-    urls = list(set(existing_links) - set(successful_links))
+    successful_links_set = set(successful_links)
+    urls = [url for url in existing_links if url not in successful_links_set]
     
     if len(urls) == 0:
         print("   No new links found")
@@ -335,27 +336,29 @@ def scrape_2018_results():
     df.to_csv(os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+_TEMP.csv'), encoding='utf-8', index=False)
 
     # Handle successful url file
-    successful_urls_old = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_new = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
-    print("   Appending to successful URL file...")
-    
-    if os.path.exists(successful_urls_old):
-        try:
-            # Load existing successful URLs from both files
-            old_urls = load_id_map(successful_urls_old, default=[])
-            new_urls = load_id_map(successful_urls_new, default=[])
+    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    successful_urls_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
+    print("   Updating successful URL file...")
+    try:
+        if os.path.exists(successful_urls_temp_path):
+            new_urls = load_id_map(successful_urls_temp_path)
+
+            # Load existing successful URLs
+            if os.path.exists(successful_urls_path):
+                existing_urls = load_id_map(successful_urls_path)
+                existing_set = set(existing_urls)
+                combined_urls = existing_urls + [url for url in new_urls if url not in existing_set]
+            else:
+                combined_urls = new_urls
+        
+            # Save combined URLs and remove temp file
+            save_id_map(successful_urls_path, combined_urls)
+            os.remove(successful_urls_temp_path)
+            print(f"   Added {len(new_urls)} successful URLs to list")
+        else:
+            print("   No new successful URLs found to add")
             
-            # Combine successful URLs
-            combined_urls = list(set(old_urls + new_urls))
-            
-            # Save the combined list to new file
-            with open(successful_urls_new, 'wb') as f:
-                pickle.dump(combined_urls, f)
-            
-            # Remove the old file
-            os.remove(successful_urls_old)
-            
-        except Exception as e:
-            print(f"Failed to handle successful URL file: {e}")
+    except Exception as e:
+        print(f"Failed to handle successful URL file: {e}")
     
     print("Result scraping complete\n")
