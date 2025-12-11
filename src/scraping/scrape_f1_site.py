@@ -7,6 +7,7 @@
 # Import modules
 import pandas as pd
 import os, sys
+import pickle
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -22,6 +23,7 @@ if PROJECT_ROOT not in sys.path:
 from src.utils.utils import load_id_map, save_id_map, create_browser, scrape_url_table
 from src.utils.project_functions import constructor_mapping, get_date
 
+data_folder_path = os.path.join(PROJECT_ROOT, 'data/raw')
 links_2001_2017_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
 links_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
 
@@ -29,36 +31,43 @@ links_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
 # Race Links 2001-2017
 
 def scrape_2001_links():
-
-    # Establish web browser and initial variables
-    browser = create_browser()
-    year_begin = 2001
-    year_end = 2017
-    race_urls = []
-
-    while year_begin <= year_end:
-
-        # Use the years to crawl across season pages
-        url = "https://www.formula1.com/en/results/" + str(year_begin) + "/races"
-        browser.get(url)
+    
+    if os.path.exists(links_2001_2017_path):
+        print("Links 2001-2017 already scraped")
+    else:
+        print("Scraping links (2001-2017)...")
         
-        table = browser.find_elements(By.TAG_NAME, "table")
-        for tr in table:
-            rows = tr.find_elements(By.TAG_NAME, "tr")[1:]
-            for row in rows:
-                cells = row.find_elements(By.TAG_NAME, "td")
-                
-                # Url for each specific race
-                link = cells[0].find_element(By.TAG_NAME, "a")
-                race_urls.append(link.get_attribute("href"))
+        # Establish web browser and initial variables
+        browser = create_browser()
+        year_begin = 2001
+        year_end = 2017
+        race_urls = []
 
-        year_begin += 1
+        while year_begin <= year_end:
 
-    browser.close()
+            # Use the years to crawl across season pages
+            url = "https://www.formula1.com/en/results/" + str(year_begin) + "/races"
+            browser.get(url)
+            
+            table = browser.find_elements(By.TAG_NAME, "table")
+            for tr in table:
+                rows = tr.find_elements(By.TAG_NAME, "tr")[1:]
+                for row in rows:
+                    cells = row.find_elements(By.TAG_NAME, "td")
+                    
+                    # Url for each specific race
+                    link = cells[0].find_element(By.TAG_NAME, "a")
+                    race_urls.append(link.get_attribute("href"))
 
-    # Save links to file
-    load_id_map(links_2001_2017_path)
-    save_id_map(links_2001_2017_path, race_urls)
+            year_begin += 1
+
+        browser.close()
+
+        # Save links to file
+        print("   Saving links to file...")
+        load_id_map(links_2001_2017_path)
+        save_id_map(links_2001_2017_path, race_urls)
+        print("Link scraping complete\n")
 
 
 # --------------------------------------------------------------------------------
@@ -132,7 +141,8 @@ def scrape_2001_pits():
 # Race Links 2018+
 
 def scrape_2018_links():
-    print(f"\nScraping links and rounds...")
+    
+    print(f"\nScraping links and rounds (2018+)...")
 
     # Establish web browser and initial variables
     browser = create_browser()
@@ -235,7 +245,6 @@ def scrape_2018_links():
             current_round += 1
             round_number.append(current_round)
 
-
     # Convert link data to dataframe
     link_data = pd.DataFrame({'race_url': race_urls, 'round_number': round_number})
     
@@ -265,10 +274,88 @@ def scrape_2018_links():
     else:
         print("   No new links to save")
 
-    print(f"Scraping complete\n")
+    print(f"Link and round scraping complete\n")
 
 
 # --------------------------------------------------------------------------------
 # Race Results 2018+
 
-#def scrape_2017_results():
+def scrape_2018_results():
+    
+    print(f"\nScraping results (2018+)...")
+    
+    # Establish paths
+    successful_links_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
+    
+    # Check for new URLs
+    print("   Checking for new links...")
+    existing_links = load_id_map(links_2018_path)
+    successful_links = load_id_map(successful_links_path)
+    urls = list(set(existing_links) - set(successful_links))
+    
+    if len(urls) == 0:
+        print("   No new links found")
+        print("Result scraping complete\n")
+        return
+    
+    print(f"   Found {len(urls)} new links...")
+    
+    # Establish variables
+    min_col = 7
+    max_col = 7
+    col_idx_map = {
+        'race_id': lambda browser: browser.find_element(By.ID, "content-dropdown").text + '_' + browser.current_url.split("/")[5],
+        'driver_id': 2,
+        'circuit_id': lambda browser: browser.find_element(By.ID, "content-dropdown").text,
+        'team_id': 3,
+        'year': lambda browser: int(browser.current_url.split("/")[5]),
+        'race_url': lambda browser: browser.current_url,
+        'circuit_name': lambda browser: browser.find_element(By.ID, "content-dropdown").text,
+        'driver_name': 2,
+        'team_name': 3,
+        'end_position': 0,
+        'points': 6,
+        'laps_completed': 4}
+    id_cols = ['race_id', 'driver_id', 'circuit_id', 'team_id']
+    page_lvl_cols = ['race_id', 'circuit_id', 'year', 'race_url', 'circuit_name']
+
+    # Scrape 2018+ results
+    print("   Scraping results...")
+    df = scrape_url_table(
+        urls=urls,
+        min_col=min_col,
+        max_col=max_col,
+        col_idx_map=col_idx_map,
+        data_folder=data_folder_path,
+        id_cols=id_cols,
+        page_lvl_cols=page_lvl_cols,
+        id_mask=constructor_mapping,
+        save_successful_urls=True)
+    print("   Saving data to file...")
+    df.to_csv(os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+_TEMP.csv'), encoding='utf-8', index=False)
+
+    # Handle successful url file
+    successful_urls_old = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    successful_urls_new = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
+    print("   Appending to successful URL file...")
+    
+    if os.path.exists(successful_urls_old):
+        try:
+            # Load existing successful URLs from both files
+            old_urls = load_id_map(successful_urls_old, default=[])
+            new_urls = load_id_map(successful_urls_new, default=[])
+            
+            # Combine successful URLs
+            combined_urls = list(set(old_urls + new_urls))
+            
+            # Save the combined list to new file
+            with open(successful_urls_new, 'wb') as f:
+                pickle.dump(combined_urls, f)
+            
+            # Remove the old file
+            os.remove(successful_urls_old)
+            
+        except Exception as e:
+            print(f"Failed to handle successful URL file: {e}")
+    
+    print("Result scraping complete\n")
