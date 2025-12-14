@@ -383,11 +383,8 @@ def scrape_2018_practices():
     successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
     practices_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/practice_results_raw.csv')
     
-    # Check for new URLs
-    urls = check_new_urls(links_2018_path, successful_urls_path)
-    if len(urls) == 0:
-        print(f"{title_cap} scraping complete\n")
-        return
+    # Load race URLs
+    urls = load_id_map(links_2018_path)
     
     # Create practice URLs
     practice_urls = []
@@ -397,7 +394,13 @@ def scrape_2018_practices():
         for practice_num in practice_nums:
             practice_url = url.replace('/race-result', f'/practice/{practice_num}')
             practice_urls.append(practice_url)
-    print(f"   Found {len(urls)} new links...")
+    
+    # Check for new URLs
+    new_urls = check_new_urls(practice_urls, successful_urls_path, from_file=False)
+    if len(new_urls) == 0:
+        print(f"{title_cap} scraping complete\n")
+        return
+    print(f"   Found {len(new_urls)} new links...")
 
     # Establish variables
     min_col = 6
@@ -416,7 +419,7 @@ def scrape_2018_practices():
     # Scrape practice results
     print(f"   Scraping {title}...")
     df = scrape_url_table(
-        urls=practice_urls,
+        urls=new_urls,
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
