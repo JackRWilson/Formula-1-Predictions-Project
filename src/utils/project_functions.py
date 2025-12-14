@@ -606,8 +606,5 @@ def check_new_urls(current_path, successful_path):
     
     if len(urls) == 0:
         print("   No new links found")
-        print("Result scraping complete\n")
-        return
     
-    print(f"   Found {len(urls)} new links...")
     return urls
