@@ -21,7 +21,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import load_id_map, save_id_map, create_browser, scrape_url_table
-from src.utils.project_functions import constructor_mapping, get_date
+from src.utils.project_functions import constructor_mapping, get_date, handle_appending, handle_successful_urls, check_new_urls
 
 data_folder_path = os.path.join(PROJECT_ROOT, 'data/raw')
 links_2001_2017_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
@@ -310,27 +310,23 @@ def scrape_2018_links():
 
 def scrape_2018_results():
     
-    print(f"\nScraping results (2018+)...")
+    # Establish title
+    title = 'results'
+    title_cap = title.capitalize()
+    print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
     successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_results.pkl')
+    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
     results_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+.csv')
     
     # Check for new URLs
-    print("   Checking for new links...")
-    existing_links = load_id_map(links_2018_path)
-    successful_links = load_id_map(successful_urls_path)
-    successful_links_set = set(successful_links)
-    urls = [url for url in existing_links if url not in successful_links_set]
-    
+    urls = check_new_urls(links_2018_path, successful_urls_path)
     if len(urls) == 0:
-        print("   No new links found")
-        print("Result scraping complete\n")
+        print(f"{title_cap} scraping complete\n")
         return
-    
     print(f"   Found {len(urls)} new links...")
-    
+
     # Establish variables
     min_col = 7
     max_col = 7
@@ -351,7 +347,7 @@ def scrape_2018_results():
     page_lvl_cols = ['race_id', 'circuit_id', 'year', 'race_url', 'circuit_name']
 
     # Scrape 2018+ results
-    print("   Scraping results...")
+    print(f"   Scraping {title}...")
     df = scrape_url_table(
         urls=urls,
         min_col=min_col,
@@ -363,41 +359,77 @@ def scrape_2018_results():
         id_mask=constructor_mapping,
         save_successful_urls=True)
 
-    # Check if path exists and appends if it does
-    if os.path.exists(results_2018_path) and len(df) > 0:
-        print("   Appending new results to existing file...")
-        existing_df = pd.read_csv(results_2018_path, encoding='utf-8')
-        combined_df = pd.concat([existing_df, df], ignore_index=True)
-        combined_df = combined_df.drop_duplicates(subset=['race_id', 'driver_id'], keep='last')
-        combined_df.to_csv(results_2018_path, encoding='utf-8', index=False)
-    elif len(df) > 0:
-        print("   Creating new results file...")
-        df.to_csv(results_2018_path, encoding='utf-8', index=False)
-    else:
-        print("   No new results to save")
+    # Handle appending new data or creating new file 
+    handle_appending(results_2018_path, df, title)
+    
+    # Handle successful url file
+    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    
+    print(f"{title_cap} scraping complete\n")
+
+
+# --------------------------------------------------------------------------------
+# Practices 2018+
+
+def scrape_2018_practices():
+    
+    # Establish title
+    title = 'practices'
+    title_cap = title.capitalize()
+    print(f"\nScraping {title} (2018+)...")
+    
+    # Establish paths
+    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    practices_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/practice_results_raw.csv')
+    
+    # Check for new URLs
+    urls = check_new_urls(links_2018_path, successful_urls_path)
+    if len(urls) == 0:
+        print(f"{title_cap} scraping complete\n")
+        return
+    
+    # Create practice URLs
+    practice_urls = []
+    for url in urls:
+        emilia_romagna_2020 = url.split('/')[5] == '2020' and url.split('/')[8] == 'emilia-romagna'
+        practice_nums = [0] if emilia_romagna_2020 else [1, 2, 3]
+        for practice_num in practice_nums:
+            practice_url = url.replace('/race-result', f'/practice/{practice_num}')
+            practice_urls.append(practice_url)
+    print(f"   Found {len(urls)} new links...")
+
+    # Establish variables
+    min_col = 6
+    max_col = 6
+    col_idx_map = {
+        'race_id': lambda browser: browser.find_element(By.ID, "content-dropdown").text + '_' + browser.current_url.split("/")[5],
+        'driver_id': 2,
+        'team_id': 3,
+        'session_type': lambda browser: browser.current_url.split("/")[9] + browser.current_url.split("/")[10],
+        'lap_time': 4,
+        'lap_count': 5,
+        'position': 0}
+    id_cols = ['race_id', 'driver_id', 'team_id']
+    page_lvl_cols = ['race_id', 'session_type']
+
+    # Scrape practice results
+    print(f"   Scraping {title}...")
+    df = scrape_url_table(
+        urls=practice_urls,
+        min_col=min_col,
+        max_col=max_col,
+        col_idx_map=col_idx_map,
+        data_folder=data_folder_path,
+        id_cols=id_cols,
+        page_lvl_cols=page_lvl_cols,
+        id_mask=constructor_mapping,
+        save_successful_urls=True)
+    
+    # Handle appending new data or creating new file
+    handle_appending(practices_2018_path, df, title)
         
     # Handle successful url file
-    print("   Updating successful URL file...")
-    try:
-        if os.path.exists(successful_urls_temp_path):
-            new_urls = load_id_map(successful_urls_temp_path)
-
-            # Load existing successful URLs
-            if os.path.exists(successful_urls_path):
-                existing_urls = load_id_map(successful_urls_path)
-                existing_set = set(existing_urls)
-                combined_urls = existing_urls + [url for url in new_urls if url not in existing_set]
-            else:
-                combined_urls = new_urls
-        
-            # Save combined URLs and remove temp file
-            save_id_map(successful_urls_path, combined_urls)
-            os.remove(successful_urls_temp_path)
-            print(f"   Added {len(new_urls)} successful URLs to list")
-        else:
-            print("   No new successful URLs found to add")
-            
-    except Exception as e:
-        print(f"Failed to handle successful URL file: {e}")
+    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
     
-    print("Result scraping complete\n")
+    print(f"{title_cap} scraping complete\n")
