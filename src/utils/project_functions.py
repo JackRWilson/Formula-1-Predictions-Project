@@ -528,11 +528,11 @@ def handle_appending(df_path, df, title, dup_subset: list = ['race_id', 'driver_
 
     Parameters
     ----------
-    df_path : 
+    df_path : any
         Path to existing dataframe file, and where new appended dataframe will be saved
-    df :
+    df : any
         Dataframe with new data
-    title : 
+    title : any
         Title of data
         Example: 'results' or 'practices'
     dup_subset : list, optional
@@ -585,3 +585,29 @@ def handle_successful_urls(successful_urls_path, successful_urls_temp_path):
             
     except Exception as e:
         print(f"Failed to handle successful URL file: {e}")
+
+
+# ==============================================================================================
+# V. Check for new URLs
+# ==============================================================================================
+
+def check_new_urls(current_path, successful_path):
+    """
+    Checks for new URLs between successful and current
+
+    """
+
+    # Check for new URLs
+    print("   Checking for new links...")
+    existing_links = load_id_map(current_path)
+    successful_links = load_id_map(successful_path)
+    successful_links_set = set(successful_links)
+    urls = [url for url in existing_links if url not in successful_links_set]
+    
+    if len(urls) == 0:
+        print("   No new links found")
+        print("Result scraping complete\n")
+        return
+    
+    print(f"   Found {len(urls)} new links...")
+    return urls
