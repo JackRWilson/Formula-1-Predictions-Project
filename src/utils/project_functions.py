@@ -6,7 +6,8 @@
 # Import Modules
 # ==============================================================================================
 
-import time
+import pandas as pd
+import time, os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -489,7 +490,10 @@ constructor_mapping = {'team_id': {
 # ==============================================================================================
 
 def get_date(browser):
-    """Extract date with wait and retry"""
+    """
+    Extract date with wait and retry
+    
+    """
     try:
         # Wait for the element to be present
         element = WebDriverWait(browser, 10).until(
@@ -505,3 +509,45 @@ def get_date(browser):
     except Exception as e:
         print(f"Failed to extract date: {e}")
         return None
+
+
+# ==============================================================================================
+# III. Handle Appending or New File
+# ==============================================================================================
+
+def handle_appending(df_path, df, title, dup_subset: list = ['race_id', 'driver_id']):
+    """
+    Handles appending of new data onto existing file, or creating a new file
+
+
+    Parameters
+    ----------
+    df_path : 
+        Path to existing dataframe file, and where new appended dataframe will be saved
+    df :
+        Dataframe with new data
+    title : 
+        Title of data
+        Example: 'results' or 'practices'
+    dup_subset : list, optional
+        List of column names to look for duplicate values on
+        Default: ['race_id', 'driver_id']
+
+    """
+    # Check if path exists and appends if it does
+    if os.path.exists(df_path) and len(df) > 0:
+        print(f"   Appending new {title} to existing file...")
+        existing_df = pd.read_csv(df_path, encoding='utf-8')
+        combined_df = pd.concat([existing_df, df], ignore_index=True)
+        combined_df = combined_df.drop_duplicates(subset=dup_subset, keep='last')
+        combined_df.to_csv(df_path, encoding='utf-8', index=False)
+    elif len(df) > 0:
+        print(f"   Creating new {title} file...")
+        df.to_csv(df_path, encoding='utf-8', index=False)
+    else:
+        print(f"   No new {title} to save")
+
+
+# ==============================================================================================
+# IV. Handle Successful URL File
+# ==============================================================================================
