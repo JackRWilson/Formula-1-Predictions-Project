@@ -528,11 +528,11 @@ def handle_appending(df_path, df, title, dup_subset: list = ['race_id', 'driver_
 
     Parameters
     ----------
-    df_path : any
+    df_path : str
         Path to existing dataframe file, and where new appended dataframe will be saved
-    df : any
+    df : DataFrame
         Dataframe with new data
-    title : any
+    title : str
         Title of data
         Example: 'results' or 'practices'
     dup_subset : list, optional
@@ -591,15 +591,34 @@ def handle_successful_urls(successful_urls_path, successful_urls_temp_path):
 # V. Check for new URLs
 # ==============================================================================================
 
-def check_new_urls(current_path, successful_path):
+def check_new_urls(current_path, successful_path, from_file=True):
     """
-    Checks for new URLs between successful and current
+    Checks for new URLs between successful and current.
+
+    Parameters
+    ----------
+    current_path : str, list
+        Path to file with current URLs or the list of URLs
+    successful_path : str
+        Path to file with successful URLs
+    from_file : bool, optional
+        Whether current_path is a file path (True) or a list of URLs (False)
+        Default: True
+    
+    Returns
+    -------
+    List of URLs that are in the current_path, but not the successful_path, meaning they are new
 
     """
 
     # Check for new URLs
     print("   Checking for new links...")
-    existing_links = load_id_map(current_path)
+
+    if from_file:
+        existing_links = load_id_map(current_path)
+    else:
+        existing_links = current_path
+
     successful_links = load_id_map(successful_path)
     successful_links_set = set(successful_links)
     urls = [url for url in existing_links if url not in successful_links_set]
