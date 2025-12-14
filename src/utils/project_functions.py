@@ -7,10 +7,16 @@
 # ==============================================================================================
 
 import pandas as pd
-import time, os
+import time, os, sys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+from src.utils.utils import load_id_map, save_id_map
 
 
 # ==============================================================================================
@@ -551,3 +557,31 @@ def handle_appending(df_path, df, title, dup_subset: list = ['race_id', 'driver_
 # ==============================================================================================
 # IV. Handle Successful URL File
 # ==============================================================================================
+
+def handle_successful_urls(successful_urls_path, successful_urls_temp_path):
+    """
+    Handle successful url file
+    
+    """
+    print("   Updating successful URL file...")
+    try:
+        if os.path.exists(successful_urls_temp_path):
+            new_urls = load_id_map(successful_urls_temp_path)
+
+            # Load existing successful URLs
+            if os.path.exists(successful_urls_path):
+                existing_urls = load_id_map(successful_urls_path)
+                existing_set = set(existing_urls)
+                combined_urls = existing_urls + [url for url in new_urls if url not in existing_set]
+            else:
+                combined_urls = new_urls
+        
+            # Save combined URLs and remove temp file
+            save_id_map(successful_urls_path, combined_urls)
+            os.remove(successful_urls_temp_path)
+            print(f"   Added {len(new_urls)} successful URLs to list")
+        else:
+            print("   No new successful URLs found to add")
+            
+    except Exception as e:
+        print(f"Failed to handle successful URL file: {e}")
