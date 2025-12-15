@@ -159,9 +159,8 @@ def scrape_url_table(
     page_lvl_cols : list, optional
         List of columns that need scraping on the page level, index will
         contain path to scrape that data
-    data_folder : str, optional
-        File path of data folder for saving any ID maps
-        Default: '../data/raw'
+    data_folder : str
+        File path of data folder for saving any ID maps and successful URLs
     id_mask : dict, optional
         Dictionary mapping column names to value mapping dictionaries
         Example: {'team_name': {'Red Bull Racing': 'Red Bull'}}
