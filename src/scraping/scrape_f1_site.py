@@ -569,3 +569,72 @@ def scrape_2018_starting_grid():
     handle_successful_urls(successful_urls_path, successful_urls_temp_path)
     
     print(f"{title_cap} scraping complete\n")
+
+
+# --------------------------------------------------------------------------------
+# Pit Stops 2018+
+
+def scrape_2018_pit_stops():
+    
+    # Establish title
+    title = 'pit stops'
+    title_cap = title.capitalize()
+    title_file = 'pit_stops'
+    print(f"\nScraping {title} (2018+)...")
+    
+    # Establish paths
+    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    pit_stops_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw.csv')
+    
+    # Load race URLs
+    urls = load_id_map(links_2018_path)
+    
+    # Create pit stop URLs
+    pit_urls = []
+    for url in urls:
+        ps_url = url.replace('/race-result', '/pit-stop-summary')
+        pit_urls.append(ps_url)
+    
+    # Check for new URLs
+    new_urls = check_new_urls(pit_urls, successful_urls_path, from_file=False)
+    if len(new_urls) == 0:
+        print(f"{title_cap} scraping complete\n")
+        return
+    print(f"   Found {len(new_urls)} new links...")
+
+    # Establish variables
+    min_col = 8
+    max_col = 8
+    col_idx_map = {
+        'race_id': lambda browser: browser.find_element(By.ID, "content-dropdown").text + '_' + browser.current_url.split("/")[5],
+        'driver_id': 2,
+        'team_id': 3,
+        'stop_number': 0,
+        'stop_lap': 4,
+        'pits_time': 6}
+    id_cols = ['race_id', 'driver_id', 'team_id']
+    page_lvl_cols = ['race_id']
+
+    # Scrape practice results
+    print(f"   Scraping {title}...")
+    df = scrape_url_table(
+        urls=new_urls,
+        min_col=min_col,
+        max_col=max_col,
+        col_idx_map=col_idx_map,
+        data_folder=data_folder_path,
+        id_cols=id_cols,
+        page_lvl_cols=page_lvl_cols,
+        id_mask=constructor_mapping,
+        save_successful_urls=True)
+    
+    # Handle appending new data or creating new file
+    handle_appending(pit_stops_2018_path, df, title)
+        
+    # Handle successful url file
+    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    
+    print(f"{title_cap} scraping complete\n")
+
+

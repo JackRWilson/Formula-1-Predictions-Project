@@ -13,7 +13,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import compare_data_files
 from src.scraping.scrape_f1_site import scrape_2001_links, scrape_2001_results, scrape_2016_pits
-from src.scraping.scrape_f1_site import scrape_2018_links, scrape_2018_results, scrape_2018_practices, scrape_2018_qualifying, scrape_2018_starting_grid
+from src.scraping.scrape_f1_site import scrape_2018_links, scrape_2018_results, scrape_2018_practices, scrape_2018_qualifying, scrape_2018_starting_grid, scrape_2018_pit_stops
 
 # --------------------------------------------------------------------------------
 
@@ -30,6 +30,8 @@ scrape_2018_results()
 scrape_2018_practices()
 scrape_2018_qualifying()
 scrape_2018_starting_grid()
+scrape_2018_pit_stops()
+
 
 # --------------------------------------------------------------------------------
 
