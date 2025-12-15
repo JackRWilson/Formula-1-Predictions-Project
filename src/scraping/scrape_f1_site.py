@@ -436,3 +436,71 @@ def scrape_2018_practices():
     handle_successful_urls(successful_urls_path, successful_urls_temp_path)
     
     print(f"{title_cap} scraping complete\n")
+
+
+# --------------------------------------------------------------------------------
+# Qualifying 2018+
+
+def scrape_2018_qualifying():
+    
+    # Establish title
+    title = 'qualifying'
+    title_cap = title.capitalize()
+    print(f"\nScraping {title} (2018+)...")
+    
+    # Establish paths
+    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    qualifying_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/qualifying_results_raw.csv')
+    
+    # Load race URLs
+    urls = load_id_map(links_2018_path)
+    
+    # Create practice URLs
+    qualifying_urls = []
+    for url in urls:
+        qual_url = url.replace('/race-result', '/qualifying')
+        qualifying_urls.append(qual_url)
+    
+    # Check for new URLs
+    new_urls = check_new_urls(qualifying_urls, successful_urls_path, from_file=False)
+    if len(new_urls) == 0:
+        print(f"{title_cap} scraping complete\n")
+        return
+    print(f"   Found {len(new_urls)} new links...")
+
+    # Establish variables
+    min_col = 8
+    max_col = 8
+    col_idx_map = {
+        'race_id': lambda browser: browser.find_element(By.ID, "content-dropdown").text + '_' + browser.current_url.split("/")[5],
+        'driver_id': 2,
+        'team_id': 3,
+        'q1_time': 4,
+        'q2_time': 5,
+        'q3_time': 6,
+        'qual_position': 0,
+        'qual_laps': 7}
+    id_cols = ['race_id', 'driver_id', 'team_id']
+    page_lvl_cols = ['race_id']
+
+    # Scrape qualifying results
+    print(f"   Scraping {title}...")
+    df = scrape_url_table(
+        urls=new_urls,
+        min_col=min_col,
+        max_col=max_col,
+        col_idx_map=col_idx_map,
+        data_folder=data_folder_path,
+        id_cols=id_cols,
+        page_lvl_cols=page_lvl_cols,
+        id_mask=constructor_mapping,
+        save_successful_urls=True)
+    
+    # Handle appending new data or creating new file
+    handle_appending(qualifying_2018_path, df, title)
+        
+    # Handle successful url file
+    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    
+    print(f"{title_cap} scraping complete\n")
