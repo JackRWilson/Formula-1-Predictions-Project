@@ -630,6 +630,7 @@ def check_new_urls(current_path, successful_path, from_file=True):
     
     return urls
 
+
 # ==============================================================================================
 # VI. Calculate Degradation Rate
 # ==============================================================================================
@@ -649,3 +650,31 @@ def get_degradation_rate(lap_times, lap_numbers):
         model = LinearRegression().fit(X, y)
         return model.coef_[0]
     return np.nan
+
+
+# ==============================================================================================
+# VII. Calculate Compound Stats
+# ==============================================================================================
+
+def compute_compound_stats(comp_data, compound):
+    """
+    Calculate compound statistics
+
+    """
+    if comp_data.empty:
+        return {
+            f'avg_pace_{compound.lower()}': np.nan,
+            f'std_pace_{compound.lower()}': np.nan,
+            f'laps_on_{compound.lower()}': 0,
+            f'deg_rate_{compound.lower()}': np.nan,
+        }
+    
+    lap_times = comp_data['LapTime'].values
+    lap_numbers = comp_data['LapNumber'].values
+    
+    return {
+        f'avg_pace_{compound.lower()}': np.nanmean(lap_times),
+        f'std_pace_{compound.lower()}': np.nanstd(lap_times),
+        f'laps_on_{compound.lower()}': len(lap_times),
+        f'deg_rate_{compound.lower()}': get_degradation_rate(lap_times, lap_numbers),
+    }
