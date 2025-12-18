@@ -14,12 +14,13 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
+from scraping.scrape_fastf1 import LINKS_2001_2017_PATH
 from src.utils.utils import load_id_map, save_id_map, create_browser, print_progress_bar, scrape_url_table
 from src.utils.project_functions import constructor_mapping, get_date, handle_appending, handle_successful_urls, check_new_urls
 
-data_folder_path = os.path.join(PROJECT_ROOT, 'data/raw')
-links_2001_2017_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
-links_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
+DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
+LINKS_2001_2017_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
+LINKS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
 
 # --------------------------------------------------------------------------------
 # Race Links 2001-2017
@@ -27,7 +28,7 @@ links_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
 def scrape_2001_links():
     
     # Check if file already exists
-    if os.path.exists(links_2001_2017_path):
+    if os.path.exists(LINKS_2001_2017_PATH):
         print("\nLinks 2001-2017 already scraped\n")
         return
 
@@ -61,8 +62,8 @@ def scrape_2001_links():
 
     # Save links to file
     print("   Saving links to file...")
-    load_id_map(links_2001_2017_path)
-    save_id_map(links_2001_2017_path, race_urls)
+    load_id_map(LINKS_2001_2017_PATH)
+    save_id_map(LINKS_2001_2017_PATH, race_urls)
     print("Link scraping complete\n")
 
 
@@ -72,17 +73,17 @@ def scrape_2001_links():
 def scrape_2001_results():
 
     # Establish paths
-    results_2001_path = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2001-2017.csv')
+    RESULTS_2001_PATH = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2001-2017.csv')
     
     # Check if file already exists
-    if os.path.exists(results_2001_path):
+    if os.path.exists(RESULTS_2001_PATH):
         print("\nResults 2001-2017 already scraped\n")
         return
 
     print("\nScraping results (2001-2017)...")
     
     # Establish variables
-    urls = load_id_map(links_2001_2017_path)
+    urls = load_id_map(LINKS_2001_2017_PATH)
     min_col = 7
     max_col = 7
     col_idx_map = {
@@ -105,7 +106,7 @@ def scrape_2001_results():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping)
     print("   Saving results to file...")
-    df.to_csv(results_2001_path, encoding='utf-8', index=False)
+    df.to_csv(RESULTS_2001_PATH, encoding='utf-8', index=False)
     print("Result scraping complete\n")
 
 
@@ -115,17 +116,17 @@ def scrape_2001_results():
 def scrape_2016_pits():
     
     # Establish paths
-    pits_2016_path = os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw_2016-2017.csv')
+    PITS_2016_PATH = os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw_2016-2017.csv')
 
     # Check if file already exists
-    if os.path.exists(pits_2016_path):
+    if os.path.exists(PITS_2016_PATH):
         print("\nPit stops 2016-2017 already scraped\n")
         return
 
     print("\nScraping pit stops (2016-2017)...")
 
     # Create pit stop URLs
-    urls = load_id_map(links_2001_2017_path)
+    urls = load_id_map(LINKS_2001_2017_PATH)
     pit_urls = []
     for url in urls:
         if url.split('/')[5] in ['2016', '2017']:
@@ -155,7 +156,7 @@ def scrape_2016_pits():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping)
     print("   Saving pit stops to file...")
-    df.to_csv(pits_2016_path, encoding='utf-8', index=False)
+    df.to_csv(PITS_2016_PATH, encoding='utf-8', index=False)
     print("Pit stop scraping complete\n")
 
 
@@ -174,22 +175,22 @@ def scrape_2018_links():
     race_urls = []
 
     # Establish paths
-    rounds_path = os.path.join(PROJECT_ROOT, 'data/raw/rounds_raw.csv')
+    ROUNDS_PATH = os.path.join(PROJECT_ROOT, 'data/raw/rounds_raw.csv')
 
     # Find existing links and rounds
-    existing_links = load_id_map(links_2018_path)
+    existing_links = load_id_map(LINKS_2018_PATH)
     existing_year = None
     existing_round = 0
     
-    if os.path.exists(rounds_path) and len(existing_links) > 0:
+    if os.path.exists(ROUNDS_PATH) and len(existing_links) > 0:
         print("   Existing links and rounds found...")
-        existing_rounds = pd.read_csv(rounds_path)
+        existing_rounds = pd.read_csv(ROUNDS_PATH)
         last_url = existing_rounds['race_url'].iloc[-1]
         existing_year = int(last_url.split('/')[5])
         existing_round = int(existing_rounds['round_number'].iloc[-1])
         print(f"   Last existing: Year {existing_year}, Round {existing_round}")
         print("   Scraping new links and rounds...")
-    elif os.path.exists(rounds_path) and len(existing_links) <= 0:
+    elif os.path.exists(ROUNDS_PATH) and len(existing_links) <= 0:
         print("   Existing rounds found...")
         print("   No existing links found...")
         print("   Scraping all links and rounds...")
@@ -273,26 +274,26 @@ def scrape_2018_links():
     link_data = pd.DataFrame({'race_url': race_urls, 'round_number': round_number})
     
     # Check if rounds_raw.csv exists and append if it does
-    if os.path.exists(rounds_path) and len(race_urls) > 0:
+    if os.path.exists(ROUNDS_PATH) and len(race_urls) > 0:
         print("   Appending new rounds to existing file...")
-        existing_rounds = pd.read_csv(rounds_path)
+        existing_rounds = pd.read_csv(ROUNDS_PATH)
         combined_rounds = pd.concat([existing_rounds, link_data], ignore_index=True)
-        combined_rounds.to_csv(rounds_path, encoding='utf-8', index=False)
+        combined_rounds.to_csv(ROUNDS_PATH, encoding='utf-8', index=False)
     elif len(race_urls) > 0:
         print("   Creating new rounds file...")
-        link_data.to_csv(rounds_path, encoding='utf-8', index=False)
+        link_data.to_csv(ROUNDS_PATH, encoding='utf-8', index=False)
     else:
         print("   No new rounds to save")
 
     # Check if links_2018+.pkl exists and append if it does
-    if os.path.exists(links_2018_path) and len(race_urls) > 0:
+    if os.path.exists(LINKS_2018_PATH) and len(race_urls) > 0:
         print("   Appending new links to existing file...")
-        existing_links = load_id_map(links_2018_path)
+        existing_links = load_id_map(LINKS_2018_PATH)
         combined_links = existing_links + race_urls
-        save_id_map(links_2018_path, combined_links)
+        save_id_map(LINKS_2018_PATH, combined_links)
     elif len(race_urls) > 0:
         print("   Creating new links file...")
-        save_id_map(links_2018_path, race_urls)
+        save_id_map(LINKS_2018_PATH, race_urls)
     else:
         print("   No new links to save")
 
@@ -310,12 +311,12 @@ def scrape_2018_results():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
-    results_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+.csv')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    RESULTS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+.csv')
     
     # Check for new URLs
-    urls = check_new_urls(links_2018_path, successful_urls_path)
+    urls = check_new_urls(LINKS_2018_PATH, SUCCESSFUL_URLS_PATH)
     if len(urls) == 0:
         print(f"{title_cap} scraping complete\n")
         return
@@ -347,17 +348,17 @@ def scrape_2018_results():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
-        data_folder=data_folder_path,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
 
     # Handle appending new data or creating new file 
-    handle_appending(results_2018_path, df, title)
+    handle_appending(RESULTS_2018_PATH, df, title)
     
     # Handle successful url file
-    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    handle_successful_urls(SUCCESSFUL_URLS_PATH, SUCCESSFUL_URLS_TEMP_PATH)
     
     print(f"{title_cap} scraping complete\n")
 
@@ -373,12 +374,12 @@ def scrape_2018_practices():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
-    practices_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/practice_results_raw.csv')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    PRACTICES_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/practice_results_raw.csv')
     
     # Load race URLs
-    urls = load_id_map(links_2018_path)
+    urls = load_id_map(LINKS_2018_PATH)
     
     # Create practice URLs
     practice_urls = []
@@ -390,7 +391,7 @@ def scrape_2018_practices():
             practice_urls.append(practice_url)
     
     # Check for new URLs
-    new_urls = check_new_urls(practice_urls, successful_urls_path, from_file=False)
+    new_urls = check_new_urls(practice_urls, SUCCESSFUL_URLS_PATH, from_file=False)
     if len(new_urls) == 0:
         print(f"{title_cap} scraping complete\n")
         return
@@ -417,17 +418,17 @@ def scrape_2018_practices():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
-        data_folder=data_folder_path,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
     
     # Handle appending new data or creating new file
-    handle_appending(practices_2018_path, df, title)
+    handle_appending(PRACTICES_2018_PATH, df, title)
         
     # Handle successful url file
-    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    handle_successful_urls(SUCCESSFUL_URLS_PATH, SUCCESSFUL_URLS_TEMP_PATH)
     
     print(f"{title_cap} scraping complete\n")
 
@@ -443,12 +444,12 @@ def scrape_2018_qualifying():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
-    qualifying_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/qualifying_results_raw.csv')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    QUALIFYING_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/qualifying_results_raw.csv')
     
     # Load race URLs
-    urls = load_id_map(links_2018_path)
+    urls = load_id_map(LINKS_2018_PATH)
     
     # Create practice URLs
     qualifying_urls = []
@@ -457,7 +458,7 @@ def scrape_2018_qualifying():
         qualifying_urls.append(qual_url)
     
     # Check for new URLs
-    new_urls = check_new_urls(qualifying_urls, successful_urls_path, from_file=False)
+    new_urls = check_new_urls(qualifying_urls, SUCCESSFUL_URLS_PATH, from_file=False)
     if len(new_urls) == 0:
         print(f"{title_cap} scraping complete\n")
         return
@@ -485,17 +486,17 @@ def scrape_2018_qualifying():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
-        data_folder=data_folder_path,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
     
     # Handle appending new data or creating new file
-    handle_appending(qualifying_2018_path, df, title)
+    handle_appending(QUALIFYING_2018_PATH, df, title)
         
     # Handle successful url file
-    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    handle_successful_urls(SUCCESSFUL_URLS_PATH, SUCCESSFUL_URLS_TEMP_PATH)
     
     print(f"{title_cap} scraping complete\n")
 
@@ -512,12 +513,12 @@ def scrape_2018_starting_grid():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
-    starting_grid_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/starting_grid_results_raw.csv')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    STARTING_GRID_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/starting_grid_results_raw.csv')
     
     # Load race URLs
-    urls = load_id_map(links_2018_path)
+    urls = load_id_map(LINKS_2018_PATH)
     
     # Create starting grid URLs
     starting_urls = []
@@ -526,7 +527,7 @@ def scrape_2018_starting_grid():
         starting_urls.append(start_url)
     
     # Check for new URLs
-    new_urls = check_new_urls(starting_urls, successful_urls_path, from_file=False)
+    new_urls = check_new_urls(starting_urls, SUCCESSFUL_URLS_PATH, from_file=False)
     if len(new_urls) == 0:
         print(f"{title_cap} scraping complete\n")
         return
@@ -550,17 +551,17 @@ def scrape_2018_starting_grid():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
-        data_folder=data_folder_path,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
     
     # Handle appending new data or creating new file
-    handle_appending(starting_grid_2018_path, df, title)
+    handle_appending(STARTING_GRID_2018_PATH, df, title)
         
     # Handle successful url file
-    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    handle_successful_urls(SUCCESSFUL_URLS_PATH, SUCCESSFUL_URLS_TEMP_PATH)
     
     print(f"{title_cap} scraping complete\n")
 
@@ -577,12 +578,12 @@ def scrape_2018_pit_stops():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
-    pit_stops_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw.csv')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    PIT_STOPS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw.csv')
     
     # Load race URLs
-    urls = load_id_map(links_2018_path)
+    urls = load_id_map(LINKS_2018_PATH)
     
     # Create pit stop URLs
     pit_urls = []
@@ -591,7 +592,7 @@ def scrape_2018_pit_stops():
         pit_urls.append(ps_url)
     
     # Check for new URLs
-    new_urls = check_new_urls(pit_urls, successful_urls_path, from_file=False)
+    new_urls = check_new_urls(pit_urls, SUCCESSFUL_URLS_PATH, from_file=False)
     if len(new_urls) == 0:
         print(f"{title_cap} scraping complete\n")
         return
@@ -617,17 +618,17 @@ def scrape_2018_pit_stops():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
-        data_folder=data_folder_path,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
     
     # Handle appending new data or creating new file
-    handle_appending(pit_stops_2018_path, df, title)
+    handle_appending(PIT_STOPS_2018_PATH, df, title)
         
     # Handle successful url file
-    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    handle_successful_urls(SUCCESSFUL_URLS_PATH, SUCCESSFUL_URLS_TEMP_PATH)
     
     print(f"{title_cap} scraping complete\n")
 
@@ -644,12 +645,12 @@ def scrape_2018_fastest_laps():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
-    fastest_laps_2018_path = os.path.join(PROJECT_ROOT, 'data/raw/fastest_lap_results_raw.csv')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    FASTEST_LAPS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/fastest_lap_results_raw.csv')
     
     # Load race URLs
-    urls = load_id_map(links_2018_path)
+    urls = load_id_map(LINKS_2018_PATH)
     
     # Create fastest lap URLs
     fastest_lap_urls = []
@@ -658,7 +659,7 @@ def scrape_2018_fastest_laps():
         fastest_lap_urls.append(fastest_url)
     
     # Check for new URLs
-    new_urls = check_new_urls(fastest_lap_urls, successful_urls_path, from_file=False)
+    new_urls = check_new_urls(fastest_lap_urls, SUCCESSFUL_URLS_PATH, from_file=False)
     if len(new_urls) == 0:
         print(f"{title_cap} scraping complete\n")
         return
@@ -683,17 +684,17 @@ def scrape_2018_fastest_laps():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
-        data_folder=data_folder_path,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
     
     # Handle appending new data or creating new file
-    handle_appending(fastest_laps_2018_path, df, title)
+    handle_appending(FASTEST_LAPS_2018_PATH, df, title)
         
     # Handle successful url file
-    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    handle_successful_urls(SUCCESSFUL_URLS_PATH, SUCCESSFUL_URLS_TEMP_PATH)
     
     print(f"{title_cap} scraping complete\n")
 
@@ -710,12 +711,12 @@ def scrape_2018_driver_codes():
     print(f"\nScraping {title} (2018+)...")
 
     # Establish paths
-    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
-    driver_code_path = os.path.join(PROJECT_ROOT, 'data/raw/driver_code_map.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    DRIVER_CODE_PATH = os.path.join(PROJECT_ROOT, 'data/raw/driver_code_map.pkl')
 
     # Load race URLs
-    urls = load_id_map(links_2018_path)
+    urls = load_id_map(LINKS_2018_PATH)
 
     # Create practice URLs
     practice_urls = []
@@ -727,7 +728,7 @@ def scrape_2018_driver_codes():
             practice_urls.append(practice_url)
 
     # Check for new URLs
-    new_urls = check_new_urls(practice_urls, successful_urls_path, from_file=False)
+    new_urls = check_new_urls(practice_urls, SUCCESSFUL_URLS_PATH, from_file=False)
     if len(new_urls) == 0:
         print(f"{title_cap} scraping complete\n")
         return
@@ -811,9 +812,9 @@ def scrape_2018_driver_codes():
     print(f"   Failed URLs: {len(failed_urls)}")
 
     # Read current driver code file if it exists
-    driver_code_file = os.path.exists(driver_code_path)
+    driver_code_file = os.path.exists(DRIVER_CODE_PATH)
     if driver_code_file:
-        with open(driver_code_path, "rb") as f:
+        with open(DRIVER_CODE_PATH, "rb") as f:
             existing_codes = pickle.load(f)
     else:
         existing_codes = {}
@@ -830,13 +831,13 @@ def scrape_2018_driver_codes():
         else:
             print(f"   Creating new {title} file...")
         updated_codes = {**existing_codes, **new_to_add}
-        with open(driver_code_path, "wb") as f:
+        with open(DRIVER_CODE_PATH, "wb") as f:
             pickle.dump(updated_codes, f)
     else:
         print(f"   No new {title} to save")
         
     # Handle successful url file
-    save_id_map(successful_urls_temp_path, successful_urls)
-    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+    save_id_map(SUCCESSFUL_URLS_TEMP_PATH, successful_urls)
+    handle_successful_urls(SUCCESSFUL_URLS_PATH, SUCCESSFUL_URLS_TEMP_PATH)
 
     print(f"{title_cap} scraping complete\n")
