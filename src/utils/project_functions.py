@@ -7,10 +7,12 @@
 # ==============================================================================================
 
 import pandas as pd
+import numpy as np
 import time, os, sys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from sklearn.linear_model import LinearRegression
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
@@ -627,3 +629,23 @@ def check_new_urls(current_path, successful_path, from_file=True):
         print("   No new links found")
     
     return urls
+
+# ==============================================================================================
+# VI. Calculate Degradation Rate
+# ==============================================================================================
+
+def get_degradation_rate(lap_times, lap_numbers):
+    """
+    Calculates the degradation rate of tyres based on a linear regression
+
+    """
+    valid_mask = ~np.isnan(lap_times)
+    clean_lap_times = lap_times[valid_mask]
+    clean_lap_numbers = lap_numbers[valid_mask]
+    
+    if len(clean_lap_times) > 3:
+        X = np.array(clean_lap_numbers).reshape(-1, 1)
+        y = np.array(clean_lap_times)
+        model = LinearRegression().fit(X, y)
+        return model.coef_[0]
+    return np.nan
