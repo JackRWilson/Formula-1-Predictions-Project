@@ -14,7 +14,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
-from scraping.scrape_fastf1 import LINKS_2001_2017_PATH
 from src.utils.utils import load_id_map, save_id_map, create_browser, print_progress_bar, scrape_url_table
 from src.utils.project_functions import constructor_mapping, get_date, handle_appending, handle_successful_urls, check_new_urls
 
