@@ -6,7 +6,7 @@
 
 # Import modules
 import pandas as pd
-import os, sys
+import os, sys, time, pickle
 from datetime import datetime
 from selenium.webdriver.common.by import By
 
@@ -14,7 +14,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
-from src.utils.utils import load_id_map, save_id_map, create_browser, scrape_url_table
+from src.utils.utils import load_id_map, save_id_map, create_browser, print_progress_bar, scrape_url_table
 from src.utils.project_functions import constructor_mapping, get_date, handle_appending, handle_successful_urls, check_new_urls
 
 data_folder_path = os.path.join(PROJECT_ROOT, 'data/raw')
@@ -695,4 +695,148 @@ def scrape_2018_fastest_laps():
     # Handle successful url file
     handle_successful_urls(successful_urls_path, successful_urls_temp_path)
     
+    print(f"{title_cap} scraping complete\n")
+
+
+# --------------------------------------------------------------------------------
+# Driver Code Map 2018+
+
+def scrape_2018_driver_codes():
+
+    # Establish title
+    title = 'driver codes'
+    title_cap = title.capitalize()
+    title_file = 'driver_codes'
+    print(f"\nScraping {title} (2018+)...")
+
+    # Establish paths
+    successful_urls_temp_path = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+    successful_urls_path = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    driver_code_path = os.path.join(PROJECT_ROOT, 'data/raw/driver_code_map.pkl')
+
+    # Load race URLs
+    urls = load_id_map(links_2018_path)
+
+    # Create practice URLs
+    practice_urls = []
+    for url in urls:
+        emilia_romagna_2020 = url.split('/')[5] == '2020' and url.split('/')[8] == 'emilia-romagna'
+        practice_nums = [0] if emilia_romagna_2020 else [1, 2, 3]
+        for practice_num in practice_nums:
+            practice_url = url.replace('/race-result', f'/practice/{practice_num}')
+            practice_urls.append(practice_url)
+
+    # Check for new URLs
+    new_urls = check_new_urls(practice_urls, successful_urls_path, from_file=False)
+    if len(new_urls) == 0:
+        print(f"{title_cap} scraping complete\n")
+        return
+    print(f"   Found {len(new_urls)} new links...")
+
+    # Scrape results
+    print(f"   Scraping {title}...")
+    browser = create_browser()
+    total_urls = len(new_urls)
+    driver_code_map = {}
+    failed_urls = []
+    successful_urls = []
+
+    print(f"\n   Scraping {total_urls} URLs...")
+    for i, url in enumerate(new_urls, start=1):
+        # Update progress bar
+        print_progress_bar(i, total_urls)
+        
+        # Validate URL
+        try:
+            browser.get(url)
+            time.sleep(0.5)
+        
+            # Parse URLs
+            tables = browser.find_elements(By.TAG_NAME, "table")
+            if not tables:
+                successful_urls.append(url)
+                continue
+            for table in tables:
+                rows = table.find_elements(By.TAG_NAME, "tr")[1:]
+                for row in rows:
+                    try:
+                        cells = row.find_elements(By.TAG_NAME, "td")
+                        if len(cells) < 3:
+                            continue
+                        driver_cell = cells[2]
+                        
+                        # Extract name and code
+                        try:
+                            # Get all span text
+                            all_spans = driver_cell.find_elements(By.TAG_NAME, 'span')
+                            
+                            # Collect name parts
+                            name_parts = []
+                            driver_code = ''
+                            
+                            for span in all_spans:
+                                classes = span.get_attribute('class') or ''
+                                text = span.get_attribute('textContent').strip()
+                                if not text:
+                                    continue
+                                
+                                # Name spans
+                                if 'max-lg:hidden' in classes or 'max-md:hidden' in classes:
+                                    name_parts.append(text)
+                                # Code span
+                                elif 'md:hidden' in classes and not driver_code:
+                                    driver_code = text
+
+                            full_name = " ".join(name_parts)
+                            
+                            # Save if we have both name and code and haven't seen this name
+                            if full_name and driver_code and full_name not in driver_code_map:
+                                driver_code_map[full_name] = driver_code
+                        
+                        except Exception:
+                            continue
+                    except Exception:
+                        continue
+            
+            # Append URL if successful
+            successful_urls.append(url)
+        
+        except Exception:
+            failed_urls.append(url)
+            continue
+
+    browser.close()
+    
+    print(f"   \nNew drivers found: {len(driver_code_map)}")
+    print(f"   Failed URLs: {len(failed_urls)}")
+
+    # Read current driver code file if it exists
+    driver_code_file = os.path.exists(driver_code_path)
+    if driver_code_file:
+        with open(driver_code_path, "rb") as f:
+            existing_codes = pickle.load(f)
+    else:
+        existing_codes = {}
+
+    # Determine which are new
+    new_to_add = {}
+    for k, v in driver_code_map.items():
+        if k not in existing_codes:
+            new_to_add[k] = v
+
+    if new_to_add:
+        if driver_code_file:
+            print(f"   \nAppending new {title} to existing file...")
+        else:
+            print(f"   Creating new {title} file...")
+        updated_codes = {**existing_codes, **new_to_add}
+        with open(driver_code_path, "wb") as f:
+            pickle.dump(updated_codes, f)
+    else:
+        print(f"   No new {title} to save")
+        
+    # Handle successful url file
+    save_id_map(successful_urls_temp_path, successful_urls)
+    handle_successful_urls(successful_urls_path, successful_urls_temp_path)
+
     print(f"{title_cap} scraping complete\n")
