@@ -581,12 +581,12 @@ def handle_successful_urls(successful_urls_path, successful_urls_temp_path):
             # Save combined URLs and remove temp file
             save_id_map(successful_urls_path, combined_urls)
             os.remove(successful_urls_temp_path)
-            print(f"   Added {len(new_urls)} successful URLs to list")
+            print(f"\n   Added {len(new_urls)} successful URLs to list")
         else:
-            print("   No new successful URLs found to add")
+            print("\n   No new successful URLs found to add")
             
     except Exception as e:
-        print(f"Failed to handle successful URL file: {e}")
+        print(f"\n   Failed to handle successful URL file: {e}")
 
 
 # ==============================================================================================
@@ -678,3 +678,79 @@ def compute_compound_stats(comp_data, compound):
         f'laps_on_{compound.lower()}': len(lap_times),
         f'deg_rate_{compound.lower()}': get_degradation_rate(lap_times, lap_numbers),
     }
+
+
+# ==============================================================================================
+# VIII. Process and Aggregate Lap Files
+# ==============================================================================================
+
+def process_file(filepath):
+    """
+    Process a single laps file and return aggregated driver stats
+    
+    """
+    print(f"Processing: {filepath.name}")
+    
+    fh = pd.read_parquet(filepath)
+    
+    # Filter rows
+    filtered_data = fh[
+        (fh['TrackStatus'] == '1')  # No flags
+        & fh['PitOutTime'].isna()  # Not an OUT lap
+        & fh['PitInTime'].isna()  # Not an IN lap
+        & fh['IsAccurate'] == True  # Full lap completed and is accurate
+        & (fh['LapTime'] < fh['LapTime'].quantile(0.95))  # Get rid of outliers
+    ].copy()
+    
+    if len(filtered_data) == 0:
+        print(f"   No data after filtering")
+        return pd.DataFrame()
+    
+    # Convert lap times
+    filtered_data['LapTime'] = filtered_data['LapTime'].dt.total_seconds()
+    filtered_data = filtered_data[filtered_data['LapTime'].notna()].copy()
+    
+    # Map driver codes and add metadata
+    filtered_data['driver_id'] = filtered_data['Driver'].map(code_to_name_map).map(driver_id_map)
+    if 'race_id' in fh.columns:
+        filtered_data['race_id'] = fh.loc[filtered_data.index, 'race_id']
+    if 'session' in fh.columns:
+        filtered_data['session'] = fh.loc[filtered_data.index, 'session']
+    
+    # Extract year from filename for compound mapping
+    year = int(filepath.stem.split('_')[0])
+    
+    # Apply compound mapping for 2018
+    if year == 2018:
+        compound_mapping = {
+            'SUPERSOFT': 'SOFT',
+            'HYPERSOFT': 'SOFT',
+            'ULTRASOFT': 'SOFT',
+            'SOFT': 'MEDIUM',
+            'MEDIUM': 'HARD',
+            'HARD': 'HARD'
+        }
+        filtered_data['Compound'] = filtered_data['Compound'].map(compound_mapping).fillna(filtered_data['Compound'])
+    
+    # Aggregate by driver
+    compounds = ['SOFT', 'MEDIUM', 'HARD', 'INTERMEDIATE', 'WET']
+    summaries = []
+    
+    for driver, group in filtered_data.groupby('Driver'):
+        summary = {'driver_name': driver}
+        
+        # Add metadata from first row
+        for col in ['driver_id', 'race_id', 'session']:
+            if col in group.columns:
+                summary[col] = group[col].iloc[0]
+        
+        # Add compound stats
+        for comp in compounds:
+            comp_data = group[group['Compound'] == comp]
+            summary.update(compute_compound_stats(comp_data, comp))
+        
+        summaries.append(summary)
+    
+    result = pd.DataFrame(summaries)
+    print(f"    Created {len(result)} driver records")
+    return result
