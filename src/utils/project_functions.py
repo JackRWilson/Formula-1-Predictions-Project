@@ -581,12 +581,12 @@ def handle_successful_urls(successful_urls_path, successful_urls_temp_path):
             # Save combined URLs and remove temp file
             save_id_map(successful_urls_path, combined_urls)
             os.remove(successful_urls_temp_path)
-            print(f"\n   Added {len(new_urls)} successful URLs to list")
+            print(f"   Added {len(new_urls)} successful URLs to list")
         else:
-            print("\n   No new successful URLs found to add")
+            print("   No new successful URLs found to add")
             
     except Exception as e:
-        print(f"\n   Failed to handle successful URL file: {e}")
+        print(f"   Failed to handle successful URL file: {e}")
 
 
 # ==============================================================================================
