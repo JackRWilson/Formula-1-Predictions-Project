@@ -14,25 +14,33 @@ if PROJECT_ROOT not in sys.path:
 from src.utils.utils import compare_data_files
 from src.scraping.scrape_f1_site import scrape_2001_links, scrape_2001_results, scrape_2016_pits
 from src.scraping.scrape_f1_site import scrape_2018_links, scrape_2018_results, scrape_2018_practices, scrape_2018_qualifying, scrape_2018_starting_grid, scrape_2018_pit_stops, scrape_2018_fastest_laps, scrape_2018_driver_codes
+from src.scraping.scrape_fastf1 import collect_fastf1_data
 
 # --------------------------------------------------------------------------------
 
-# Testing functions
+def main():
 
-# 2001-2017 functions
-scrape_2001_links()
-scrape_2001_results()
-scrape_2016_pits()
+    # F1 Site 2001-2017
+    # scrape_2001_links()
+    # scrape_2001_results()
+    # scrape_2016_pits()
 
-# 2018+ functions
-scrape_2018_links()
-scrape_2018_results()
-scrape_2018_practices()
-scrape_2018_qualifying()
-scrape_2018_starting_grid()
-scrape_2018_pit_stops()
-scrape_2018_fastest_laps()
-scrape_2018_driver_codes()
+    # F1 Site 2018+
+    # scrape_2018_links()
+    # scrape_2018_results()
+    # scrape_2018_practices()
+    # scrape_2018_qualifying()
+    # scrape_2018_starting_grid()
+    # scrape_2018_pit_stops()
+    # scrape_2018_fastest_laps()
+    # scrape_2018_driver_codes()
+    
+    # FastF1
+    collect_fastf1_data()
+
+
+if __name__ == "__main__":
+    main()
 
 
 # --------------------------------------------------------------------------------
