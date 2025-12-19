@@ -107,7 +107,6 @@ def collect_fastf1_data():
     # Establish successful and ID variables
     successful_urls = []
     failed_urls = []
-    start_time = time.time()
     current_session_idx = 0
     print(f"\n   Processing {total_races} races ({total_sessions} sessions)...")
 
@@ -127,7 +126,7 @@ def collect_fastf1_data():
         # Launch a subprocess for each session within the race
         for session_name in sessions:
             current_session_idx += 1
-            print_progress_bar(current_session_idx, total_sessions, start_time=start_time)
+            print_progress_bar(current_session_idx, total_sessions)
             result = subprocess.run(
                 [sys.executable, __file__, "--race", str(year), gp.replace(' ', '_'), str(race_id_value), CACHE_PATH, FASTF1_PATH, session_name],
                 check=False,
@@ -144,11 +143,8 @@ def collect_fastf1_data():
             failed_urls.append(url)
         time.sleep(1)
 
-    # Update progress bar
-    print_progress_bar(total_sessions, total_sessions, start_time=start_time)
-    print("\n")
-
     # Display failed URLs
+    print("\n\n")
     if len(failed_urls) > 0:
         print(f"   Failed to process {len(failed_urls)} links:")
         for failed in failed_urls:
