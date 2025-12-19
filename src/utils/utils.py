@@ -11,6 +11,7 @@ import numpy as np
 import os, time, tempfile, shutil
 import pickle
 import requests
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -116,15 +117,40 @@ def create_browser():
     return browser
 
 
-def print_progress_bar(current, total, bar_length=40):
+def print_progress_bar(current, total, bar_length=40, start_time=None):
     """
-    Print a progress bar that updates on the same line
-     
+    Print a progress bar with ETA that updates on the same lines
+    
     """
     percent = current * 100 // total
     filled = bar_length * current // total
     bar = '█' * filled + '-' * (bar_length - filled)
-    print(f"\r   Progress: [{bar}] {current}/{total} ({percent}%)", end='', flush=True)
+    
+    # Calculate ETA
+    eta_str = "Calculating..."
+    if start_time and current > 0:
+        elapsed = time.time() - start_time
+        if elapsed > 0:
+            rate = current / elapsed
+            if rate > 0:
+                remaining = (total - current) / rate
+        
+                # Format time nicely
+                if remaining < 60:
+                    eta_str = f"{int(remaining)}s"
+                elif remaining < 3600:
+                    mins = int(remaining // 60)
+                    secs = int(remaining % 60)
+                    eta_str = f"{mins}m {secs}s"
+                else:
+                    hours = int(remaining // 3600)
+                    mins = int((remaining % 3600) // 60)
+                    eta_str = f"{hours}h {mins}m"
+    
+    # Print progress bar and ETA
+    print(f"\r   Progress: [{bar}] {current}/{total} ({percent}%)", end='')
+    print(f"\n   ETA: {eta_str}           ", end='', flush=True)
+    print("\033[A", end='', flush=True)
 
 
 def scrape_url_table(
