@@ -9,6 +9,7 @@ import pandas as pd
 import os, sys, gc, time, subprocess
 import fastf1
 import logging
+from pathlib import Path
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
@@ -20,6 +21,7 @@ from src.utils.project_functions import check_new_urls, handle_successful_urls, 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 LINKS_2001_2017_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
 LINKS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
+SUCCESSFUL_URL_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
 FASTF1_PATH = os.path.join(PROJECT_ROOT, 'data/raw/fastf1')
 CACHE_PATH = os.path.join(PROJECT_ROOT, 'data/cache')
 os.makedirs(FASTF1_PATH, exist_ok=True)
@@ -91,7 +93,6 @@ def collect_fastf1_data():
     # Establish paths
     urls = load_id_map(LINKS_2018_PATH)
     race_id_map = load_id_map(os.path.join(PROJECT_ROOT, 'data/raw/race_id_map.pkl'))
-    SUCCESSFUL_URL_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
     SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_fastf1.pkl')
 
     # Check for new URLs
@@ -165,31 +166,77 @@ if __name__ == "__main__":
 # Laps
 
 def aggregate_laps():
-    # Load maps
-    driver_id_map = pd.read_pickle('../data/raw/driver_id_map.pkl')
-    race_id_map = pd.read_pickle('../data/raw/race_id_map.pkl')
-    circuit_id_map = pd.read_pickle('../data/raw/circuit_id_map.pkl')
-    driver_code_map = pd.read_pickle('../data/raw/driver_code_map.pkl')
+    
+    print("\nAggregating lap data...")
 
-    code_to_name_map = {code: name for name, code in driver_code_map.items()}
-    print("Collecting lap by lap data...")
-    # Glob all lap files
-    laps_files = sorted(fastf1_path.glob('*_laps.parquet'))
+    # Load paths
+    AGG_LAPS_PATH = os.path.join(PROJECT_ROOT, 'data/raw/lap_results_raw.csv')
+    DRIVER_ID_PATH = os.path.join(PROJECT_ROOT, 'data/raw/driver_id_map.pkl')
+    DRIVER_CODE_PATH = os.path.join(PROJECT_ROOT, 'data/raw/driver_code_map.pkl')
+    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_laps.pkl')
+    FASTF1_PATH_FORMAT = Path(FASTF1_PATH)
+    try:
+        # Load maps
+        lap_results = pd.read_csv(AGG_LAPS_PATH)
+        driver_id_map = load_id_map(DRIVER_ID_PATH)
+        driver_code_map = load_id_map(DRIVER_CODE_PATH)
+        code_to_name_map = {code: name for name, code in driver_code_map.items()}
+        
+        # Init lists
+        results_list = []
+        successful_urls = []
+        failed_files = []
 
-    print(f"Found {len(laps_files)} files with 'laps' in name\n")
+        # Glob all new lap files
+        print("   Checking for new laps files...")
+        existing_urls = load_id_map(SUCCESSFUL_URL_PATH)
+        existing_urls_set = set([Path(url) for url in existing_urls])
+        all_laps_files = sorted(FASTF1_PATH_FORMAT.glob('*_laps.parquet'))
+        laps_files = [fp for fp in all_laps_files if fp not in existing_urls_set]
+        total_files = len(laps_files)
+        if total_files == 0:
+            print("   No new files found")
+            print(f"Lap aggregation complete\n")
+            return
+        print(f"   Found {len(laps_files)} new files...\n")
 
-    lap_results = pd.DataFrame()
+        # Process each lap file
+        print(f"   Aggregating {len(laps_files)} files...")
+        for i, filepath in enumerate(laps_files, start=1):
+            try:
+                file_result = process_file(filepath, code_to_name_map=code_to_name_map, driver_id_map=driver_id_map)
+                if not file_result.empty:
+                    results_list.append(file_result)
+                    successful_urls.append(filepath)
+            except Exception as e:
+                print(f"   Warning: Failed to process {filepath.name}: {e}")
+                failed_files.append(filepath)
+                continue
 
-    for filepath in laps_files:
-        file_result = process_file(filepath)
-        if not file_result.empty:
-            lap_results = pd.concat([lap_results, file_result], ignore_index=True)
+            # Update progress bar
+            print_progress_bar(i, total_files)
 
-    # Count rows where all compound lap counts are 0 (null)
-    compound_columns = ['laps_on_soft', 'laps_on_medium', 'laps_on_hard', 'laps_on_intermediate', 'laps_on_wet']
-    all_null_count = ((lap_results[compound_columns] == 0) | lap_results[compound_columns].isna()).all(axis=1).sum()
+        # Concat all results
+        if results_list:
+            new_lap_results = pd.concat(results_list, ignore_index=True)
+        else:
+            new_lap_results = pd.DataFrame()
+        
+        # Append new results
+        all_lap_results = pd.concat([lap_results, new_lap_results], ignore_index=True)
+        print(f"\n   Shape: {all_lap_results.shape}")
+        if failed_files:
+            print(f"   Failed files: {len(failed_files)}")
+        print()
+        
+        # Handle successful url file
+        save_id_map(SUCCESSFUL_URL_TEMP_PATH, successful_urls)
+        handle_successful_urls(SUCCESSFUL_URL_PATH, SUCCESSFUL_URL_TEMP_PATH)
 
-    print(f"Rows with no laps on any compound: {all_null_count}")
-    print(f"\nShape: {lap_results.shape}\n")
-
-    lap_results.to_csv('../data/raw/lap_results_raw.csv', encoding='utf-8', index=False)
+        # Save csv
+        all_lap_results.to_csv(AGG_LAPS_PATH, encoding='utf-8', index=False)
+        print(f"Lap aggregation complete\n")
+    
+    except Exception as e:
+        print(f"Error during lap aggregation: {e}")
+        raise

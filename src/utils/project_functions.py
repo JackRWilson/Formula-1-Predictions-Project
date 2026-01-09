@@ -684,13 +684,11 @@ def compute_compound_stats(comp_data, compound):
 # VIII. Process and Aggregate Lap Files
 # ==============================================================================================
 
-def process_file(filepath):
+def process_file(filepath, code_to_name_map, driver_id_map):
     """
     Process a single laps file and return aggregated driver stats
     
     """
-    print(f"Processing: {filepath.name}")
-    
     fh = pd.read_parquet(filepath)
     
     # Filter rows
@@ -703,7 +701,7 @@ def process_file(filepath):
     ].copy()
     
     if len(filtered_data) == 0:
-        print(f"   No data after filtering")
+        print(f"      No data after filtering")
         return pd.DataFrame()
     
     # Convert lap times
@@ -752,5 +750,4 @@ def process_file(filepath):
         summaries.append(summary)
     
     result = pd.DataFrame(summaries)
-    print(f"    Created {len(result)} driver records")
     return result
