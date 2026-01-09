@@ -15,7 +15,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
-from src.utils.utils import load_id_map, save_id_map, print_progress_bar
+from src.utils.utils import load_id_map, save_id_map, print_progress_bar, aggregate_columns
 from src.utils.project_functions import check_new_urls, handle_successful_urls, process_file
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
@@ -175,6 +175,7 @@ def aggregate_laps():
     DRIVER_CODE_PATH = os.path.join(PROJECT_ROOT, 'data/raw/driver_code_map.pkl')
     SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_laps.pkl')
     FASTF1_PATH_FORMAT = Path(FASTF1_PATH)
+    
     try:
         # Load maps
         lap_results = pd.read_csv(AGG_LAPS_PATH)
@@ -236,6 +237,88 @@ def aggregate_laps():
         # Save csv
         all_lap_results.to_csv(AGG_LAPS_PATH, encoding='utf-8', index=False)
         print(f"Lap aggregation complete\n")
+    
+    except Exception as e:
+        print(f"Error during lap aggregation: {e}")
+        raise
+
+
+# --------------------------------------------------------------------------------
+# Weather
+
+def aggregate_weather():
+    
+    print("\nAggregating weather data...")
+
+    # Load paths
+    AGG_WEATHER_PATH = os.path.join(PROJECT_ROOT, 'data/raw/weather_results_raw.csv')
+    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_weather.pkl')
+    FASTF1_PATH_FORMAT = Path(FASTF1_PATH)
+    
+    try:
+        # Load maps
+        weather_results = pd.read_csv(AGG_WEATHER_PATH)
+    
+        # Init lists
+        results_list = []
+        successful_urls = []
+        failed_files = []
+
+        # Init columns to aggregate
+        numeric_columns = ['AirTemp', 'TrackTemp', 'WindSpeed', 'Humidity', 'Pressure']
+        boolean_columns = ['Rainfall']
+        string_columns = ['race_id', 'session']
+
+        # Glob all new weather files
+        print("   Checking for new weather files...")
+        existing_urls = load_id_map(SUCCESSFUL_URL_PATH)
+        existing_urls_set = set([Path(url) for url in existing_urls])
+        all_weather_files = sorted(FASTF1_PATH_FORMAT.glob('*_weather.parquet'))
+        weather_files = [fp for fp in all_weather_files if fp not in existing_urls_set]
+        total_files = len(weather_files)
+        if total_files == 0:
+            print("   No new files found")
+            print(f"Weather aggregation complete\n")
+            return
+        print(f"   Found {len(weather_files)} new files...\n")
+
+        # Aggregate each weather file
+        print(f"   Aggregating {len(weather_files)} files...")
+        for i, filepath in enumerate(weather_files, start=1):
+            try:
+                fh = pd.read_parquet(filepath)
+                file_result = aggregate_columns(df=fh, columns=numeric_columns, boolean_columns=boolean_columns, string_columns=string_columns)
+                if not file_result.empty:
+                    results_list.append(file_result)
+                    successful_urls.append(filepath)
+            except Exception as e:
+                print(f"   Warning: Failed to process {filepath.name}: {e}")
+                failed_files.append(filepath)
+                continue
+
+            # Update progress bar
+            print_progress_bar(i, total_files)
+
+        # Concat all results
+        if results_list:
+            new_weather_results = pd.concat(results_list, ignore_index=True)
+        else:
+            new_weather_results = pd.DataFrame()
+        
+        # Append new results
+        all_weather_results = pd.concat([weather_results, new_weather_results], ignore_index=True)
+        print(f"\n   Shape: {all_weather_results.shape}")
+        if failed_files:
+            print(f"   Failed files: {len(failed_files)}")
+        print()
+        
+        # Handle successful url file
+        save_id_map(SUCCESSFUL_URL_TEMP_PATH, successful_urls)
+        handle_successful_urls(SUCCESSFUL_URL_PATH, SUCCESSFUL_URL_TEMP_PATH)
+
+        # Save csv
+        all_weather_results.to_csv(AGG_WEATHER_PATH, encoding='utf-8', index=False)
+        print(f"Weather aggregation complete\n")
     
     except Exception as e:
         print(f"Error during lap aggregation: {e}")
