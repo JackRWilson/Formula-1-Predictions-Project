@@ -751,3 +751,66 @@ def process_lap_file(filepath, code_to_name_map, driver_id_map):
     
     result = pd.DataFrame(summaries)
     return result
+
+
+# ==============================================================================================
+# IX. Process and Aggregate Flag Files
+# ==============================================================================================
+
+def process_flag_file(filepath, basic_count_flags, string_columns):
+    """
+    Process a single flag file and return aggregated stats
+    
+    """
+    
+    fh = pd.read_parquet(filepath)
+
+    # Initialize aggregation dictionary
+    agg = {}
+    
+    # Count each flag type
+    if 'Flag' in fh.columns:
+        for flag in basic_count_flags:
+            agg[f'flag_{flag.lower().replace(" ", "_")}_count'] = (fh['Flag'] == flag).sum()
+    
+    # Count safety car deployments
+    if all(col in fh.columns for col in ['Category', 'Status', 'Message']):
+        sc_deployments = fh[(fh['Category'] == 'SafetyCar') & (fh['Status'] == 'DEPLOYED') & 
+                           (~fh['Message'].str.contains('VIRTUAL', case=False, na=False))]
+        agg['safety_car_deployments'] = len(sc_deployments)
+    
+    # Count virtual safety Car deployments
+    if all(col in fh.columns for col in ['Category', 'Status', 'Message']):
+        vsc_deployments = fh[(fh['Category'] == 'SafetyCar') & (fh['Status'] == 'DEPLOYED') & 
+                            (fh['Message'].str.contains('VIRTUAL', case=False, na=False))]
+        agg['virtual_safety_car_deployments'] = len(vsc_deployments)
+    
+    # Calculate safety car lap percentages
+    if 'Lap' in fh.columns:
+        total_laps = fh['Lap'].max()
+        if total_laps > 0:
+            # Find all SC laps
+            sc_deployed_laps = fh[(fh['Category'] == 'SafetyCar') & (fh['Status'] == 'DEPLOYED') & 
+                                 (~fh['Message'].str.contains('VIRTUAL', case=False, na=False))]['Lap'].values
+            sc_in_laps = fh[(fh['Category'] == 'SafetyCar') & (fh['Status'] == 'IN THIS LAP') & 
+                           (~fh['Message'].str.contains('VIRTUAL', case=False, na=False))]['Lap'].values
+            
+            # Find all VSC laps
+            vsc_deployed_laps = fh[(fh['Category'] == 'SafetyCar') & (fh['Status'] == 'DEPLOYED') & 
+                                  (fh['Message'].str.contains('VIRTUAL', case=False, na=False))]['Lap'].values
+            vsc_ending_laps = fh[(fh['Category'] == 'SafetyCar') & (fh['Status'] == 'ENDING') & 
+                                (fh['Message'].str.contains('VIRTUAL', case=False, na=False))]['Lap'].values
+            
+            # Sum up all the safety car periods
+            total_sc_laps = sum(sc_in_laps[i] - sc_deployed_laps[i] + 1 for i in range(min(len(sc_deployed_laps), len(sc_in_laps))))
+            total_vsc_laps = sum(vsc_ending_laps[i] - vsc_deployed_laps[i] + 1 for i in range(min(len(vsc_deployed_laps), len(vsc_ending_laps))))
+            agg['total_sc_laps'] = total_sc_laps
+            agg['total_vsc_laps'] = total_vsc_laps
+    
+    # Add string columns
+    for col in string_columns:
+        if col in fh.columns and not fh[col].empty:
+            agg[col] = fh[col].iloc[0]
+    
+    result = pd.DataFrame([agg])
+    return result
