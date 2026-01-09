@@ -684,7 +684,7 @@ def compute_compound_stats(comp_data, compound):
 # VIII. Process and Aggregate Lap Files
 # ==============================================================================================
 
-def process_file(filepath, code_to_name_map, driver_id_map):
+def process_lap_file(filepath, code_to_name_map, driver_id_map):
     """
     Process a single laps file and return aggregated driver stats
     

@@ -16,7 +16,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import load_id_map, save_id_map, print_progress_bar, aggregate_columns
-from src.utils.project_functions import check_new_urls, handle_successful_urls, process_file
+from src.utils.project_functions import check_new_urls, handle_successful_urls, process_lap_file
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 LINKS_2001_2017_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
@@ -205,7 +205,7 @@ def aggregate_laps():
         print(f"   Aggregating {len(laps_files)} files...")
         for i, filepath in enumerate(laps_files, start=1):
             try:
-                file_result = process_file(filepath, code_to_name_map=code_to_name_map, driver_id_map=driver_id_map)
+                file_result = process_lap_file(filepath, code_to_name_map=code_to_name_map, driver_id_map=driver_id_map)
                 if not file_result.empty:
                     results_list.append(file_result)
                     successful_urls.append(filepath)
@@ -323,3 +323,7 @@ def aggregate_weather():
     except Exception as e:
         print(f"Error during lap aggregation: {e}")
         raise
+
+# --------------------------------------------------------------------------------
+# Flags
+
