@@ -3,8 +3,8 @@
 # This file collects all data from the FastF1 API
 
 # --------------------------------------------------------------------------------
-
 # Import modules
+
 import pandas as pd
 import os, sys, gc, time, subprocess
 import fastf1
@@ -26,6 +26,7 @@ FASTF1_PATH = os.path.join(PROJECT_ROOT, 'data/raw/fastf1')
 CACHE_PATH = os.path.join(PROJECT_ROOT, 'data/cache')
 os.makedirs(FASTF1_PATH, exist_ok=True)
 os.makedirs(CACHE_PATH, exist_ok=True)
+
 
 # --------------------------------------------------------------------------------
 # All FastF1 Data

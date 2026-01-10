@@ -3,8 +3,8 @@
 # This file scrapes all data from the official F1 site
 
 # --------------------------------------------------------------------------------
-
 # Import modules
+
 import pandas as pd
 import os, sys, time, pickle
 from datetime import datetime
@@ -20,6 +20,7 @@ from src.utils.project_functions import constructor_mapping, get_date, handle_ap
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 LINKS_2001_2017_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
 LINKS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
+
 
 # --------------------------------------------------------------------------------
 # Race Links 2001-2017
