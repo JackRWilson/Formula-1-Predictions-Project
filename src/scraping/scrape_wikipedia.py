@@ -12,7 +12,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
-from src.utils.utils import load_id_map, save_id_map, create_browser, print_progress_bar, scrape_url_table
+from src.utils.utils import scrape_url_table
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 
