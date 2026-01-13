@@ -15,6 +15,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from urllib.parse import quote
 
 
 # ==============================================================================================
@@ -476,7 +477,7 @@ def aggregate_columns(df, columns: list = None, boolean_columns: list = None, st
 def get_location_data(place, city, country):
     """
     Get latitude, longitude, and elevation for a location.
-    
+
     Parameters
     ----------
     place : str
@@ -485,146 +486,62 @@ def get_location_data(place, city, country):
         The city name
     country : str
         The country name
-    
+
     Returns
     -------
     dict
         A dictionary with keys 'latitude', 'longitude', and 'elevation'
-        Returns None if location is not found or an error occurs
+        Returns 'no_coords' if location is not found
+        Returns 'no_elevation' if elevation is not found
+        Returns 'error' if an error occurs
+    
     """
     try:
         # Combine inputs into a single query string
         query = f"{place}, {city}, {country}"
-        
+
         # Get coordinates from Photon API
         url = f"https://photon.komoot.io/api/?q={query}"
-        response = requests.get(url).json()
-        
-        if not response['features']:
-            print("No results found")
-            return None
-        
-        coords = response['features'][0]['geometry']['coordinates']
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+        }
+        response_raw = requests.get(url, headers=headers)
+        if response_raw.status_code != 200:
+            return 'error'
+        try:
+            response = response_raw.json()
+        except ValueError:
+            return 'error'
+
+        if not response.get('features'):
+            return 'no_coords'
+
+        coords = response['features'][0].get('geometry', {}).get('coordinates')
+        if not coords or len(coords) < 2:
+            return 'no_coords'
         lat, lon = coords[1], coords[0]
-        
+
         # Get elevation from Open Elevation API
         elevation_url = f"https://api.open-elevation.com/api/v1/lookup?locations={lat},{lon}"
-        elevation_response = requests.get(elevation_url).json()
-        elevation = elevation_response['results'][0]['elevation']
-        
+        elevation_raw = requests.get(elevation_url)
+        if elevation_raw.status_code != 200:
+            return 'error'
+        try:
+            elevation_response = elevation_raw.json()
+        except ValueError:
+            return 'error'
+        try:
+            elevation = elevation_response['results'][0]['elevation']
+        except (KeyError, IndexError, TypeError):
+            return 'no_elevation'
+
         return {
             'latitude': lat,
             'longitude': lon,
             'elevation': elevation
         }
-    
-    except requests.exceptions.RequestException as e:
-        print(f"Request error: {e}")
-        return None
-    except (KeyError, IndexError) as e:
-        print(f"Error parsing response: {e}")
-        return None
 
-
-# ==============================================================================================
-# VII. Compare Two Files
-# ==============================================================================================
-
-def compare_data_files(file1_path, file2_path):
-    """
-    Compare two CSV files to see if the data inside matches
-    
-    """
-    print(f"\nComparing files:")
-    print(f"   File 1: {file1_path}")
-    print(f"   File 2: {file2_path}")
-    
-    # Check if both files exist
-    if not os.path.exists(file1_path):
-        print(f"   File 1 not found: {file1_path}")
-        return False
-    if not os.path.exists(file2_path):
-        print(f"   File 2 not found: {file2_path}")
-        return False
-    
-    try:
-        # Read both files
-        df1 = pd.read_csv(file1_path)
-        df2 = pd.read_csv(file2_path)
-        
-        print(f"   File 1 shape: {df1.shape}")
-        print(f"   File 2 shape: {df2.shape}")
-        
-        # Check if dataframes are equal
-        if df1.equals(df2):
-            print("   Files contain identical data")
-            return True
-        else:
-            print("   Files contain different data")
-            
-            # Check for differences in columns
-            if set(df1.columns) != set(df2.columns):
-                print("   - Column names differ")
-                print(f"      File 1 columns: {sorted(df1.columns)}")
-                print(f"      File 2 columns: {sorted(df2.columns)}")
-            
-            # Check row count differences
-            if len(df1) != len(df2):
-                print(f"   - Row count differs: {len(df1)} vs {len(df2)}")
-            
-            # Check for any NaN differences
-            nan_diff1 = df1.isna().sum().sum()
-            nan_diff2 = df2.isna().sum().sum()
-            if nan_diff1 != nan_diff2:
-                print(f"   - NaN count differs: {nan_diff1} vs {nan_diff2}")
-            
-            # Find and display row differences
-            print("   - Row differences:")
-            
-            # Align dataframes by index for comparison
-            if len(df1) > len(df2):
-                df1_aligned = df1.iloc[:len(df2)]
-                df2_aligned = df2
-            elif len(df2) > len(df1):
-                df1_aligned = df1
-                df2_aligned = df2.iloc[:len(df1)]
-            else:
-                df1_aligned = df1
-                df2_aligned = df2
-            
-            # Compare each row
-            different_rows = []
-            for idx in range(min(len(df1), len(df2))):
-                row1 = df1_aligned.iloc[idx]
-                row2 = df2_aligned.iloc[idx]
-                
-                if not row1.equals(row2):
-                    different_rows.append(idx)
-                    print(f"      Row {idx}:")
-                    
-                    # Find which columns are different
-                    diff_columns = []
-                    for col in df1_aligned.columns:
-                        if col in df2_aligned.columns:
-                            if not pd.isna(row1[col]) and not pd.isna(row2[col]):
-                                if row1[col] != row2[col]:
-                                    diff_columns.append(col)
-                            elif pd.isna(row1[col]) != pd.isna(row2[col]):
-                                diff_columns.append(col)
-                    
-                    if diff_columns:
-                        print(f"      Different columns: {diff_columns}")
-                        for col in diff_columns:
-                            val1 = row1[col] if not pd.isna(row1[col]) else "NaN"
-                            val2 = row2[col] if not pd.isna(row2[col]) else "NaN"
-                            print(f"         {col}: '{val1}' vs '{val2}'")
-            
-            if different_rows:
-                print(f"      Total different rows: {len(different_rows)}")
-                print(f"      Different row indices: {different_rows}")
-            
-            return False
-                
-    except Exception as e:
-        print(f"   Error comparing files: {e}")
-        return False
+    except requests.exceptions.RequestException:
+        return 'error'
+    except (KeyError, IndexError):
+        return 'error'
