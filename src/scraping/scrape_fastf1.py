@@ -21,7 +21,7 @@ from src.utils.project_functions import check_new_urls, handle_successful_urls, 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 LINKS_2001_2017_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
 LINKS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
-SUCCESSFUL_URL_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+SUCCESSFUL_URL_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
 FASTF1_PATH = os.path.join(PROJECT_ROOT, 'data/raw/fastf1')
 CACHE_PATH = os.path.join(PROJECT_ROOT, 'data/cache')
 os.makedirs(FASTF1_PATH, exist_ok=True)

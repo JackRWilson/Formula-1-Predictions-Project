@@ -28,7 +28,7 @@ def main():
     scrape_2016_pits()
 
     # F1 Site 2018+
-    scrape_2018_links()
+    # scrape_2018_links()
     scrape_2018_results()
     scrape_2018_practices()
     scrape_2018_qualifying()
@@ -52,13 +52,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# --------------------------------------------------------------------------------
-
-# Compare race results files
-# original_file = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+.csv')
-# temp_file = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+_TEMP.csv')
-# compare_data_files(original_file, temp_file)
-
-
