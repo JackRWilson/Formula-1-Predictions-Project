@@ -9,6 +9,7 @@ import pandas as pd
 import os, sys, time, pickle
 from datetime import datetime
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
@@ -217,9 +218,17 @@ def scrape_2018_links():
             rows = tr.find_elements(By.TAG_NAME, "tr")[1:]
             for row in reversed(rows):
                 cells = row.find_elements(By.TAG_NAME, "td")
-            
+                
+                # Check for a element
+                if not cells or len(cells) == 0:
+                    continue
+                try:
+                    a_element = cells[0].find_element(By.TAG_NAME, "a")
+                except NoSuchElementException:
+                    continue
+                
                 # Url for each specific race
-                link = cells[0].find_element(By.TAG_NAME, "a").get_attribute("href")
+                link = a_element.get_attribute("href")
 
                 # If the link is new append it, otherwise break
                 if link in existing_links:
