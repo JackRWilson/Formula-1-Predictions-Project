@@ -320,8 +320,8 @@ def scrape_2018_results():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_{title}.pkl')
     RESULTS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/race_results_raw_2018+.csv')
     
     # Check for new URLs
@@ -383,8 +383,8 @@ def scrape_2018_practices():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_{title}.pkl')
     PRACTICES_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/practice_results_raw.csv')
     
     # Load race URLs
@@ -453,8 +453,8 @@ def scrape_2018_qualifying():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title}.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_{title}.pkl')
     QUALIFYING_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/qualifying_results_raw.csv')
     
     # Load race URLs
@@ -522,8 +522,8 @@ def scrape_2018_starting_grid():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_{title_file}.pkl')
     STARTING_GRID_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/starting_grid_results_raw.csv')
     
     # Load race URLs
@@ -587,8 +587,8 @@ def scrape_2018_pit_stops():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_{title_file}.pkl')
     PIT_STOPS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/pit_stop_results_raw.csv')
     
     # Load race URLs
@@ -654,8 +654,8 @@ def scrape_2018_fastest_laps():
     print(f"\nScraping {title} (2018+)...")
     
     # Establish paths
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_{title_file}.pkl')
     FASTEST_LAPS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/fastest_lap_results_raw.csv')
     
     # Load race URLs
@@ -720,8 +720,8 @@ def scrape_2018_driver_codes():
     print(f"\nScraping {title} (2018+)...")
 
     # Establish paths
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_{title_file}.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_{title_file}.pkl')
     DRIVER_CODE_PATH = os.path.join(PROJECT_ROOT, 'data/raw/driver_code_map.pkl')
 
     # Load race URLs

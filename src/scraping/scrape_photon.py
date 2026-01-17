@@ -27,8 +27,8 @@ def scrape_location():
     # Establish paths
     CIRCUITS_PATH = os.path.join(PROJECT_ROOT, 'data/raw/circuits_raw.csv')
     LOCATIONS_PATH = os.path.join(PROJECT_ROOT, 'data/raw/locations_raw.csv')
-    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
-    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/raw/successful_urls_locations.pkl')
+    SUCCESSFUL_URLS_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
+    SUCCESSFUL_URLS_PATH = os.path.join(PROJECT_ROOT, f'data/successful/successful_urls_locations.pkl')
     
     # Init lists
     location_data = []

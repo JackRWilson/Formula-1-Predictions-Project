@@ -21,7 +21,7 @@ from src.utils.project_functions import check_new_urls, handle_successful_urls, 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 LINKS_2001_2017_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2001_2017.pkl')
 LINKS_2018_PATH = os.path.join(PROJECT_ROOT, 'data/raw/links_2018+.pkl')
-SUCCESSFUL_URL_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls.pkl')
+SUCCESSFUL_URL_TEMP_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls.pkl')
 FASTF1_PATH = os.path.join(PROJECT_ROOT, 'data/raw/fastf1')
 CACHE_PATH = os.path.join(PROJECT_ROOT, 'data/cache')
 os.makedirs(FASTF1_PATH, exist_ok=True)
@@ -94,7 +94,7 @@ def collect_fastf1_data():
     # Establish paths
     urls = load_id_map(LINKS_2018_PATH)
     race_id_map = load_id_map(os.path.join(PROJECT_ROOT, 'data/raw/race_id_map.pkl'))
-    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_fastf1.pkl')
+    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls_fastf1.pkl')
 
     # Check for new URLs
     new_urls = check_new_urls(urls, SUCCESSFUL_URL_PATH, from_file=False)
@@ -174,7 +174,7 @@ def aggregate_laps():
     AGG_LAPS_PATH = os.path.join(PROJECT_ROOT, 'data/raw/lap_results_raw.csv')
     DRIVER_ID_PATH = os.path.join(PROJECT_ROOT, 'data/raw/driver_id_map.pkl')
     DRIVER_CODE_PATH = os.path.join(PROJECT_ROOT, 'data/raw/driver_code_map.pkl')
-    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_laps.pkl')
+    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls_laps.pkl')
     FASTF1_PATH_FORMAT = Path(FASTF1_PATH)
     
     try:
@@ -253,7 +253,7 @@ def aggregate_weather():
 
     # Load paths
     AGG_WEATHER_PATH = os.path.join(PROJECT_ROOT, 'data/raw/weather_results_raw.csv')
-    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_weather.pkl')
+    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls_weather.pkl')
     FASTF1_PATH_FORMAT = Path(FASTF1_PATH)
     
     try:
@@ -334,7 +334,7 @@ def aggregate_flags():
 
     # Load paths
     AGG_FLAG_PATH = os.path.join(PROJECT_ROOT, 'data/raw/flag_results_raw.csv')
-    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/raw/successful_urls_laps.pkl')
+    SUCCESSFUL_URL_PATH = os.path.join(PROJECT_ROOT, 'data/successful/successful_urls_laps.pkl')
     FASTF1_PATH_FORMAT = Path(FASTF1_PATH)
     
     try:
