@@ -158,7 +158,7 @@ def print_progress_bar(current, total, bar_length=40, start_time=None):
 
     # Print progress bar and ETA
     print(f"\r   Progress: [{bar}] {current}/{total} ({percent}%)", end='')
-    print(f"\n   ETA: {eta_str}           ", end='', flush=True)
+    print(f"\n   ETA: {eta_str}            ", end='', flush=True)
     print("\033[A", end='', flush=True)
 
     # Reset on completion
