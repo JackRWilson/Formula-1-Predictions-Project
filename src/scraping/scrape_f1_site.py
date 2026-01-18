@@ -33,13 +33,15 @@ def scrape_2001_links():
         print("\nLinks 2001-2017 already scraped\n")
         return
 
-    print("\nScraping links (2001-2017)...")
+    print("\nScraping links (2001-2017)...\n")
     
     # Establish web browser and initial variables
     browser = create_browser()
     year_begin = 2001
     year_end = 2017
     race_urls = []
+    total_years = year_end - year_begin + 1
+    current_year = 1
 
     while year_begin <= year_end:
 
@@ -57,9 +59,13 @@ def scrape_2001_links():
                 link = cells[0].find_element(By.TAG_NAME, "a")
                 race_urls.append(link.get_attribute("href"))
 
+        # Show progress bar
+        print_progress_bar(current_year, total_years)
+        current_year += 1
         year_begin += 1
 
     browser.close()
+    print("\n\n")
 
     # Save links to file
     print("   Saving links to file...")
@@ -103,6 +109,7 @@ def scrape_2001_results():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping)
@@ -153,6 +160,7 @@ def scrape_2016_pits():
         min_col=min_col,
         max_col=max_col,
         col_idx_map=col_idx_map,
+        data_folder=DATA_FOLDER_PATH,
         id_cols=id_cols,
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping)
@@ -362,6 +370,7 @@ def scrape_2018_results():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
+    print()
 
     # Handle appending new data or creating new file 
     handle_appending(RESULTS_2018_PATH, df, title)
@@ -432,6 +441,7 @@ def scrape_2018_practices():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
+    print()
     
     # Handle appending new data or creating new file
     handle_appending(PRACTICES_2018_PATH, df, title)
@@ -500,6 +510,7 @@ def scrape_2018_qualifying():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
+    print()
     
     # Handle appending new data or creating new file
     handle_appending(QUALIFYING_2018_PATH, df, title)
@@ -565,7 +576,8 @@ def scrape_2018_starting_grid():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
-    
+    print()
+
     # Handle appending new data or creating new file
     handle_appending(STARTING_GRID_2018_PATH, df, title)
         
@@ -632,7 +644,8 @@ def scrape_2018_pit_stops():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
-    
+    print()
+
     # Handle appending new data or creating new file
     handle_appending(PIT_STOPS_2018_PATH, df, title)
         
@@ -698,7 +711,8 @@ def scrape_2018_fastest_laps():
         page_lvl_cols=page_lvl_cols,
         id_mask=constructor_mapping,
         save_successful_urls=True)
-    
+    print()
+
     # Handle appending new data or creating new file
     handle_appending(FASTEST_LAPS_2018_PATH, df, title)
         
@@ -817,7 +831,7 @@ def scrape_2018_driver_codes():
 
     browser.close()
     
-    print(f"   \nNew drivers found: {len(driver_code_map)}")
+    print(f"   \n\nNew drivers found: {len(driver_code_map)}")
     print(f"   Failed URLs: {len(failed_urls)}")
 
     # Read current driver code file if it exists
