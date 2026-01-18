@@ -241,150 +241,153 @@ def scrape_url_table(
     print(f"\n   Scraping {total_urls} URLs...")
 
     for i, url in enumerate(urls, start=1):
-        
+        for attempt in range(3):
+            try:
+                
+                # Get or create URL ID only if auto_url_id is True
+                if auto_url_id:
+                    if url in url_id_map:
+                        url_id_val = url_id_map[url]
+                    else:
+                        url_id_val = max(url_id_map.values()) + 1 if url_id_map else 1
+                        url_id_map[url] = url_id_val
+                        
+                        # Save the updated URL ID map
+                        if data_folder:
+                            save_id_map(f'{data_folder}/url_id_map.pkl', url_id_map)
+                        else:
+                            save_id_map('url_id_map.pkl', url_id_map)
+
+                try:
+                    browser.get(url)
+                    time.sleep(0.5)
+                except Exception as e:
+                    if attempt == 2:
+                        print(f'ERROR with {url}: {e}')
+                    continue
+
+                # Get page-level data once per URL
+                page_level_data = {}
+                if page_lvl_cols:
+                    for col_name in page_lvl_cols:
+                        if col_name in col_data and callable(col_data[col_name]['index']):
+                            page_level_data[col_name] = col_data[col_name]['index'](browser)
+
+                # Find table data
+                table = browser.find_elements(By.TAG_NAME, 'table')
+                for tr in table:
+                    rows = tr.find_elements(By.TAG_NAME, 'tr')[1:]
+                    for row in rows:
+                        # Re-find cells for each row to avoid stale element references
+                        try:
+                            cells = row.find_elements(By.TAG_NAME, 'td')
+                        except Exception as e:
+                            # If row becomes stale, skip it
+                            continue
+
+                        # Validate table has the right number of columns within the specified range
+                        num_cells = len(cells)
+                        if min_col <= num_cells <= max_col:
+
+                            # Extract all cell texts immediately to avoid stale references
+                            cell_texts = []
+                            for cell in cells:
+                                try:
+                                    cell_texts.append(cell.text.strip())
+                                except Exception as e:
+                                    # If cell becomes stale, append None
+                                    cell_texts.append(None)
+
+                            # For each column in the column map append the corresponding data
+                            for col_name, col_info in col_data.items():
+
+                                # Skip indexes with None
+                                if col_info['index'] == None:
+                                    continue
+
+                                # Create IDs and ID maps only if id_cols is provided and column is in id_cols
+                                if id_cols and col_name in id_cols:
+
+                                    # Load or create ID map
+                                    if data_folder:
+                                        id_map = load_id_map(f'{data_folder}/{col_name}_map.pkl')
+                                    else:
+                                        id_map = load_id_map(f'{col_name}_map.pkl')
+
+                                    # Get the value from the extracted cell texts using the index from col_map
+                                    if isinstance(col_info['index'], int):
+                                        if col_info['index'] < num_cells:
+                                            scraped_value = cell_texts[col_info['index']]
+                                        else:
+                                            scraped_value = None 
+                                    elif page_lvl_cols and col_name in page_lvl_cols:
+                                        scraped_value = page_level_data[col_name]
+                                    else:
+                                        raise ValueError(f"Unsupported index type for {col_name}: {type(col_info['index'])}")
+
+                                    # Apply ID mask if provided
+                                    if id_mask and col_name in id_mask and scraped_value is not None:
+                                        scraped_value = id_mask[col_name].get(scraped_value, scraped_value)
+
+                                    # Search through ID map keys to find a match
+                                    matched_key = None
+                                    if scraped_value is not None:
+                                        for existing_key in id_map.keys():
+                                            if scraped_value in existing_key:
+                                                matched_key = existing_key
+                                                break
+
+                                    # Use matched key if found, otherwise use scraped value
+                                    lookup_key = matched_key if matched_key is not None else scraped_value
+
+                                    # Append existing ID or create new key-value pair
+                                    if scraped_value is None:
+                                        col_info['values'].append(None)
+                                    elif lookup_key in id_map:
+                                        col_info['values'].append(id_map[lookup_key])
+                                    else:
+                                        new_id = max(id_map.values()) + 1 if id_map else 1
+                                        id_map[lookup_key] = new_id
+                                        col_info['values'].append(new_id)
+
+                                        # Save the updated ID map
+                                        if data_folder:
+                                            save_id_map(f'{data_folder}/{col_name}_map.pkl', id_map)
+                                        else:
+                                            save_id_map(f'{col_name}_map.pkl', id_map)
+
+                                # Handle non-ID columns
+                                else:
+                                    if isinstance(col_info['index'], int):
+                                        if col_info['index'] < num_cells:
+                                            scraped_value = cell_texts[col_info['index']]
+                                        else:
+                                            scraped_value = None  # Index out of bounds
+                                    elif page_lvl_cols and col_name in page_lvl_cols:
+                                        scraped_value = page_level_data[col_name]
+                                    else:
+                                        raise ValueError(f"Unsupported index type for {col_name}: {type(col_info['index'])}")
+                                    col_info['values'].append(scraped_value)
+
+                            # Append the same URL ID for every row from this URL only if auto_url_id is True
+                            if auto_url_id:
+                                if 'url_id' not in col_data:
+                                    col_data['url_id'] = {'index': None, 'values': []}
+                                col_data['url_id']['values'].append(url_id_val)
+
+                # Add URL to successful URLs list if data was found and saving is enabled
+                if save_successful_urls:
+                    successful_urls.append(url)
+                
+                break
+
+            except Exception as e:
+                if attempt == 2:
+                    print(f'ERROR with {url}: {e}')
+
         # Update progress bar
         print_progress_bar(i, total_urls)
-        
-        # Validate URL
-        try:
-            browser.get(url)
-            time.sleep(0.5)
-        except Exception as e:
-            print(f'\nURL ERROR: "{url}"\n{e}')
-            continue
 
-        # Get or create URL ID only if auto_url_id is True
-        if auto_url_id:
-            if url in url_id_map:
-                url_id_val = url_id_map[url]
-            else:
-                url_id_val = max(url_id_map.values()) + 1 if url_id_map else 1
-                url_id_map[url] = url_id_val
-                
-                # Save the updated URL ID map
-                if data_folder:
-                    save_id_map(f'{data_folder}/url_id_map.pkl', url_id_map)
-                else:
-                    save_id_map('url_id_map.pkl', url_id_map)
-
-        try:
-            # Get page-level data once per URL
-            page_level_data = {}
-            if page_lvl_cols:
-                for col_name in page_lvl_cols:
-                    if col_name in col_data and callable(col_data[col_name]['index']):
-                        page_level_data[col_name] = col_data[col_name]['index'](browser)
-
-            # Find table data
-            table = browser.find_elements(By.TAG_NAME, 'table')
-            for tr in table:
-                rows = tr.find_elements(By.TAG_NAME, 'tr')[1:]
-                for row in rows:
-                    # Re-find cells for each row to avoid stale element references
-                    try:
-                        cells = row.find_elements(By.TAG_NAME, 'td')
-                    except Exception as e:
-                        # If row becomes stale, skip it
-                        continue
-
-                    # Validate table has the right number of columns within the specified range
-                    num_cells = len(cells)
-                    if min_col <= num_cells <= max_col:
-                        
-                        # Extract all cell texts immediately to avoid stale references
-                        cell_texts = []
-                        for cell in cells:
-                            try:
-                                cell_texts.append(cell.text.strip())
-                            except Exception as e:
-                                # If cell becomes stale, append None
-                                cell_texts.append(None)
-                        
-                        # For each column in the column map append the corresponding data
-                        for col_name, col_info in col_data.items():
-                            
-                            # Skip indexes with None
-                            if col_info['index'] == None:
-                                continue
-                            
-                            # Create IDs and ID maps only if id_cols is provided and column is in id_cols
-                            if id_cols and col_name in id_cols:
-                                
-                                # Load or create ID map
-                                if data_folder:
-                                    id_map = load_id_map(f'{data_folder}/{col_name}_map.pkl')
-                                else:
-                                    id_map = load_id_map(f'{col_name}_map.pkl')
-                                
-                                # Get the value from the extracted cell texts using the index from col_map
-                                if isinstance(col_info['index'], int):
-                                    if col_info['index'] < num_cells:
-                                        scraped_value = cell_texts[col_info['index']]
-                                    else:
-                                        scraped_value = None 
-                                elif page_lvl_cols and col_name in page_lvl_cols:
-                                    scraped_value = page_level_data[col_name]
-                                else:
-                                    raise ValueError(f"Unsupported index type for {col_name}: {type(col_info['index'])}")
-
-                                # Apply ID mask if provided
-                                if id_mask and col_name in id_mask and scraped_value is not None:
-                                    scraped_value = id_mask[col_name].get(scraped_value, scraped_value)
-                                
-                                # Search through ID map keys to find a match
-                                matched_key = None
-                                if scraped_value is not None:
-                                    for existing_key in id_map.keys():
-                                        if scraped_value in existing_key:
-                                            matched_key = existing_key
-                                            break
-                                
-                                # Use matched key if found, otherwise use scraped value
-                                lookup_key = matched_key if matched_key is not None else scraped_value
-                                
-                                # Append existing ID or create new key-value pair
-                                if scraped_value is None:
-                                    col_info['values'].append(None)
-                                elif lookup_key in id_map:
-                                    col_info['values'].append(id_map[lookup_key])
-                                else:
-                                    new_id = max(id_map.values()) + 1 if id_map else 1
-                                    id_map[lookup_key] = new_id
-                                    col_info['values'].append(new_id)
-                                    
-                                    # Save the updated ID map
-                                    if data_folder:
-                                        save_id_map(f'{data_folder}/{col_name}_map.pkl', id_map)
-                                    else:
-                                        save_id_map(f'{col_name}_map.pkl', id_map)
-                            
-                            # Handle non-ID columns
-                            else:
-                                if isinstance(col_info['index'], int):
-                                    if col_info['index'] < num_cells:
-                                        scraped_value = cell_texts[col_info['index']]
-                                    else:
-                                        scraped_value = None  # Index out of bounds
-                                elif page_lvl_cols and col_name in page_lvl_cols:
-                                    scraped_value = page_level_data[col_name]
-                                else:
-                                    raise ValueError(f"Unsupported index type for {col_name}: {type(col_info['index'])}")
-                                col_info['values'].append(scraped_value)
-                        
-                        # Append the same URL ID for every row from this URL only if auto_url_id is True
-                        if auto_url_id:
-                            if 'url_id' not in col_data:
-                                col_data['url_id'] = {'index': None, 'values': []}
-                            col_data['url_id']['values'].append(url_id_val)
-                                
-            # Add URL to successful URLs list if data was found and saving is enabled
-            if save_successful_urls:
-                successful_urls.append(url)
-                                
-        except Exception as e:
-            print(f'\nURL: {url}')
-            print(f'NO DATA FOUND ERROR: {e}')
-    
     print()
     browser.close()
     print()
