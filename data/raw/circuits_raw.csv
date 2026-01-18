@@ -2,18 +2,18 @@ name,type,direction,location,country,length,turns,gp,seasons,gps_held
 Adelaide Street Circuit,Street circuit,Clockwise,Adelaide,Australia,3.780 km (2.349 mi),16,Australian Grand Prix,1985–1995,11
 Ain-Diab Circuit,Road circuit,Clockwise,Casablanca,Morocco,7.618 km (4.734 mi),18,Moroccan Grand Prix,1958,1
 Aintree Motor Racing Circuit,Road circuit,Clockwise,Aintree,United Kingdom,4.828 km (3.000 mi),12,British Grand Prix,"1955, 1957, 1959, 1961–1962",5
-Albert Park Circuit *,Street circuit,Clockwise,Melbourne,Australia,5.278 km (3.280 mi),14,Australian Grand Prix,"1996–2019, 2022–2025",28
-Algarve International Circuit,Race circuit,Clockwise,Portimão,Portugal,4.653 km (2.891 mi),15,Portuguese Grand Prix,2020–2021,2
+Albert Park Circuit *,Street circuit,Clockwise,Melbourne,Australia,5.278 km (3.280 mi),16,Australian Grand Prix,"1996–2019, 2022–2025",28
+Algarve International Circuit†,Race circuit,Clockwise,Portimão,Portugal,4.653 km (2.891 mi),15,Portuguese Grand Prix,2020–2021,2
 Autódromo do Estoril,Race circuit,Clockwise,Estoril,Portugal,4.360 km (2.709 mi),13,Portuguese Grand Prix,1984–1996,13
 Autódromo Hermanos Rodríguez *,Race circuit,Clockwise,Mexico City,Mexico,4.304 km (2.674 mi),17,"Mexican Grand Prix,
-Mexico City Grand Prix","1963–1970, 1986–1992, 2015–2019, 2021–2024",24
+Mexico City Grand Prix","1963–1970, 1986–1992, 2015–2019, 2021–2025",25
 Autódromo Internacional do Rio de Janeiro,Race circuit,Anti-clockwise,Rio de Janeiro,Brazil,5.031 km (3.126 mi),11,Brazilian Grand Prix,"1978, 1981–1989",10
 Autodromo Internazionale del Mugello,Race circuit,Clockwise,Scarperia e San Piero,Italy,5.245 km (3.259 mi),15,Tuscan Grand Prix,2020,1
-Autodromo Internazionale Enzo e Dino Ferrari *,Race circuit,Anti-clockwise,Imola,Italy,4.909 km (3.050 mi),19,"Italian Grand Prix,
+Autodromo Internazionale Enzo e Dino Ferrari,Race circuit,Anti-clockwise,Imola,Italy,4.909 km (3.050 mi),19,"Italian Grand Prix,
 San Marino Grand Prix,
 Emilia Romagna Grand Prix","1980–2006, 2020–2022, 2024–2025",32
 Autodromo José Carlos Pace *,Race circuit,Anti-clockwise,São Paulo,Brazil,4.309 km (2.677 mi),15,"Brazilian Grand Prix,
-São Paulo Grand Prix","1973–1977, 1979–1980, 1990–2019, 2021–2024",41
+São Paulo Grand Prix","1973–1977, 1979–1980, 1990–2019, 2021–2025",42
 Autodromo Nazionale di Monza *,Race circuit,Clockwise,Monza,Italy,5.793 km (3.600 mi),11,Italian Grand Prix,"1950–1979, 1981–2025",75
 Autódromo Oscar y Juan Gálvez,Race circuit,Clockwise,Buenos Aires,Argentina,4.259 km (2.646 mi),18,Argentine Grand Prix,"1953–1958, 1960, 1972–1975, 1977–1981, 1995–1998",20
 AVUS,Road circuit,Anti-clockwise,Berlin,Germany,8.300 km (5.157 mi),4,German Grand Prix,1959,1
@@ -59,10 +59,10 @@ Intercity Istanbul Park,Race circuit,Anti-clockwise,Istanbul,Turkey,5.338 km (3.
 Jeddah Corniche Circuit *,Street circuit,Anti-clockwise,Jeddah,Saudi Arabia,6.174 km (3.836 mi),27,Saudi Arabian Grand Prix,2021–2025,5
 Korea International Circuit,Race circuit,Anti-clockwise,Yeongam,South Korea,5.615 km (3.489 mi),18,Korean Grand Prix,2010–2013,4
 Kyalami Grand Prix Circuit,Race circuit,Anti-clockwise,Midrand,South Africa,4.261 km (2.648 mi),13,South African Grand Prix,"1967–1980, 1982–1985, 1992–1993",20
-Las Vegas Strip Circuit *,Street circuit,Anti-clockwise,Paradise,United States,6.201 km (3.853 mi),17,Las Vegas Grand Prix,2023–2024,2
+Las Vegas Strip Circuit *,Street circuit,Anti-clockwise,Paradise,United States,6.201 km (3.853 mi),17,Las Vegas Grand Prix,2023–2025,3
 Long Beach Street Circuit,Street circuit,Clockwise,Long Beach,United States,3.275 km (2.035 mi),18,United States Grand Prix West,1976–1983,8
-Lusail International Circuit *,Race circuit,Clockwise,Lusail,Qatar,5.419 km (3.367 mi),16,Qatar Grand Prix,"2021, 2023–2024",3
-Madring †,Street circuit,Clockwise,Barajas,Spain,5.474 km (3.401 mi),22,Spanish Grand Prix,,0
+Lusail International Circuit *,Race circuit,Clockwise,Lusail,Qatar,5.419 km (3.367 mi),16,Qatar Grand Prix,"2021, 2023–2025",4
+Madring *,Street circuit,Clockwise,Barajas,Spain,5.474 km (3.401 mi),22,Spanish Grand Prix,,0
 Marina Bay Street Circuit *,Street circuit,Anti-clockwise,Marina Bay,Singapore,4.940 km (3.070 mi),19,Singapore Grand Prix,"2008–2019, 2022–2025",16
 Miami International Autodrome *,Street circuit,Anti-clockwise,Miami Gardens,United States,5.412 km (3.363 mi),19,Miami Grand Prix,2022–2025,4
 Montjuïc circuit,Street circuit,Anti-clockwise,Barcelona,Spain,3.791 km (2.356 mi),18,Spanish Grand Prix,"1969, 1971, 1973, 1975",4
@@ -90,5 +90,5 @@ Suzuka International Racing Course *,Race circuit,Part clockwise and part anti-c
 TI Circuit Aida,Race circuit,Clockwise,Mimasaka,Japan,3.703 km (2.301 mi),11,Pacific Grand Prix,1994–1995,2
 Valencia Street Circuit,Street circuit,Clockwise,Valencia,Spain,5.419 km (3.367 mi),25,European Grand Prix,2008–2012,5
 Watkins Glen International,Race circuit,Clockwise,Watkins Glen,United States,5.430 km (3.374 mi),10,United States Grand Prix,1961–1980,20
-Yas Marina Circuit *,Race circuit,Anti-clockwise,Abu Dhabi,United Arab Emirates,5.281 km (3.281 mi),15,Abu Dhabi Grand Prix,2009–2024,16
+Yas Marina Circuit *,Race circuit,Anti-clockwise,Abu Dhabi,United Arab Emirates,5.281 km (3.281 mi),16,Abu Dhabi Grand Prix,2009–2025,17
 Zeltweg Airfield,Road circuit,Clockwise,Zeltweg,Austria,3.186 km (1.980 mi),4,Austrian Grand Prix,1964,1
