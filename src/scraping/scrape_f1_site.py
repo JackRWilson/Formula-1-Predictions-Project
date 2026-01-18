@@ -831,7 +831,8 @@ def scrape_2018_driver_codes():
 
     browser.close()
     
-    print(f"   \n\nNew drivers found: {len(driver_code_map)}")
+    print("\n\n")
+    print(f"   New drivers found: {len(driver_code_map)}")
     print(f"   Failed URLs: {len(failed_urls)}")
 
     # Read current driver code file if it exists
@@ -850,7 +851,7 @@ def scrape_2018_driver_codes():
 
     if new_to_add:
         if driver_code_file:
-            print(f"   \nAppending new {title} to existing file...")
+            print(f"\n   Appending new {title} to existing file...")
         else:
             print(f"   Creating new {title} file...")
         updated_codes = {**existing_codes, **new_to_add}
