@@ -20,7 +20,7 @@ from src.scraping.scrape_photon import scrape_location
 
 # --------------------------------------------------------------------------------
 
-def main():
+def scrape_all():
 
     # F1 Site 2001-2017
     scrape_2001_links()
@@ -51,4 +51,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    scrape_all()
