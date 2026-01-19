@@ -844,7 +844,7 @@ def clean_qualifying_times(df):
     Uses qualifying position to determine advancement and flags drivers with DNF/DNS/NA times.
     
     Assumes df contains: ['race_id', 'driver_id', 'q1_time', 'q2_time', 'q3_time', 'qual_position']
-    
+
     """
     
     df = df.copy()
@@ -901,3 +901,19 @@ def clean_qualifying_times(df):
                      'max_q1_time', 'max_q2_time', 'max_q3_time'], inplace=True)
     
     return df
+
+
+# ==============================================================================================
+# XII. Convert Pit Time Format
+# ==============================================================================================
+
+def convert_pit_time(time_str):
+    """
+    Convert pit stop time from min:sec.millisec format to total seconds
+
+    """
+    if ':' in time_str:
+        minutes, seconds = time_str.split(':')
+        return float(minutes) * 60 + float(seconds)
+    else:
+        return float(time_str)
