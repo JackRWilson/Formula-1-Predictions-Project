@@ -917,3 +917,48 @@ def convert_pit_time(time_str):
         return float(minutes) * 60 + float(seconds)
     else:
         return float(time_str)
+
+
+# ==============================================================================================
+# XIII. Impute Missing Pit Times
+# ==============================================================================================
+
+def impute_pit_times(row, pit_stops_bound):
+    current_race_id = row['race_id']
+    driver_id = row['driver_id']
+    team_id = row['team_id']
+    
+    # Filter pit_stops_bound to only include stops before current race
+    past_stops = pit_stops_bound[pit_stops_bound['race_id'] < current_race_id]
+    
+    # No historical data, return 0
+    if past_stops.empty:
+        return 0
+    
+    # Try driver average (last 5 pits)
+    driver_stops = past_stops[past_stops['driver_id'] == driver_id]['pits_time_seconds'].tail(5)
+    if len(driver_stops) > 0:
+        return driver_stops.mean()
+    
+    # Try driver average (all pits)
+    driver_stops = past_stops[past_stops['driver_id'] == driver_id]['pits_time_seconds']
+    if len(driver_stops) > 0:
+        return driver_stops.mean()
+    
+    # Try team average (last 5 pits)
+    team_stops = past_stops[past_stops['team_id'] == team_id]['pits_time_seconds'].tail(5)
+    if len(team_stops) > 0:
+        return team_stops.mean()
+    
+    # Try team average (last 10 pits)
+    team_stops = past_stops[past_stops['team_id'] == team_id]['pits_time_seconds'].tail(10)
+    if len(team_stops) > 0:
+        return team_stops.mean()
+    
+    # Global team average (all pits)
+    team_stops = past_stops[past_stops['team_id'] == team_id]['pits_time_seconds']
+    if len(team_stops) > 0:
+        return team_stops.mean()
+    
+    # Fallback to 0
+    return 0
