@@ -14,7 +14,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import load_id_map, save_id_map
-from src.utils.project_functions import convert_position, constructor_mapping
+from src.utils.project_functions import convert_position, constructor_mapping, clean_qualifying_times
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 CLEAN_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/clean')
@@ -341,3 +341,57 @@ def clean_practices_2018():
     # Save file
     practices_aggregated.to_csv(save_path, encoding='utf-8', index=False)
     print("   Practices (2018+) cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Qualifying
+
+def clean_qualifying_2018():
+
+    print("   Cleaning Qualifying (2018+)...")
+
+    # Init variables
+    raw_file_name = 'qualifying_results_raw.csv'
+    clean_file_name = 'qualifying_results_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+    
+    # Load file
+    qualifying = pd.read_csv(load_path)
+
+    # Drop excess columns
+    qualifying.drop(['team_id', 'qual_laps'], axis=1, inplace=True)
+
+    # Convert non-numeric places
+    qual_positions = []
+    current_position = 1
+    current_race = None
+
+    # Group by each race
+    for idx, row in qualifying.iterrows():
+        if current_race != row['race_id']:
+            current_race = row['race_id']
+            current_position = 1
+        pos = row['qual_position']
+        try:
+            # Try converting to int to validate position
+            numeric_pos = int(pos)
+            qual_positions.append(numeric_pos)
+            current_position = numeric_pos + 1
+        except ValueError:
+            # Not a number so assign next available position
+            qual_positions.append(current_position)
+            current_position += 1
+    qualifying['qual_position'] = qual_positions
+
+    # Clean and impute lap times
+    qualifying_cleaned = clean_qualifying_times(qualifying)
+
+    # Correct datatypes
+    qualifying_cleaned['q1_no_lap_time_flag'] = qualifying_cleaned['q1_no_lap_time_flag'].astype(bool)
+    qualifying_cleaned['q2_no_lap_time_flag'] = qualifying_cleaned['q2_no_lap_time_flag'].astype(bool)
+    qualifying_cleaned['q3_no_lap_time_flag'] = qualifying_cleaned['q3_no_lap_time_flag'].astype(bool)
+
+    # Save file
+    qualifying_cleaned.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Qualifying (2018+) cleaned")
