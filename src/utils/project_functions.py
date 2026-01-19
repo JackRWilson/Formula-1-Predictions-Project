@@ -814,3 +814,21 @@ def process_flag_file(filepath, basic_count_flags, string_columns):
     
     result = pd.DataFrame([agg])
     return result
+
+
+# ==============================================================================================
+# X. Convert Position
+# ==============================================================================================
+
+def convert_position(row, prev_position=None):
+    """
+    Converts position to numeric, or changes classification to numeric
+
+    """
+    try:
+        return int(row['position'])
+    except (ValueError, TypeError):
+        if prev_position is not None:
+            return prev_position + 1
+        else:
+            return 1
