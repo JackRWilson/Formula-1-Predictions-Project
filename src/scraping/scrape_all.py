@@ -3,8 +3,8 @@
 # This file scrapes all project data from scratch
 
 # --------------------------------------------------------------------------------
-
 # Import modules
+
 import os, sys
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
