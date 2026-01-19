@@ -1,0 +1,24 @@
+# Jack Wilson
+# 1/19/2026
+# This file cleans and merges all raw data into its final form
+
+# --------------------------------------------------------------------------------
+# Import modules
+
+import os, sys
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+from src.cleaning.clean_raw import clean_id_map
+
+
+# --------------------------------------------------------------------------------
+
+def clean_all():
+    clean_id_map()
+
+
+if __name__ == "__main__":
+    clean_all()
