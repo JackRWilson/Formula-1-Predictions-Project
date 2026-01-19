@@ -395,3 +395,27 @@ def clean_qualifying_2018():
     # Save file
     qualifying_cleaned.to_csv(save_path, encoding='utf-8', index=False)
     print("   Qualifying (2018+) cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Starting Grid
+
+def clean_starting_grid_2018():
+
+    print("   Cleaning Starting Grid (2018+)...")
+
+    # Init variables
+    raw_file_name = 'starting_grid_results_raw.csv'
+    clean_file_name = 'starting_grid_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+    
+    # Load file
+    starting = pd.read_csv(load_path)
+
+    # Drop excess columns
+    starting.drop('team_id', axis=1, inplace=True)
+
+    # Save file
+    starting.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Starting Grid (2018+) cleaned")
