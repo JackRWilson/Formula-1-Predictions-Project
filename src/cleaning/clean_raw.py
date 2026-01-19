@@ -35,11 +35,15 @@ def clean_id_map():
     id_map = load_id_map(load_path)
     
     # Ensure Austria and Styria have the same circuit ID
+    global id_map_styria
     if 'Styria' in id_map and 'Austria' in id_map:
+        id_map_styria = id_map['Styria']
         id_map['Styria'] = id_map['Austria']
 
     # Ensure Great Britain and 70th Anniversary have the same circuit ID
+    global id_map_anniversary
     if '70th Anniversary' in id_map and 'Great Britain' in id_map:
+        id_map_anniversary = id_map['70th Anniversary']
         id_map['70th Anniversary'] = id_map['Great Britain']
     
     # Save file
@@ -97,3 +101,64 @@ def clean_results_2001():
     # Save file
     races_2001.to_csv(save_path, encoding='utf-8', index=False)
     print("   Results 2001-2017 cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Race Results 2018+
+
+def clean_results_2018():
+
+    print("   Cleaning Results 2018+...")
+
+    # Init variables
+    raw_file_name = 'race_results_raw_2018+.csv'
+    clean_file_name = 'race_results_clean_2018+.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+    
+    # Load file
+    races_2018 = pd.read_csv(load_path)
+
+    # Fix circuit id
+    races_2018['circuit_id'] = races_2018['circuit_id'].replace({id_map_styria: 10, id_map_anniversary: 9})
+
+    # Initialize new columns
+    end_positions = []
+    statuses = []
+    current_position = 1
+    current_race = None
+
+    # Separate position status
+    for idx, row in races_2018.iterrows():
+        if current_race != row['race_url']:
+            current_race = row['race_url']
+            current_position = 1
+        pos = row['end_position']
+        try:
+            # Try converting to int to validate position
+            numeric_pos = int(pos)
+            end_positions.append(numeric_pos)
+            statuses.append('CLAS')
+            current_position = numeric_pos + 1
+        except ValueError:
+            # Not a number so need to assign position and keep status
+            if pos in ['NC', 'DQ']:
+                end_positions.append(current_position)
+                statuses.append(pos)
+                current_position += 1
+            else:
+                end_positions.append(current_position)
+                statuses.append('DNF')
+                current_position += 1
+    races_2018['end_position'] = end_positions
+    races_2018['position_status'] = statuses
+
+    # Impute 0 for laps_completed if null
+    races_2018['laps_completed'] = races_2018['laps_completed'].fillna(0)
+
+    # Map team names to constructor common names using existing constructor_mapping
+    races_2018['team_name'] = races_2018['team_name'].map(constructor_mapping['team_id']).fillna(races_2018['team_name'])
+
+    # Save file
+    races_2018.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Results 2018+ cleaned")
