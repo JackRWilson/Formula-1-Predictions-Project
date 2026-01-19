@@ -832,3 +832,72 @@ def convert_position(row, prev_position=None):
             return prev_position + 1
         else:
             return 1
+
+
+# ==============================================================================================
+# XI. Clean and Impute Qualifying time
+# ==============================================================================================
+
+def clean_qualifying_times(df):
+    """
+    Cleans qualifying session times and adds no_lap_time flags for Q1, Q2, Q3.
+    Uses qualifying position to determine advancement and flags drivers with DNF/DNS/NA times.
+    
+    Assumes df contains: ['race_id', 'driver_id', 'q1_time', 'q2_time', 'q3_time', 'qual_position']
+    
+    """
+    
+    df = df.copy()
+    
+    # Define cutoffs
+    Q2_CUTOFF = 15  # Top 15 advance to Q2
+    Q3_CUTOFF = 10  # Top 10 advance to Q3
+    
+    # Ensure qualifying position is numeric and sort
+    df['qual_position'] = pd.to_numeric(df['qual_position'], errors='coerce')
+    df = df.sort_values(['race_id', 'qual_position'])
+    
+    # Determine who advances to Q2 and Q3
+    df['advanced_to_q2'] = df['qual_position'] <= Q2_CUTOFF
+    df['advanced_to_q3'] = df['qual_position'] <= Q3_CUTOFF
+    
+    # Convert time strings to seconds
+    for session in ['q1', 'q2', 'q3']:
+        time_col = f'{session}_time'
+        
+        # Convert to numeric
+        df[time_col] = df[time_col].apply(lambda x: 
+            None if pd.isna(x) or (isinstance(x, str) and x.upper() in ['DNF', 'DNS', '']) 
+            else float(x.split(':')[0]) * 60 + float(x.split(':')[1]) if isinstance(x, str) and ':' in x 
+            else float(x) if isinstance(x, str) 
+            else x
+        )
+    
+    # Add no_lap_time flags for each session
+    df['q1_no_lap_time_flag'] = df['q1_time'].isna().astype(int)
+    df['q2_no_lap_time_flag'] = ((df['advanced_to_q2']) & (df['q2_time'].isna())).astype(int)
+    df['q3_no_lap_time_flag'] = ((df['advanced_to_q3']) & (df['q3_time'].isna())).astype(int)
+    
+    # Get max times per session for imputation
+    df['max_q1_time'] = df.groupby('race_id')['q1_time'].transform('max')
+    df['max_q2_time'] = df.groupby('race_id')['q2_time'].transform('max')
+    df['max_q3_time'] = df.groupby('race_id')['q3_time'].transform('max')
+    
+    # Q1 imputation
+    df.loc[df['q1_time'].isna(), 'q1_time'] = df['max_q1_time'] + 5
+    
+    # Q2 imputation
+    q2_missing = df['q2_time'].isna()
+    df.loc[q2_missing & df['advanced_to_q2'], 'q2_time'] = df['max_q2_time'] + 5  # +5s for drivers who advanced but didnt set a time
+    df.loc[q2_missing & ~df['advanced_to_q2'], 'q2_time'] = df['max_q2_time'] + 10  # +10s for drivers who didnt advance
+    
+    # Q3 imputation 
+    q3_missing = df['q3_time'].isna()
+    df.loc[q3_missing & df['advanced_to_q3'], 'q3_time'] = df['max_q3_time'] + 5
+    df.loc[q3_missing & ~df['advanced_to_q3'], 'q3_time'] = df['max_q3_time'] + 10
+    
+    # Drop helper columns
+    df.drop(columns=['advanced_to_q2', 'advanced_to_q3', 
+                     'max_q1_time', 'max_q2_time', 'max_q3_time'], inplace=True)
+    
+    return df
