@@ -14,7 +14,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import load_id_map, save_id_map
-from src.utils.project_functions import convert_position, constructor_mapping, clean_qualifying_times
+from src.utils.project_functions import convert_position, constructor_mapping, clean_qualifying_times, convert_pit_time, impute_pit_times
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 CLEAN_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/clean')
@@ -419,3 +419,73 @@ def clean_starting_grid_2018():
     # Save file
     starting.to_csv(save_path, encoding='utf-8', index=False)
     print("   Starting Grid (2018+) cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Pit Stops
+
+def clean_pit_stops_2018():
+
+    print("   Cleaning Pit Stops (2018+)...")
+
+    # Init variables
+    raw_file_name = 'pit_stop_results_raw.csv'
+    clean_file_name = 'pit_stops_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+    
+    # Load files
+    pit_stops = pd.read_csv(load_path)
+    pit_stops_2016 = pd.read_csv(os.path.join(DATA_FOLDER_PATH, 'pit_stop_results_raw_2016-2017.csv'))
+
+    # Convert date
+    for i, date in enumerate(pit_stops_2016['date']):
+        if '-' in date:
+            pit_stops_2016.at[i, 'date'] = date.split('-')[1].strip()
+    pit_stops_2016['date'] = pd.to_datetime(pit_stops_2016['date'], format='mixed')
+
+    # Create negative race_id for sorting
+    pit_stops_2016['race_id'] = -1 * (pit_stops_2016['date'].rank(method='dense', ascending=True).astype(int))
+    pit_stops_2016.drop('date', axis=1, inplace=True)
+
+    # Merge all pit years
+    pit_stops = pd.concat([pit_stops, pit_stops_2016], axis=0, ignore_index=True)
+
+    # Convert pit time from min:sec.millisec format to total seconds
+    pit_stops['pits_time_seconds'] = pit_stops['pits_time'].apply(convert_pit_time)
+
+    # Remove outliers
+    pit_stops_bound = pit_stops[pit_stops['pits_time_seconds'] <= 120]  # Over 120 seconds
+
+    # Aggregate stops
+    pit_stops_sorted = pit_stops_bound.sort_values(['driver_id', 'race_id', 'stop_number'])
+    pit_stops_sorted['pit_count'] = pit_stops_sorted.groupby('driver_id').cumcount() + 1
+
+    # Calculate rolling averages for last 5 and last 10 pits (excluding current race)
+    pit_stops_sorted['avg_pit_time_last_5'] = pit_stops_sorted.groupby('driver_id')['pits_time_seconds']\
+        .transform(lambda x: x.shift(1).rolling(window=5, min_periods=1).mean())
+    pit_stops_sorted['avg_pit_time_last_10'] = pit_stops_sorted.groupby('driver_id')['pits_time_seconds']\
+        .transform(lambda x: x.shift(1).rolling(window=10, min_periods=1).mean())
+
+    # Aggregate to get max stop number and sum of pit times for current race
+    pit_stops_clean = pit_stops_sorted.groupby(['race_id', 'driver_id', 'team_id']).agg({
+        'avg_pit_time_last_5': 'last',
+        'avg_pit_time_last_10': 'last'
+    }).reset_index()
+
+    # Impute missing times
+    pit_stops_bound = pit_stops_bound.sort_values(['race_id', 'stop_number']).reset_index(drop=True)
+    pit_stops_clean['avg_pit_time_last_5'] = pit_stops_clean['avg_pit_time_last_5'].fillna(
+        pit_stops_clean.apply(lambda row: impute_pit_times(row, pit_stops_bound) if pd.isna(row['avg_pit_time_last_5']) else row['avg_pit_time_last_5'], axis=1)
+    )
+    pit_stops_clean['avg_pit_time_last_10'] = pit_stops_clean['avg_pit_time_last_10'].fillna(
+        pit_stops_clean.apply(lambda row: impute_pit_times(row, pit_stops_bound) if pd.isna(row['avg_pit_time_last_10']) else row['avg_pit_time_last_10'], axis=1)
+    )
+
+    # Drop excess column and rows
+    pit_stops_clean.drop('team_id', axis=1, inplace=True)
+    pit_stops_clean = pit_stops_clean[pit_stops_clean['race_id'] >= 0]
+
+    # Save file
+    pit_stops_clean.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Pit Stops (2018+) cleaned")

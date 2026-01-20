@@ -11,7 +11,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
-from src.cleaning.clean_raw import clean_id_map, clean_results_2001, clean_results_2018, clean_practices_2018, clean_qualifying_2018, clean_starting_grid_2018
+from src.cleaning.clean_raw import clean_id_map, clean_results_2001, clean_results_2018, clean_practices_2018, clean_qualifying_2018, clean_starting_grid_2018, clean_pit_stops_2018
 
 
 # --------------------------------------------------------------------------------
@@ -25,6 +25,7 @@ def clean_all():
     clean_practices_2018()
     clean_qualifying_2018()
     clean_starting_grid_2018()
+    clean_pit_stops_2018()
 
 
 if __name__ == "__main__":
