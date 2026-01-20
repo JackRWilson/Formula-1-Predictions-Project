@@ -489,3 +489,77 @@ def clean_pit_stops_2018():
     # Save file
     pit_stops_clean.to_csv(save_path, encoding='utf-8', index=False)
     print("   Pit Stops (2018+) cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Laps
+
+def clean_laps_2018():
+
+    print("   Cleaning Laps (2018+)...")
+
+    # Init variables
+    raw_file_name = 'lap_results_raw.csv'
+    clean_file_name = 'laps_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+    
+    # Load files
+    laps = pd.read_csv(load_path)
+    results = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2018+.csv'))
+
+    # Fill unknown race ID (70th anniversary)
+    race_id_70th = results.loc[results['circuit_name'] == '70th Anniversary', 'race_id'].iloc[0]
+    laps['race_id'] = laps['race_id'].replace('unknown', race_id_70th)
+
+    # Drop missing drivers
+    laps = laps.dropna(subset=['driver_id'])
+
+    # Drop excess columns
+    laps.drop(['driver_name', 'laps_on_soft', 'laps_on_medium', 'laps_on_hard', 'laps_on_intermediate', 'laps_on_wet'], axis=1, inplace=True)
+    laps_filtered = laps[laps['session'].isin(['FP1', 'FP2', 'FP3', 'Qualifying'])]
+
+    # Add boolean flags
+    compounds = ['soft', 'medium', 'hard', 'intermediate', 'wet']
+    for c in compounds:
+        flag_col = f'used_{c}'
+        laps_filtered[flag_col] = (
+            laps_filtered[f'avg_pace_{c}'].notna() |
+            laps_filtered[f'deg_rate_{c}'].notna() |
+            laps_filtered[f'std_pace_{c}'].notna()
+            )
+
+    # Convert long to wide
+    laps_pivot = laps_filtered.pivot_table(
+    index=['race_id', 'driver_id'],
+    columns='session',
+    values=['avg_pace_soft', 'std_pace_soft', 'deg_rate_soft',
+    'avg_pace_medium', 'std_pace_medium', 'deg_rate_medium',
+    'avg_pace_hard', 'std_pace_hard', 'deg_rate_hard',
+    'avg_pace_intermediate', 'std_pace_intermediate', 'deg_rate_intermediate',
+    'avg_pace_wet', 'std_pace_wet', 'deg_rate_wet',
+    'used_soft', 'used_medium', 'used_hard', 'used_intermediate', 'used_wet'],
+    aggfunc='first'
+    )
+    laps_pivot.columns = [f'{col[0]}_{col[1]}' for col in laps_pivot.columns]
+    laps_aggregated = laps_pivot.reset_index()
+
+    # Fill binary used columns with False indicating compound wasn't used
+    used_cols = [col for col in laps_aggregated.columns if col.startswith('used_')]
+    laps_aggregated[used_cols] = laps_aggregated[used_cols].fillna(False)
+
+    # Fill missing data
+    sessions = ['FP1', 'FP2', 'FP3', 'Qualifying']
+    for s in sessions:
+        for c in compounds:
+            laps_aggregated[f'avg_pace_{c}_{s}'] = laps_aggregated[f'avg_pace_{c}_{s}'].fillna(0)
+            laps_aggregated[f'std_pace_{c}_{s}'] = laps_aggregated[f'std_pace_{c}_{s}'].fillna(0)
+            laps_aggregated[f'deg_rate_{c}_{s}'] = laps_aggregated[f'deg_rate_{c}_{s}'].fillna(0)
+    
+    # Correct datatypes
+    laps_aggregated['race_id'] = laps_aggregated['race_id'].astype(int)
+    laps_aggregated['driver_id'] = laps_aggregated['driver_id'].astype(int)
+
+    # Save file
+    laps_aggregated.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Laps (2018+) cleaned")
