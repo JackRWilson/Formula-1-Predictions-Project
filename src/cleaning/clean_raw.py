@@ -494,9 +494,9 @@ def clean_pit_stops_2018():
 # --------------------------------------------------------------------------------
 # Laps
 
-def clean_laps_2018():
+def clean_laps():
 
-    print("   Cleaning Laps (2018+)...")
+    print("   Cleaning Laps...")
 
     # Init variables
     raw_file_name = 'lap_results_raw.csv'
@@ -504,11 +504,11 @@ def clean_laps_2018():
     load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
     save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
     
-    # Load files
+    # Load file
     laps = pd.read_csv(load_path)
-    results = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2018+.csv'))
 
     # Fill unknown race ID (70th anniversary)
+    results = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2018+.csv'))
     race_id_70th = results.loc[results['circuit_name'] == '70th Anniversary', 'race_id'].iloc[0]
     laps['race_id'] = laps['race_id'].replace('unknown', race_id_70th)
 
@@ -562,4 +562,66 @@ def clean_laps_2018():
 
     # Save file
     laps_aggregated.to_csv(save_path, encoding='utf-8', index=False)
-    print("   Laps (2018+) cleaned")
+    print("   Laps cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Weather
+
+def clean_weather():
+
+    print("   Cleaning Weather...")
+
+    # Init variables
+    raw_file_name = 'weather_fp3_clean.csv'
+    clean_file_name1 = 'laps_clean.csv'
+    clean_file_name2 = 'weather_qualifying_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path1 = os.path.join(CLEAN_FOLDER_PATH, clean_file_name1)
+    save_path2 = os.path.join(CLEAN_FOLDER_PATH, clean_file_name2)
+
+    # Load file
+    weather = pd.read_csv(load_path)
+
+    # Fill unknown race ID (70th anniversary)
+    results = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2018+.csv'))
+    race_id_70th = results.loc[results['circuit_name'] == '70th Anniversary', 'race_id'].iloc[0]
+    weather['race_id'] = weather['race_id'].replace('unknown', race_id_70th)
+
+    # Filter for FP3 data
+    weather_fp3 = pd.DataFrame()
+    for race_id in weather['race_id'].unique():
+        race_data = weather[weather['race_id'] == race_id]
+        
+        # Try to get FP3 data first
+        fp3_data = race_data[race_data['session'] == 'FP3']
+        if not fp3_data.empty:
+            weather_fp3 = pd.concat([weather_fp3, fp3_data], ignore_index=True)
+            continue
+            
+        # If no FP3, try FP2
+        fp2_data = race_data[race_data['session'] == 'FP2']
+        if not fp2_data.empty:
+            weather_fp3 = pd.concat([weather_fp3, fp2_data], ignore_index=True)
+            continue
+            
+        # If no FP2, try FP1
+        fp1_data = race_data[race_data['session'] == 'FP1']
+        if not fp1_data.empty:
+            weather_fp3 = pd.concat([weather_fp3, fp1_data], ignore_index=True)
+
+    # Filter for Qualifying weather data
+    weather_qualifying = weather[weather['session'] == 'Qualifying']
+
+    # Correct datatypes
+    weather_fp3['race_id'] = weather_fp3['race_id'].astype(int)
+    weather_qualifying['race_id'] = weather_qualifying['race_id'].astype(int)
+
+    # Drop excess columns
+    weather_fp3.drop('session', axis=1, inplace=True)
+    weather_qualifying.drop('session', axis=1, inplace=True)
+ 
+    # Save files
+    weather_fp3.to_csv(save_path1, encoding='utf-8', index=False)
+    weather_qualifying.to_csv(save_path2, encoding='utf-8', index=False)
+    print("   Weather cleaned")
