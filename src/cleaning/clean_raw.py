@@ -625,3 +625,160 @@ def clean_weather():
     weather_fp3.to_csv(save_path1, encoding='utf-8', index=False)
     weather_qualifying.to_csv(save_path2, encoding='utf-8', index=False)
     print("   Weather cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Flags
+
+def clean_flags():
+
+    print("   Cleaning Flags...")
+
+    # Init variables
+    raw_file_name = 'flag_results_raw.csv'
+    clean_file_name = 'flags_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+
+    # Load file
+    flags = pd.read_csv(load_path)
+
+    # Fill unknown race ID (70th anniversary)
+    results = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2018+.csv'))
+    race_id_70th = results.loc[results['circuit_name'] == '70th Anniversary', 'race_id'].iloc[0]
+    flags['race_id'] = flags['race_id'].replace('unknown', race_id_70th)
+
+    # Filter for only race data
+    flags_filtered = flags[flags['session'] == 'Race']
+
+    # Add circuit id
+    results = results[['race_id', 'circuit_id']].drop_duplicates()
+    flags_filtered['race_id'] = flags_filtered['race_id'].astype(int)
+    flags_filtered = flags_filtered.merge(results, on='race_id', how='inner')
+
+    # Aggregate flag data
+    flags_sorted = flags_filtered.sort_values('race_id')
+
+    # Init lists
+    race_ids = []
+    circuit_ids = []
+    yellow_flag_probs = []
+    double_yellow_probs = []
+    red_flag_probs = []
+    safety_car_probs = []
+    vsc_probs = []
+    avg_yellow_counts = []
+    avg_double_yellow_counts = []
+    avg_red_counts = []
+    avg_safety_car_deployments = []
+    avg_vsc_deployments = []
+    avg_sc_laps = []
+    avg_vsc_laps = []
+
+    # Bayesian smoothing parameter
+    k = 1
+
+    # For each circuit, calculate probabilities and averages using historical data
+    for circuit_id in flags_sorted['circuit_id'].unique():
+        circuit_data = flags_sorted[flags_sorted['circuit_id'] == circuit_id].sort_values('race_id')
+        
+        # For each race at this circuit, use data from previous races only to avoid leakage
+        for i, (race_id, race_data) in enumerate(circuit_data.groupby('race_id')):
+            
+            # Get all races before current race at this circuit
+            historical_data = circuit_data[circuit_data['race_id'] < race_id]
+            
+            # Store race_id and circuit_id for this specific prediction
+            race_ids.append(race_id)
+            circuit_ids.append(circuit_id)
+            
+            if len(historical_data) == 0:
+                
+                # First race at this circuit, will be filled with global stats later
+                yellow_flag_probs.append(None)
+                double_yellow_probs.append(None)
+                red_flag_probs.append(None)
+                safety_car_probs.append(None)
+                vsc_probs.append(None)
+                avg_yellow_counts.append(None)
+                avg_double_yellow_counts.append(None)
+                avg_red_counts.append(None)
+                avg_safety_car_deployments.append(None)
+                avg_vsc_deployments.append(None)
+                avg_sc_laps.append(None)
+                avg_vsc_laps.append(None)
+            
+            else:
+                # Calculate probabilities with Bayesian smoothing
+                total_races = len(historical_data)
+                
+                # Yellow flag probability
+                yellow_races = len(historical_data[historical_data['flag_yellow_count'] > 0])
+                yellow_flag_probs.append((yellow_races + k) / (total_races + 2*k))
+                
+                # Double yellow probability
+                double_yellow_races = len(historical_data[historical_data['flag_double_yellow_count'] > 0])
+                double_yellow_probs.append((double_yellow_races + k) / (total_races + 2*k))
+                
+                # Red flag probability
+                red_races = len(historical_data[historical_data['flag_red_count'] > 0])
+                red_flag_probs.append((red_races + k) / (total_races + 2*k))
+                
+                # Safety car probability
+                sc_races = len(historical_data[historical_data['safety_car_deployments'] > 0])
+                safety_car_probs.append((sc_races + k) / (total_races + 2*k))
+                
+                # VSC probability
+                vsc_races = len(historical_data[historical_data['virtual_safety_car_deployments'] > 0])
+                vsc_probs.append((vsc_races + k) / (total_races + 2*k))
+                
+                # Averages
+                avg_yellow_counts.append(historical_data['flag_yellow_count'].mean())
+                avg_double_yellow_counts.append(historical_data['flag_double_yellow_count'].mean())
+                avg_red_counts.append(historical_data['flag_red_count'].mean())
+                avg_safety_car_deployments.append(historical_data['safety_car_deployments'].mean())
+                avg_vsc_deployments.append(historical_data['virtual_safety_car_deployments'].mean())
+                avg_sc_laps.append(historical_data['total_sc_laps'].mean())
+                avg_vsc_laps.append(historical_data['total_vsc_laps'].mean())
+
+    # Create summary
+    circuit_flag_stats = pd.DataFrame({
+        'race_id': race_ids,
+        'circuit_id': circuit_ids,
+        'yellow_flag_prob': yellow_flag_probs,
+        'double_yellow_prob': double_yellow_probs,
+        'red_flag_prob': red_flag_probs,
+        'safety_car_prob': safety_car_probs,
+        'vsc_prob': vsc_probs,
+        'avg_yellow_count': avg_yellow_counts,
+        'avg_double_yellow_count': avg_double_yellow_counts,
+        'avg_red_count': avg_red_counts,
+        'avg_safety_car_deployments': avg_safety_car_deployments,
+        'avg_vsc_deployments': avg_vsc_deployments,
+        'avg_sc_laps': avg_sc_laps,
+        'avg_vsc_laps': avg_vsc_laps
+    })
+
+    # Calculate global stats for imputation
+    global_stats = {
+        'yellow_flag_prob': (flags_sorted['flag_yellow_count'] > 0).mean(),
+        'double_yellow_prob': (flags_sorted['flag_double_yellow_count'] > 0).mean(),
+        'red_flag_prob': (flags_sorted['flag_red_count'] > 0).mean(),
+        'safety_car_prob': (flags_sorted['safety_car_deployments'] > 0).mean(),
+        'vsc_prob': (flags_sorted['virtual_safety_car_deployments'] > 0).mean(),
+        'avg_yellow_count': flags_sorted['flag_yellow_count'].mean(),
+        'avg_double_yellow_count': flags_sorted['flag_double_yellow_count'].mean(),
+        'avg_red_count': flags_sorted['flag_red_count'].mean(),
+        'avg_safety_car_deployments': flags_sorted['safety_car_deployments'].mean(),
+        'avg_vsc_deployments': flags_sorted['virtual_safety_car_deployments'].mean(),
+        'avg_sc_laps': flags_sorted['total_sc_laps'].mean(),
+        'avg_vsc_laps': flags_sorted['total_vsc_laps'].mean(),
+    }
+
+    # Fill missing values with global stast
+    for col in global_stats.keys():
+        circuit_flag_stats[col] = circuit_flag_stats[col].fillna(global_stats[col])
+
+    # Save file
+    circuit_flag_stats.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Flags cleaned")
