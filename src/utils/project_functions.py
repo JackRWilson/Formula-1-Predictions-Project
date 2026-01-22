@@ -964,3 +964,52 @@ def impute_pit_times(row, pit_stops_bound):
 # 13. Clean Circuit Info
 # ==============================================================================================
 
+def has_year_after_2018(season_str, target_start=2018):
+    
+    # Split by comma to handle multiple ranges
+    ranges = season_str.split(',')
+    
+    for range_part in ranges:
+        range_part = range_part.strip()
+        
+        # Clean the string
+        range_part = range_part.replace(' ', '').replace('[', '').replace(']', '').replace('c', '').replace('e', '')
+        
+        # Check if it's a range
+        if '–' in range_part:
+            end_year = int(range_part.split('–')[-1])
+        else:
+            # Single year with no range
+            end_year = int(range_part)
+        
+        # Check if this range includes any year from 2018 onward
+        if end_year >= target_start:
+            return True
+    
+    return False
+
+
+def find_circuit_info(gp_str, country_str, id_map):
+    """
+    Matches GP name to circuit ID
+
+    """
+    # Clean the GP string
+    cleaned_gp = gp_str.replace("Grand Prix", "").replace("\n", "").strip()
+    
+    # Split on commas if present
+    gp_parts = [part.strip() for part in cleaned_gp.split(',')] if ',' in cleaned_gp else [cleaned_gp]
+    
+    # Try to match each part with circuit_id dictionary keys
+    for part in gp_parts:
+        for key in id_map.keys():
+            if part.lower() in key.lower() or key.lower() in part.lower():
+                return id_map[key], key
+    
+    # If no match found in GP parts, try to match with country
+    for key in id_map.keys():
+        if country_str.lower() in key.lower() or key.lower() in country_str.lower():
+            return id_map[key], key
+    
+    # If still no match found
+    return "no match", "no match"
