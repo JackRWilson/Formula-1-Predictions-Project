@@ -22,7 +22,7 @@ from src.utils.utils import load_id_map, save_id_map
 
 
 # ==============================================================================================
-# I. Constructors Common Name Map
+# 1. Constructors Common Name Map
 # ==============================================================================================
 
 # Constructors common name mapping
@@ -494,7 +494,7 @@ constructor_mapping = {'team_id': {
 
 
 # ==============================================================================================
-# II. Extract Date from Website
+# 2. Extract Date from Website
 # ==============================================================================================
 
 def get_date(browser):
@@ -520,7 +520,7 @@ def get_date(browser):
 
 
 # ==============================================================================================
-# III. Handle Appending or New File
+# 3. Handle Appending or New File
 # ==============================================================================================
 
 def handle_appending(df_path, df, title, dup_subset: list = ['race_id', 'driver_id']):
@@ -557,7 +557,7 @@ def handle_appending(df_path, df, title, dup_subset: list = ['race_id', 'driver_
 
 
 # ==============================================================================================
-# IV. Handle Successful URL File
+# 4. Handle Successful URL File
 # ==============================================================================================
 
 def handle_successful_urls(successful_urls_path, successful_urls_temp_path):
@@ -590,7 +590,7 @@ def handle_successful_urls(successful_urls_path, successful_urls_temp_path):
 
 
 # ==============================================================================================
-# V. Check for new URLs
+# 5. Check for new URLs
 # ==============================================================================================
 
 def check_new_urls(current_path, successful_path, from_file=True):
@@ -632,7 +632,7 @@ def check_new_urls(current_path, successful_path, from_file=True):
 
 
 # ==============================================================================================
-# VI. Calculate Degradation Rate
+# 6. Calculate Degradation Rate
 # ==============================================================================================
 
 def get_degradation_rate(lap_times, lap_numbers):
@@ -653,7 +653,7 @@ def get_degradation_rate(lap_times, lap_numbers):
 
 
 # ==============================================================================================
-# VII. Calculate Compound Stats
+# 7. Calculate Compound Stats
 # ==============================================================================================
 
 def compute_compound_stats(comp_data, compound):
@@ -681,7 +681,7 @@ def compute_compound_stats(comp_data, compound):
 
 
 # ==============================================================================================
-# VIII. Process and Aggregate Lap Files
+# 8. Process and Aggregate Lap Files
 # ==============================================================================================
 
 def process_lap_file(filepath, code_to_name_map, driver_id_map):
@@ -754,7 +754,7 @@ def process_lap_file(filepath, code_to_name_map, driver_id_map):
 
 
 # ==============================================================================================
-# IX. Process and Aggregate Flag Files
+# 9. Process and Aggregate Flag Files
 # ==============================================================================================
 
 def process_flag_file(filepath, basic_count_flags, string_columns):
@@ -817,7 +817,7 @@ def process_flag_file(filepath, basic_count_flags, string_columns):
 
 
 # ==============================================================================================
-# X. Convert Position
+# 10. Convert Position
 # ==============================================================================================
 
 def convert_position(row, prev_position=None):
@@ -835,7 +835,7 @@ def convert_position(row, prev_position=None):
 
 
 # ==============================================================================================
-# XI. Clean and Impute Qualifying time
+# 11. Clean and Impute Qualifying time
 # ==============================================================================================
 
 def clean_qualifying_times(df):
@@ -904,7 +904,7 @@ def clean_qualifying_times(df):
 
 
 # ==============================================================================================
-# XII. Convert Pit Time Format
+# 12. Clean Pit Times
 # ==============================================================================================
 
 def convert_pit_time(time_str):
@@ -918,10 +918,6 @@ def convert_pit_time(time_str):
     else:
         return float(time_str)
 
-
-# ==============================================================================================
-# XIII. Impute Missing Pit Times
-# ==============================================================================================
 
 def impute_pit_times(row, pit_stops_bound):
     current_race_id = row['race_id']
@@ -962,3 +958,9 @@ def impute_pit_times(row, pit_stops_bound):
     
     # Fallback to 0
     return 0
+
+
+# ==============================================================================================
+# 13. Clean Circuit Info
+# ==============================================================================================
+
