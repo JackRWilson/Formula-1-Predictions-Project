@@ -14,7 +14,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import load_id_map, save_id_map
-from src.utils.project_functions import convert_position, constructor_mapping, clean_qualifying_times, convert_pit_time, impute_pit_times
+from src.utils.project_functions import convert_position, constructor_mapping, clean_qualifying_times, convert_pit_time, impute_pit_times, has_year_after_2018, find_circuit_info
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 CLEAN_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/clean')
@@ -782,3 +782,82 @@ def clean_flags():
     # Save file
     circuit_flag_stats.to_csv(save_path, encoding='utf-8', index=False)
     print("   Flags cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Circuits
+
+def clean_circuits():
+
+    print("   Cleaning Circuits...")
+
+    # Init variables
+    raw_file_name = 'circuits_raw.csv'
+    clean_file_name = 'circuits_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+    
+    # Load file
+    circuits = pd.read_csv(load_path)
+
+    # Add Bahrain Outer circuit
+    new_circuit_data = {
+        'name': 'Bahrain International Outer Circuit',
+        'type': 'Race circuit',
+        'direction': 'Clockwise',
+        'location': 'Sakhir',
+        'country': 'Bahrain',
+        'length': '3.543 km (2.202 mi)',
+        'turns': '11',
+        'gp': 'Sakhir Grand Prix',
+        'seasons': '2020',
+        'gps_held': '1'
+    }
+    new_row = pd.DataFrame([new_circuit_data])
+    circuits = pd.concat([circuits, new_row], ignore_index=True)
+
+    # Filter for 2018+ seasons
+    circuits = circuits[circuits['seasons'].apply(has_year_after_2018)]
+
+    # Add circuit_id column
+    circuit_id_map = load_id_map(os.path.join(DATA_FOLDER_PATH, 'circuit_id_map.pkl'))
+    circuits[['circuit_id', 'circuit_name']] = circuits.apply(
+        lambda row: pd.Series(find_circuit_info(row['gp'], row['country'], circuit_id_map)), 
+        axis=1
+    )
+
+    # Update rows that have duplicate information
+    emilia_romagna_rows = circuits['gp'].str.lower().str.contains('emilia romagna', na=False)
+    for idx in circuits[emilia_romagna_rows].index:
+        new_circuit_id, new_circuit_name = find_circuit_info("Emilia-Romagna", circuits.at[idx, 'country'], circuit_id_map)
+        circuits.at[idx, 'circuit_name'] = new_circuit_name
+        circuits.at[idx, 'circuit_id'] = new_circuit_id
+    eifel_rows = circuits['gp'].str.lower().str.contains('eifel', na=False)
+    for idx in circuits[eifel_rows].index:
+        new_circuit_id, new_circuit_name = find_circuit_info("Eifel", circuits.at[idx, 'country'], circuit_id_map)
+        circuits.at[idx, 'circuit_name'] = new_circuit_name
+        circuits.at[idx, 'circuit_id'] = new_circuit_id
+    gb_rows = circuits['gp'].str.lower().str.contains('70th anniversary', na=False)
+    for idx in circuits[gb_rows].index:
+        new_circuit_id, new_circuit_name = find_circuit_info("Great Britain", circuits.at[idx, 'country'], circuit_id_map)
+        circuits.at[idx, 'circuit_name'] = new_circuit_name
+        circuits.at[idx, 'circuit_id'] = new_circuit_id
+    
+    # Remove unnecessary data
+    circuits = circuits[['name', 'type', 'direction', 'length', 'turns', 'circuit_id', 'circuit_name']].sort_values('circuit_id', ascending=False)
+    circuits['length'] = circuits['length'].apply(lambda x: x.split(' ')[0] if isinstance(x, str) else x)
+
+    # Fix alternate directions
+    circuits.loc[~circuits['direction'].isin(['Clockwise', 'Anti-clockwise']), 'direction'] = 'Figure eight'
+
+    # Clean name
+    circuits['name'] = circuits['name'].str.replace('*', '').str.strip()
+
+    # Correct datatypes
+    circuits['length'] = circuits['length'].astype(float)
+    circuits['turns'] = circuits['turns'].astype(int)
+    circuits['circuit_id'] = circuits['circuit_id'].astype(int)
+    
+    # Save file
+    circuits.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Circuits cleaned")
