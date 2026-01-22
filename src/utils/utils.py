@@ -19,7 +19,7 @@ from urllib.parse import quote
 
 
 # ==============================================================================================
-# I. Load/Save ID Maps
+# 1. Load/Save ID Maps
 # ==============================================================================================
 
 def load_id_map(path: str, default: dict | list | None = None):
@@ -90,7 +90,7 @@ def save_id_map(path: str, id_map, max_retries: int = 3):
 
 
 # ==============================================================================================
-# II. Column:Index Mapping
+# 2. Column:Index Mapping
 # ==============================================================================================
 
 def init_col_map(col_map: dict):
@@ -103,7 +103,7 @@ def init_col_map(col_map: dict):
 
 
 # ==============================================================================================
-# III. Scrape Data from URL
+# 3. Scrape Data from URL
 # ==============================================================================================
 
 def create_browser():
@@ -418,7 +418,7 @@ def scrape_url_table(
 
 
 # ==============================================================================================
-# IV. Aggregate Column Values
+# 4. Aggregate Column Values
 # ==============================================================================================
 
 def aggregate_columns(df, columns: list = None, boolean_columns: list = None, string_columns: list = None):
@@ -474,7 +474,7 @@ def aggregate_columns(df, columns: list = None, boolean_columns: list = None, st
 
 
 # ==============================================================================================
-# VI. Get Location Data
+# 5. Get Location Data
 # ==============================================================================================
 
 def get_location_data(place, city, country):
