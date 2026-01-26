@@ -180,13 +180,7 @@ def clean_practices_2018():
     
     # Load file
     practices = pd.read_csv(load_path)
-    print("RIGHT AFTER LOADING:")
-    print(f"Total rows: {len(practices)}")
-    print(practices['session_type'].value_counts())
-    practice0_rows = practices[practices['session_type'] == 'practice0']
-    print(f"\npractice0 rows: {len(practice0_rows)}")
-    if len(practice0_rows) > 0:
-        print(practice0_rows.head())
+
     # Add recorded lap column
     practices['recorded_lap_time'] = practices['lap_time'].notna()
 
@@ -273,11 +267,6 @@ def clean_practices_2018():
     # Drop unnecessary columns
     practices.drop(['lap_time', 'team_id'], axis=1, inplace=True)
 
-    print("BEFORE mapping:")
-    print(practices['session_type'].value_counts())
-    practice0_count = (practices['session_type'] == 'practice0').sum()
-    print(f"practice0 rows: {practice0_count}")
-
     # Format session type
     session_map = {
         'practice0': 'FP3',
@@ -287,9 +276,6 @@ def clean_practices_2018():
     }
     practices['session_type'] = practices['session_type'].map(session_map)
 
-    print("\nAFTER mapping:")
-    print(practices['session_type'].value_counts())
-    
     # Correct datatypes
     practices['best_time'] = practices['lap_time_clean'].dt.total_seconds()
     practices.drop('lap_time_clean', axis=1, inplace=True)
