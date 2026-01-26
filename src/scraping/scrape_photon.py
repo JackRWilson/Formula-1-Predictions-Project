@@ -60,7 +60,7 @@ def scrape_location():
         original_name = row['name']
         
         # Clean place name by stripping non-text and excess white space
-        place = re.sub(r'[^A-Za-z0-9\s]', '', row['name']).strip()
+        place = clean_circuit_name(row['name'])
         city = row['location']
         country = row['country']
         
