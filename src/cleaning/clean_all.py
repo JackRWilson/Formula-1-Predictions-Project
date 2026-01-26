@@ -19,6 +19,7 @@ from src.cleaning.clean_raw import *
 def clean_all():
     
     # Clean raw
+    print("\nCleaning raw data...")
     clean_id_map()
     clean_results_2001()
     clean_results_2018()
@@ -31,6 +32,7 @@ def clean_all():
     clean_flags()
     clean_circuits()
     clean_locations()
+    print("Raw data cleaned\n")
 
 
 if __name__ == "__main__":
