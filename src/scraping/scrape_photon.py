@@ -13,7 +13,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import get_location_data, print_progress_bar, save_id_map
-from src.utils.project_functions import handle_appending, handle_successful_urls, check_new_urls
+from src.utils.project_functions import handle_appending, handle_successful_urls, check_new_urls, clean_circuit_name
 from src.scraping.scrape_wikipedia import scrape_circuits
 
 
@@ -43,7 +43,7 @@ def scrape_location():
     circuits = pd.read_csv(CIRCUITS_PATH)
 
     # Create cleaned place column and convert to a list
-    circuits['cleaned_place'] = circuits['name'].apply(lambda n: re.sub(r'[^A-Za-z0-9\s]', '', n).strip())
+    circuits['cleaned_place'] = circuits['name'].apply(clean_circuit_name)
     places = circuits['cleaned_place'].tolist()
 
     # Find new locations
