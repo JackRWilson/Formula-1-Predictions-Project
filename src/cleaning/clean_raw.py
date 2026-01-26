@@ -7,14 +7,14 @@
 
 import pandas as pd
 import os, sys, re
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.utils.utils import load_id_map, save_id_map
-from src.utils.project_functions import convert_position, constructor_mapping, clean_qualifying_times, convert_pit_time, impute_pit_times, has_year_after_2018, find_circuit_info
+from src.utils.project_functions import convert_position, constructor_mapping, clean_qualifying_times, convert_pit_time, impute_pit_times, has_year_after_2018, find_circuit_info, clean_circuit_name
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 CLEAN_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/clean')
@@ -303,7 +303,9 @@ def clean_practices_2018():
 
     # Fill NA values in recorded_lap_time columns with False
     recorded_cols = [col for col in practices_aggregated.columns if col.startswith('recorded_lap_time_')]
+    practices_aggregated[recorded_cols] = practices_aggregated[recorded_cols].astype("boolean")
     practices_aggregated[recorded_cols] = practices_aggregated[recorded_cols].fillna(False)
+    practices_aggregated[recorded_cols] = practices_aggregated[recorded_cols].astype(bool)
 
     # Fill NA values in lap_count columns with 0
     lap_count_cols = [col for col in practices_aggregated.columns if col.startswith('lap_count_')]
@@ -517,36 +519,38 @@ def clean_laps():
 
     # Drop excess columns
     laps.drop(['driver_name', 'laps_on_soft', 'laps_on_medium', 'laps_on_hard', 'laps_on_intermediate', 'laps_on_wet'], axis=1, inplace=True)
-    laps_filtered = laps[laps['session'].isin(['FP1', 'FP2', 'FP3', 'Qualifying'])]
+    laps_filtered = laps[laps['session'].isin(['FP1', 'FP2', 'FP3', 'Qualifying'])].copy()
 
     # Add boolean flags
     compounds = ['soft', 'medium', 'hard', 'intermediate', 'wet']
     for c in compounds:
         flag_col = f'used_{c}'
-        laps_filtered[flag_col] = (
+        laps_filtered.loc[:, flag_col] = (
             laps_filtered[f'avg_pace_{c}'].notna() |
             laps_filtered[f'deg_rate_{c}'].notna() |
             laps_filtered[f'std_pace_{c}'].notna()
-            )
+        )
 
     # Convert long to wide
     laps_pivot = laps_filtered.pivot_table(
-    index=['race_id', 'driver_id'],
-    columns='session',
-    values=['avg_pace_soft', 'std_pace_soft', 'deg_rate_soft',
-    'avg_pace_medium', 'std_pace_medium', 'deg_rate_medium',
-    'avg_pace_hard', 'std_pace_hard', 'deg_rate_hard',
-    'avg_pace_intermediate', 'std_pace_intermediate', 'deg_rate_intermediate',
-    'avg_pace_wet', 'std_pace_wet', 'deg_rate_wet',
-    'used_soft', 'used_medium', 'used_hard', 'used_intermediate', 'used_wet'],
-    aggfunc='first'
+        index=['race_id', 'driver_id'],
+        columns='session',
+        values=['avg_pace_soft', 'std_pace_soft', 'deg_rate_soft',
+                'avg_pace_medium', 'std_pace_medium', 'deg_rate_medium',
+                'avg_pace_hard', 'std_pace_hard', 'deg_rate_hard',
+                'avg_pace_intermediate', 'std_pace_intermediate', 'deg_rate_intermediate',
+                'avg_pace_wet', 'std_pace_wet', 'deg_rate_wet',
+                'used_soft', 'used_medium', 'used_hard', 'used_intermediate', 'used_wet'],
+        aggfunc='first'
     )
     laps_pivot.columns = [f'{col[0]}_{col[1]}' for col in laps_pivot.columns]
     laps_aggregated = laps_pivot.reset_index()
 
     # Fill binary used columns with False indicating compound wasn't used
     used_cols = [col for col in laps_aggregated.columns if col.startswith('used_')]
+    laps_aggregated[used_cols] = laps_aggregated[used_cols].astype("boolean")
     laps_aggregated[used_cols] = laps_aggregated[used_cols].fillna(False)
+    laps_aggregated[used_cols] = laps_aggregated[used_cols].astype(bool)
 
     # Fill missing data
     sessions = ['FP1', 'FP2', 'FP3', 'Qualifying']
@@ -573,8 +577,8 @@ def clean_weather():
     print("   Cleaning Weather...")
 
     # Init variables
-    raw_file_name = 'weather_fp3_clean.csv'
-    clean_file_name1 = 'laps_clean.csv'
+    raw_file_name = 'weather_results_raw.csv'
+    clean_file_name1 = 'weather_fp3_clean.csv'
     clean_file_name2 = 'weather_qualifying_clean.csv'
     load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
     save_path1 = os.path.join(CLEAN_FOLDER_PATH, clean_file_name1)
@@ -611,7 +615,7 @@ def clean_weather():
             weather_fp3 = pd.concat([weather_fp3, fp1_data], ignore_index=True)
 
     # Filter for Qualifying weather data
-    weather_qualifying = weather[weather['session'] == 'Qualifying']
+    weather_qualifying = weather[weather['session'] == 'Qualifying'].copy()
 
     # Correct datatypes
     weather_fp3['race_id'] = weather_fp3['race_id'].astype(int)
@@ -649,7 +653,7 @@ def clean_flags():
     flags['race_id'] = flags['race_id'].replace('unknown', race_id_70th)
 
     # Filter for only race data
-    flags_filtered = flags[flags['session'] == 'Race']
+    flags_filtered = flags[flags['session'] == 'Race'].copy()
 
     # Add circuit id
     results = results[['race_id', 'circuit_id']].drop_duplicates()
@@ -800,6 +804,10 @@ def clean_circuits():
     # Load file
     circuits = pd.read_csv(load_path)
 
+    # Fill any NA seasons with current year
+    current_year = datetime.now().year
+    circuits['seasons'] = circuits['seasons'].fillna(str(current_year))
+
     # Add Bahrain Outer circuit
     new_circuit_data = {
         'name': 'Bahrain International Outer Circuit',
@@ -851,7 +859,7 @@ def clean_circuits():
     circuits.loc[~circuits['direction'].isin(['Clockwise', 'Anti-clockwise']), 'direction'] = 'Figure eight'
 
     # Clean name
-    circuits['name'] = circuits['name'].str.replace('*', '').str.strip()
+    circuits['name'] = circuits['name'].apply(clean_circuit_name)
 
     # Correct datatypes
     circuits['length'] = circuits['length'].astype(float)
@@ -872,7 +880,7 @@ def clean_locations():
 
     # Init variables
     raw_file_name = 'locations_raw.csv'
-    clean_file_name = 'circuits_clean.csv'
+    clean_file_name = 'locations_clean.csv'
     load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
     save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
     
