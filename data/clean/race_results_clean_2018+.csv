@@ -159,46 +159,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 8,75,8,20,2018,https://www.formula1.com/en/results/2018/races/986/france/race-result,France,Sergio Perez,Force India,18,0.0,27.0,NC
 8,101,8,20,2018,https://www.formula1.com/en/results/2018/races/986/france/race-result,France,Esteban Ocon,Force India,19,0.0,0.0,NC
 8,104,8,16,2018,https://www.formula1.com/en/results/2018/races/986/france/race-result,France,Pierre Gasly,Toro Rosso,20,0.0,0.0,NC
-9,94,9,14,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Max Verstappen,Red Bull,1,25.0,71.0,CLAS
-9,6,9,1,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Kimi Räikkönen,Ferrari,2,18.0,71.0,CLAS
-9,60,9,1,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Sebastian Vettel,Ferrari,3,15.0,71.0,CLAS
-9,67,9,28,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Romain Grosjean,Haas,4,12.0,70.0,CLAS
-9,87,9,28,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Kevin Magnussen,Haas,5,10.0,70.0,CLAS
-9,101,9,20,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Esteban Ocon,Force India,6,8.0,70.0,CLAS
-9,75,9,20,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Sergio Perez,Force India,7,6.0,70.0,CLAS
-9,12,9,2,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Fernando Alonso,McLaren,8,4.0,70.0,CLAS
-9,106,9,3,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Charles Leclerc,Sauber,9,2.0,70.0,CLAS
-9,89,9,3,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Marcus Ericsson,Sauber,10,1.0,70.0,CLAS
-9,104,9,16,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Pierre Gasly,Toro Rosso,11,0.0,70.0,CLAS
-9,93,9,13,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Carlos Sainz,Renault,12,0.0,70.0,CLAS
-9,107,9,11,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Sergey Sirotkin,Williams,13,0.0,69.0,CLAS
-9,103,9,11,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Lance Stroll,Williams,14,0.0,69.0,CLAS
-9,100,9,2,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Stoffel Vandoorne,McLaren,15,0.0,65.0,CLAS
-9,57,9,22,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Lewis Hamilton,Mercedes,16,0.0,62.0,NC
-9,105,9,16,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Brendon Hartley,Toro Rosso,17,0.0,54.0,NC
-9,79,9,14,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Daniel Ricciardo,Red Bull,18,0.0,53.0,NC
-9,83,9,22,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Valtteri Bottas,Mercedes,19,0.0,13.0,NC
-9,70,9,13,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Nico Hulkenberg,Renault,20,0.0,11.0,NC
-10,60,10,1,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Sebastian Vettel,Ferrari,1,25.0,52.0,CLAS
-10,57,10,22,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,2,18.0,52.0,CLAS
-10,6,10,1,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Kimi Räikkönen,Ferrari,3,15.0,52.0,CLAS
-10,83,10,22,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,4,12.0,52.0,CLAS
-10,79,10,14,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Daniel Ricciardo,Red Bull,5,10.0,52.0,CLAS
-10,70,10,13,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Nico Hulkenberg,Renault,6,8.0,52.0,CLAS
-10,101,10,20,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Esteban Ocon,Force India,7,6.0,52.0,CLAS
-10,12,10,2,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Fernando Alonso,McLaren,8,4.0,52.0,CLAS
-10,87,10,28,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,9,2.0,52.0,CLAS
-10,75,10,20,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Sergio Perez,Force India,10,1.0,52.0,CLAS
-10,100,10,2,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Stoffel Vandoorne,McLaren,11,0.0,52.0,CLAS
-10,103,10,11,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Lance Stroll,Williams,12,0.0,52.0,CLAS
-10,104,10,16,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Pierre Gasly,Toro Rosso,13,0.0,52.0,CLAS
-10,107,10,11,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Sergey Sirotkin,Williams,14,0.0,52.0,CLAS
-10,94,10,14,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,15,0.0,46.0,CLAS
-10,67,10,28,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Romain Grosjean,Haas,16,0.0,37.0,NC
-10,93,10,13,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Carlos Sainz,Renault,17,0.0,37.0,NC
-10,89,10,3,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Marcus Ericsson,Sauber,18,0.0,31.0,NC
-10,106,10,3,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Charles Leclerc,Sauber,19,0.0,18.0,NC
-10,105,10,16,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Brendon Hartley,Toro Rosso,20,0.0,1.0,NC
+9,94,10,14,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Max Verstappen,Red Bull,1,25.0,71.0,CLAS
+9,6,10,1,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Kimi Räikkönen,Ferrari,2,18.0,71.0,CLAS
+9,60,10,1,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Sebastian Vettel,Ferrari,3,15.0,71.0,CLAS
+9,67,10,28,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Romain Grosjean,Haas,4,12.0,70.0,CLAS
+9,87,10,28,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Kevin Magnussen,Haas,5,10.0,70.0,CLAS
+9,101,10,20,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Esteban Ocon,Force India,6,8.0,70.0,CLAS
+9,75,10,20,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Sergio Perez,Force India,7,6.0,70.0,CLAS
+9,12,10,2,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Fernando Alonso,McLaren,8,4.0,70.0,CLAS
+9,106,10,3,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Charles Leclerc,Sauber,9,2.0,70.0,CLAS
+9,89,10,3,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Marcus Ericsson,Sauber,10,1.0,70.0,CLAS
+9,104,10,16,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Pierre Gasly,Toro Rosso,11,0.0,70.0,CLAS
+9,93,10,13,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Carlos Sainz,Renault,12,0.0,70.0,CLAS
+9,107,10,11,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Sergey Sirotkin,Williams,13,0.0,69.0,CLAS
+9,103,10,11,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Lance Stroll,Williams,14,0.0,69.0,CLAS
+9,100,10,2,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Stoffel Vandoorne,McLaren,15,0.0,65.0,CLAS
+9,57,10,22,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Lewis Hamilton,Mercedes,16,0.0,62.0,NC
+9,105,10,16,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Brendon Hartley,Toro Rosso,17,0.0,54.0,NC
+9,79,10,14,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Daniel Ricciardo,Red Bull,18,0.0,53.0,NC
+9,83,10,22,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Valtteri Bottas,Mercedes,19,0.0,13.0,NC
+9,70,10,13,2018,https://www.formula1.com/en/results/2018/races/987/austria/race-result,Austria,Nico Hulkenberg,Renault,20,0.0,11.0,NC
+10,60,9,1,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Sebastian Vettel,Ferrari,1,25.0,52.0,CLAS
+10,57,9,22,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,2,18.0,52.0,CLAS
+10,6,9,1,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Kimi Räikkönen,Ferrari,3,15.0,52.0,CLAS
+10,83,9,22,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,4,12.0,52.0,CLAS
+10,79,9,14,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Daniel Ricciardo,Red Bull,5,10.0,52.0,CLAS
+10,70,9,13,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Nico Hulkenberg,Renault,6,8.0,52.0,CLAS
+10,101,9,20,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Esteban Ocon,Force India,7,6.0,52.0,CLAS
+10,12,9,2,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Fernando Alonso,McLaren,8,4.0,52.0,CLAS
+10,87,9,28,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,9,2.0,52.0,CLAS
+10,75,9,20,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Sergio Perez,Force India,10,1.0,52.0,CLAS
+10,100,9,2,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Stoffel Vandoorne,McLaren,11,0.0,52.0,CLAS
+10,103,9,11,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Lance Stroll,Williams,12,0.0,52.0,CLAS
+10,104,9,16,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Pierre Gasly,Toro Rosso,13,0.0,52.0,CLAS
+10,107,9,11,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Sergey Sirotkin,Williams,14,0.0,52.0,CLAS
+10,94,9,14,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,15,0.0,46.0,CLAS
+10,67,9,28,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Romain Grosjean,Haas,16,0.0,37.0,NC
+10,93,9,13,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Carlos Sainz,Renault,17,0.0,37.0,NC
+10,89,9,3,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Marcus Ericsson,Sauber,18,0.0,31.0,NC
+10,106,9,3,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Charles Leclerc,Sauber,19,0.0,18.0,NC
+10,105,9,16,2018,https://www.formula1.com/en/results/2018/races/988/great-britain/race-result,Great Britain,Brendon Hartley,Toro Rosso,20,0.0,1.0,NC
 11,57,11,22,2018,https://www.formula1.com/en/results/2018/races/989/germany/race-result,Germany,Lewis Hamilton,Mercedes,1,25.0,67.0,CLAS
 11,83,11,22,2018,https://www.formula1.com/en/results/2018/races/989/germany/race-result,Germany,Valtteri Bottas,Mercedes,2,18.0,67.0,CLAS
 11,6,11,1,2018,https://www.formula1.com/en/results/2018/races/989/germany/race-result,Germany,Kimi Räikkönen,Ferrari,3,15.0,67.0,CLAS
@@ -579,46 +579,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 29,56,8,11,2019,https://www.formula1.com/en/results/2019/races/1007/france/race-result,France,Robert Kubica,Williams,18,0.0,51.0,CLAS
 29,110,8,11,2019,https://www.formula1.com/en/results/2019/races/1007/france/race-result,France,George Russell,Williams,19,0.0,51.0,CLAS
 29,67,8,28,2019,https://www.formula1.com/en/results/2019/races/1007/france/race-result,France,Romain Grosjean,Haas,20,0.0,44.0,NC
-30,94,9,14,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Max Verstappen,Red Bull,1,26.0,71.0,CLAS
-30,106,9,1,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Charles Leclerc,Ferrari,2,18.0,71.0,CLAS
-30,83,9,22,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Valtteri Bottas,Mercedes,3,15.0,71.0,CLAS
-30,60,9,1,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Sebastian Vettel,Ferrari,4,12.0,71.0,CLAS
-30,57,9,22,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Lewis Hamilton,Mercedes,5,10.0,71.0,CLAS
-30,108,9,2,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Lando Norris,McLaren,6,8.0,70.0,CLAS
-30,104,9,14,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Pierre Gasly,Red Bull,7,6.0,70.0,CLAS
-30,93,9,2,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Carlos Sainz,McLaren,8,4.0,70.0,CLAS
-30,6,9,30,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Kimi Räikkönen,Alfa Romeo,9,2.0,70.0,CLAS
-30,102,9,30,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Antonio Giovinazzi,Alfa Romeo,10,1.0,70.0,CLAS
-30,75,9,31,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Sergio Perez,Racing Point,11,0.0,70.0,CLAS
-30,79,9,13,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Daniel Ricciardo,Renault,12,0.0,70.0,CLAS
-30,70,9,13,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Nico Hulkenberg,Renault,13,0.0,70.0,CLAS
-30,103,9,31,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Lance Stroll,Racing Point,14,0.0,70.0,CLAS
-30,109,9,16,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Alexander Albon,Toro Rosso,15,0.0,70.0,CLAS
-30,67,9,28,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Romain Grosjean,Haas,16,0.0,70.0,CLAS
-30,88,9,16,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Daniil Kvyat,Toro Rosso,17,0.0,70.0,CLAS
-30,110,9,11,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,George Russell,Williams,18,0.0,69.0,CLAS
-30,87,9,28,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Kevin Magnussen,Haas,19,0.0,69.0,CLAS
-30,56,9,11,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Robert Kubica,Williams,20,0.0,68.0,CLAS
-31,57,10,22,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,26.0,52.0,CLAS
-31,83,10,22,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,2,18.0,52.0,CLAS
-31,106,10,1,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,3,15.0,52.0,CLAS
-31,104,10,14,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Pierre Gasly,Red Bull,4,12.0,52.0,CLAS
-31,94,10,14,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,5,10.0,52.0,CLAS
-31,93,10,2,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Carlos Sainz,McLaren,6,8.0,52.0,CLAS
-31,79,10,13,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Daniel Ricciardo,Renault,7,6.0,52.0,CLAS
-31,6,10,30,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Kimi Räikkönen,Alfa Romeo,8,4.0,52.0,CLAS
-31,88,10,16,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Daniil Kvyat,Toro Rosso,9,2.0,52.0,CLAS
-31,70,10,13,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Nico Hulkenberg,Renault,10,1.0,52.0,CLAS
-31,108,10,2,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Lando Norris,McLaren,11,0.0,52.0,CLAS
-31,109,10,16,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Alexander Albon,Toro Rosso,12,0.0,52.0,CLAS
-31,103,10,31,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Lance Stroll,Racing Point,13,0.0,52.0,CLAS
-31,110,10,11,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,George Russell,Williams,14,0.0,51.0,CLAS
-31,56,10,11,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Robert Kubica,Williams,15,0.0,51.0,CLAS
-31,60,10,1,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Sebastian Vettel,Ferrari,16,0.0,51.0,CLAS
-31,75,10,31,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Sergio Perez,Racing Point,17,0.0,51.0,CLAS
-31,102,10,30,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Antonio Giovinazzi,Alfa Romeo,18,0.0,18.0,NC
-31,67,10,28,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Romain Grosjean,Haas,19,0.0,9.0,NC
-31,87,10,28,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,20,0.0,6.0,NC
+30,94,10,14,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Max Verstappen,Red Bull,1,26.0,71.0,CLAS
+30,106,10,1,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Charles Leclerc,Ferrari,2,18.0,71.0,CLAS
+30,83,10,22,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Valtteri Bottas,Mercedes,3,15.0,71.0,CLAS
+30,60,10,1,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Sebastian Vettel,Ferrari,4,12.0,71.0,CLAS
+30,57,10,22,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Lewis Hamilton,Mercedes,5,10.0,71.0,CLAS
+30,108,10,2,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Lando Norris,McLaren,6,8.0,70.0,CLAS
+30,104,10,14,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Pierre Gasly,Red Bull,7,6.0,70.0,CLAS
+30,93,10,2,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Carlos Sainz,McLaren,8,4.0,70.0,CLAS
+30,6,10,30,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Kimi Räikkönen,Alfa Romeo,9,2.0,70.0,CLAS
+30,102,10,30,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Antonio Giovinazzi,Alfa Romeo,10,1.0,70.0,CLAS
+30,75,10,31,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Sergio Perez,Racing Point,11,0.0,70.0,CLAS
+30,79,10,13,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Daniel Ricciardo,Renault,12,0.0,70.0,CLAS
+30,70,10,13,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Nico Hulkenberg,Renault,13,0.0,70.0,CLAS
+30,103,10,31,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Lance Stroll,Racing Point,14,0.0,70.0,CLAS
+30,109,10,16,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Alexander Albon,Toro Rosso,15,0.0,70.0,CLAS
+30,67,10,28,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Romain Grosjean,Haas,16,0.0,70.0,CLAS
+30,88,10,16,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Daniil Kvyat,Toro Rosso,17,0.0,70.0,CLAS
+30,110,10,11,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,George Russell,Williams,18,0.0,69.0,CLAS
+30,87,10,28,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Kevin Magnussen,Haas,19,0.0,69.0,CLAS
+30,56,10,11,2019,https://www.formula1.com/en/results/2019/races/1008/austria/race-result,Austria,Robert Kubica,Williams,20,0.0,68.0,CLAS
+31,57,9,22,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,26.0,52.0,CLAS
+31,83,9,22,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,2,18.0,52.0,CLAS
+31,106,9,1,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,3,15.0,52.0,CLAS
+31,104,9,14,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Pierre Gasly,Red Bull,4,12.0,52.0,CLAS
+31,94,9,14,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,5,10.0,52.0,CLAS
+31,93,9,2,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Carlos Sainz,McLaren,6,8.0,52.0,CLAS
+31,79,9,13,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Daniel Ricciardo,Renault,7,6.0,52.0,CLAS
+31,6,9,30,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Kimi Räikkönen,Alfa Romeo,8,4.0,52.0,CLAS
+31,88,9,16,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Daniil Kvyat,Toro Rosso,9,2.0,52.0,CLAS
+31,70,9,13,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Nico Hulkenberg,Renault,10,1.0,52.0,CLAS
+31,108,9,2,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Lando Norris,McLaren,11,0.0,52.0,CLAS
+31,109,9,16,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Alexander Albon,Toro Rosso,12,0.0,52.0,CLAS
+31,103,9,31,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Lance Stroll,Racing Point,13,0.0,52.0,CLAS
+31,110,9,11,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,George Russell,Williams,14,0.0,51.0,CLAS
+31,56,9,11,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Robert Kubica,Williams,15,0.0,51.0,CLAS
+31,60,9,1,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Sebastian Vettel,Ferrari,16,0.0,51.0,CLAS
+31,75,9,31,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Sergio Perez,Racing Point,17,0.0,51.0,CLAS
+31,102,9,30,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Antonio Giovinazzi,Alfa Romeo,18,0.0,18.0,NC
+31,67,9,28,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Romain Grosjean,Haas,19,0.0,9.0,NC
+31,87,9,28,2019,https://www.formula1.com/en/results/2019/races/1009/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,20,0.0,6.0,NC
 32,94,11,14,2019,https://www.formula1.com/en/results/2019/races/1010/germany/race-result,Germany,Max Verstappen,Red Bull,1,26.0,64.0,CLAS
 32,60,11,1,2019,https://www.formula1.com/en/results/2019/races/1010/germany/race-result,Germany,Sebastian Vettel,Ferrari,2,18.0,64.0,CLAS
 32,88,11,16,2019,https://www.formula1.com/en/results/2019/races/1010/germany/race-result,Germany,Daniil Kvyat,Toro Rosso,3,15.0,64.0,CLAS
@@ -839,46 +839,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 42,104,21,16,2019,https://www.formula1.com/en/results/2019/races/1020/abu-dhabi/race-result,Abu Dhabi,Pierre Gasly,Toro Rosso,18,0.0,53.0,CLAS
 42,56,21,11,2019,https://www.formula1.com/en/results/2019/races/1020/abu-dhabi/race-result,Abu Dhabi,Robert Kubica,Williams,19,0.0,53.0,CLAS
 42,103,21,31,2019,https://www.formula1.com/en/results/2019/races/1020/abu-dhabi/race-result,Abu Dhabi,Lance Stroll,Racing Point,20,0.0,45.0,NC
-43,83,9,22,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Valtteri Bottas,Mercedes,1,25.0,71.0,CLAS
-43,106,9,1,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Charles Leclerc,Ferrari,2,18.0,71.0,CLAS
-43,108,9,2,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Lando Norris,McLaren,3,16.0,71.0,CLAS
-43,57,9,22,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Lewis Hamilton,Mercedes,4,12.0,71.0,CLAS
-43,93,9,2,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Carlos Sainz,McLaren,5,10.0,71.0,CLAS
-43,75,9,31,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Sergio Perez,Racing Point,6,8.0,71.0,CLAS
-43,104,9,32,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Pierre Gasly,AlphaTauri,7,6.0,71.0,CLAS
-43,101,9,13,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Esteban Ocon,Renault,8,4.0,71.0,CLAS
-43,102,9,30,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Antonio Giovinazzi,Alfa Romeo,9,2.0,71.0,CLAS
-43,60,9,1,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Sebastian Vettel,Ferrari,10,1.0,71.0,CLAS
-43,111,9,11,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Nicholas Latifi,Williams,11,0.0,71.0,CLAS
-43,88,9,32,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Daniil Kvyat,AlphaTauri,12,0.0,69.0,CLAS
-43,109,9,14,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Alexander Albon,Red Bull,13,0.0,67.0,CLAS
-43,6,9,30,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Kimi Räikkönen,Alfa Romeo,14,0.0,53.0,NC
-43,110,9,11,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,George Russell,Williams,15,0.0,49.0,NC
-43,67,9,28,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Romain Grosjean,Haas,16,0.0,49.0,NC
-43,87,9,28,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Kevin Magnussen,Haas,17,0.0,24.0,NC
-43,103,9,31,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Lance Stroll,Racing Point,18,0.0,20.0,NC
-43,79,9,13,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Daniel Ricciardo,Renault,19,0.0,17.0,NC
-43,94,9,14,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Max Verstappen,Red Bull,20,0.0,11.0,NC
-44,57,10,22,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lewis Hamilton,Mercedes,1,25.0,71.0,CLAS
-44,83,10,22,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Valtteri Bottas,Mercedes,2,18.0,71.0,CLAS
-44,94,10,14,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Max Verstappen,Red Bull,3,15.0,71.0,CLAS
-44,109,10,14,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Alexander Albon,Red Bull,4,12.0,71.0,CLAS
-44,108,10,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lando Norris,McLaren,5,10.0,71.0,CLAS
-44,75,10,31,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sergio Perez,Racing Point,6,8.0,71.0,CLAS
-44,103,10,31,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lance Stroll,Racing Point,7,6.0,71.0,CLAS
-44,79,10,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniel Ricciardo,Renault,8,4.0,71.0,CLAS
-44,93,10,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Carlos Sainz,McLaren,9,3.0,70.0,CLAS
-44,88,10,32,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniil Kvyat,AlphaTauri,10,1.0,70.0,CLAS
-44,6,10,30,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo,11,0.0,70.0,CLAS
-44,87,10,28,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kevin Magnussen,Haas,12,0.0,70.0,CLAS
-44,67,10,28,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Romain Grosjean,Haas,13,0.0,70.0,CLAS
-44,102,10,30,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo,14,0.0,70.0,CLAS
-44,104,10,32,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Pierre Gasly,AlphaTauri,15,0.0,70.0,CLAS
-44,110,10,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,George Russell,Williams,16,0.0,69.0,CLAS
-44,111,10,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Nicholas Latifi,Williams,17,0.0,69.0,CLAS
-44,101,10,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Esteban Ocon,Renault,18,0.0,25.0,NC
-44,106,10,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Charles Leclerc,Ferrari,19,0.0,4.0,NC
-44,60,10,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sebastian Vettel,Ferrari,20,0.0,1.0,NC
+43,83,10,22,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Valtteri Bottas,Mercedes,1,25.0,71.0,CLAS
+43,106,10,1,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Charles Leclerc,Ferrari,2,18.0,71.0,CLAS
+43,108,10,2,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Lando Norris,McLaren,3,16.0,71.0,CLAS
+43,57,10,22,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Lewis Hamilton,Mercedes,4,12.0,71.0,CLAS
+43,93,10,2,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Carlos Sainz,McLaren,5,10.0,71.0,CLAS
+43,75,10,31,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Sergio Perez,Racing Point,6,8.0,71.0,CLAS
+43,104,10,32,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Pierre Gasly,AlphaTauri,7,6.0,71.0,CLAS
+43,101,10,13,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Esteban Ocon,Renault,8,4.0,71.0,CLAS
+43,102,10,30,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Antonio Giovinazzi,Alfa Romeo,9,2.0,71.0,CLAS
+43,60,10,1,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Sebastian Vettel,Ferrari,10,1.0,71.0,CLAS
+43,111,10,11,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Nicholas Latifi,Williams,11,0.0,71.0,CLAS
+43,88,10,32,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Daniil Kvyat,AlphaTauri,12,0.0,69.0,CLAS
+43,109,10,14,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Alexander Albon,Red Bull,13,0.0,67.0,CLAS
+43,6,10,30,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Kimi Räikkönen,Alfa Romeo,14,0.0,53.0,NC
+43,110,10,11,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,George Russell,Williams,15,0.0,49.0,NC
+43,67,10,28,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Romain Grosjean,Haas,16,0.0,49.0,NC
+43,87,10,28,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Kevin Magnussen,Haas,17,0.0,24.0,NC
+43,103,10,31,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Lance Stroll,Racing Point,18,0.0,20.0,NC
+43,79,10,13,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Daniel Ricciardo,Renault,19,0.0,17.0,NC
+43,94,10,14,2020,https://www.formula1.com/en/results/2020/races/1045/austria/race-result,Austria,Max Verstappen,Red Bull,20,0.0,11.0,NC
+44,57,22,22,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lewis Hamilton,Mercedes,1,25.0,71.0,CLAS
+44,83,22,22,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Valtteri Bottas,Mercedes,2,18.0,71.0,CLAS
+44,94,22,14,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Max Verstappen,Red Bull,3,15.0,71.0,CLAS
+44,109,22,14,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Alexander Albon,Red Bull,4,12.0,71.0,CLAS
+44,108,22,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lando Norris,McLaren,5,10.0,71.0,CLAS
+44,75,22,31,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sergio Perez,Racing Point,6,8.0,71.0,CLAS
+44,103,22,31,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Lance Stroll,Racing Point,7,6.0,71.0,CLAS
+44,79,22,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniel Ricciardo,Renault,8,4.0,71.0,CLAS
+44,93,22,2,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Carlos Sainz,McLaren,9,3.0,70.0,CLAS
+44,88,22,32,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Daniil Kvyat,AlphaTauri,10,1.0,70.0,CLAS
+44,6,22,30,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo,11,0.0,70.0,CLAS
+44,87,22,28,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Kevin Magnussen,Haas,12,0.0,70.0,CLAS
+44,67,22,28,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Romain Grosjean,Haas,13,0.0,70.0,CLAS
+44,102,22,30,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo,14,0.0,70.0,CLAS
+44,104,22,32,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Pierre Gasly,AlphaTauri,15,0.0,70.0,CLAS
+44,110,22,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,George Russell,Williams,16,0.0,69.0,CLAS
+44,111,22,11,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Nicholas Latifi,Williams,17,0.0,69.0,CLAS
+44,101,22,13,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Esteban Ocon,Renault,18,0.0,25.0,NC
+44,106,22,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Charles Leclerc,Ferrari,19,0.0,4.0,NC
+44,60,22,1,2020,https://www.formula1.com/en/results/2020/races/1046/styria/race-result,Styria,Sebastian Vettel,Ferrari,20,0.0,1.0,NC
 45,57,12,22,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Lewis Hamilton,Mercedes,1,26.0,70.0,CLAS
 45,94,12,14,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Max Verstappen,Red Bull,2,18.0,70.0,CLAS
 45,83,12,22,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Valtteri Bottas,Mercedes,3,15.0,70.0,CLAS
@@ -899,46 +899,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 45,110,12,11,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,George Russell,Williams,18,0.0,69.0,CLAS
 45,111,12,11,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Nicholas Latifi,Williams,19,0.0,65.0,CLAS
 45,104,12,32,2020,https://www.formula1.com/en/results/2020/races/1047/hungary/race-result,Hungary,Pierre Gasly,AlphaTauri,20,0.0,15.0,NC
-46,57,10,22,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,25.0,52.0,CLAS
-46,94,10,14,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,2,19.0,52.0,CLAS
-46,106,10,1,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,3,15.0,52.0,CLAS
-46,79,10,13,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Daniel Ricciardo,Renault,4,12.0,52.0,CLAS
-46,108,10,2,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Lando Norris,McLaren,5,10.0,52.0,CLAS
-46,101,10,13,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Esteban Ocon,Renault,6,8.0,52.0,CLAS
-46,104,10,32,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Pierre Gasly,AlphaTauri,7,6.0,52.0,CLAS
-46,109,10,14,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Alexander Albon,Red Bull,8,4.0,52.0,CLAS
-46,103,10,31,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Lance Stroll,Racing Point,9,2.0,52.0,CLAS
-46,60,10,1,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Sebastian Vettel,Ferrari,10,1.0,52.0,CLAS
-46,83,10,22,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,11,0.0,52.0,CLAS
-46,110,10,11,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,George Russell,Williams,12,0.0,52.0,CLAS
-46,93,10,2,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Carlos Sainz,McLaren,13,0.0,52.0,CLAS
-46,102,10,30,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Antonio Giovinazzi,Alfa Romeo,14,0.0,52.0,CLAS
-46,111,10,11,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Nicholas Latifi,Williams,15,0.0,52.0,CLAS
-46,67,10,28,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Romain Grosjean,Haas,16,0.0,52.0,CLAS
-46,6,10,30,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Kimi Räikkönen,Alfa Romeo,17,0.0,51.0,CLAS
-46,88,10,32,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Daniil Kvyat,AlphaTauri,18,0.0,11.0,NC
-46,87,10,28,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,19,0.0,1.0,NC
-46,70,10,31,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Nico Hulkenberg,Racing Point,20,0.0,0.0,NC
-47,94,9,14,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Max Verstappen,Red Bull,1,25.0,52.0,CLAS
-47,57,9,22,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lewis Hamilton,Mercedes,2,19.0,52.0,CLAS
-47,83,9,22,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Valtteri Bottas,Mercedes,3,15.0,52.0,CLAS
-47,106,9,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Charles Leclerc,Ferrari,4,12.0,52.0,CLAS
-47,109,9,14,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Alexander Albon,Red Bull,5,10.0,52.0,CLAS
-47,103,9,31,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lance Stroll,Racing Point,6,8.0,52.0,CLAS
-47,70,9,31,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nico Hulkenberg,Racing Point,7,6.0,52.0,CLAS
-47,101,9,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Esteban Ocon,Renault,8,4.0,52.0,CLAS
-47,108,9,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lando Norris,McLaren,9,2.0,52.0,CLAS
-47,88,9,32,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniil Kvyat,AlphaTauri,10,1.0,52.0,CLAS
-47,104,9,32,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Pierre Gasly,AlphaTauri,11,0.0,52.0,CLAS
-47,60,9,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Sebastian Vettel,Ferrari,12,0.0,52.0,CLAS
-47,93,9,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Carlos Sainz,McLaren,13,0.0,52.0,CLAS
-47,79,9,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniel Ricciardo,Renault,14,0.0,51.0,CLAS
-47,6,9,30,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kimi Räikkönen,Alfa Romeo,15,0.0,51.0,CLAS
-47,67,9,28,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Romain Grosjean,Haas,16,0.0,51.0,CLAS
-47,102,9,30,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Antonio Giovinazzi,Alfa Romeo,17,0.0,51.0,CLAS
-47,110,9,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,George Russell,Williams,18,0.0,51.0,CLAS
-47,111,9,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nicholas Latifi,Williams,19,0.0,51.0,CLAS
-47,87,9,28,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kevin Magnussen,Haas,20,0.0,43.0,NC
+46,57,9,22,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,25.0,52.0,CLAS
+46,94,9,14,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,2,19.0,52.0,CLAS
+46,106,9,1,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,3,15.0,52.0,CLAS
+46,79,9,13,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Daniel Ricciardo,Renault,4,12.0,52.0,CLAS
+46,108,9,2,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Lando Norris,McLaren,5,10.0,52.0,CLAS
+46,101,9,13,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Esteban Ocon,Renault,6,8.0,52.0,CLAS
+46,104,9,32,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Pierre Gasly,AlphaTauri,7,6.0,52.0,CLAS
+46,109,9,14,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Alexander Albon,Red Bull,8,4.0,52.0,CLAS
+46,103,9,31,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Lance Stroll,Racing Point,9,2.0,52.0,CLAS
+46,60,9,1,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Sebastian Vettel,Ferrari,10,1.0,52.0,CLAS
+46,83,9,22,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,11,0.0,52.0,CLAS
+46,110,9,11,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,George Russell,Williams,12,0.0,52.0,CLAS
+46,93,9,2,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Carlos Sainz,McLaren,13,0.0,52.0,CLAS
+46,102,9,30,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Antonio Giovinazzi,Alfa Romeo,14,0.0,52.0,CLAS
+46,111,9,11,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Nicholas Latifi,Williams,15,0.0,52.0,CLAS
+46,67,9,28,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Romain Grosjean,Haas,16,0.0,52.0,CLAS
+46,6,9,30,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Kimi Räikkönen,Alfa Romeo,17,0.0,51.0,CLAS
+46,88,9,32,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Daniil Kvyat,AlphaTauri,18,0.0,11.0,NC
+46,87,9,28,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,19,0.0,1.0,NC
+46,70,9,31,2020,https://www.formula1.com/en/results/2020/races/1048/great-britain/race-result,Great Britain,Nico Hulkenberg,Racing Point,20,0.0,0.0,NC
+47,94,23,14,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Max Verstappen,Red Bull,1,25.0,52.0,CLAS
+47,57,23,22,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lewis Hamilton,Mercedes,2,19.0,52.0,CLAS
+47,83,23,22,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Valtteri Bottas,Mercedes,3,15.0,52.0,CLAS
+47,106,23,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Charles Leclerc,Ferrari,4,12.0,52.0,CLAS
+47,109,23,14,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Alexander Albon,Red Bull,5,10.0,52.0,CLAS
+47,103,23,31,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lance Stroll,Racing Point,6,8.0,52.0,CLAS
+47,70,23,31,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nico Hulkenberg,Racing Point,7,6.0,52.0,CLAS
+47,101,23,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Esteban Ocon,Renault,8,4.0,52.0,CLAS
+47,108,23,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Lando Norris,McLaren,9,2.0,52.0,CLAS
+47,88,23,32,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniil Kvyat,AlphaTauri,10,1.0,52.0,CLAS
+47,104,23,32,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Pierre Gasly,AlphaTauri,11,0.0,52.0,CLAS
+47,60,23,1,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Sebastian Vettel,Ferrari,12,0.0,52.0,CLAS
+47,93,23,2,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Carlos Sainz,McLaren,13,0.0,52.0,CLAS
+47,79,23,13,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Daniel Ricciardo,Renault,14,0.0,51.0,CLAS
+47,6,23,30,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kimi Räikkönen,Alfa Romeo,15,0.0,51.0,CLAS
+47,67,23,28,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Romain Grosjean,Haas,16,0.0,51.0,CLAS
+47,102,23,30,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Antonio Giovinazzi,Alfa Romeo,17,0.0,51.0,CLAS
+47,110,23,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,George Russell,Williams,18,0.0,51.0,CLAS
+47,111,23,11,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Nicholas Latifi,Williams,19,0.0,51.0,CLAS
+47,87,23,28,2020,https://www.formula1.com/en/results/2020/races/1049/70th-anniversary/race-result,70th Anniversary,Kevin Magnussen,Haas,20,0.0,43.0,NC
 48,57,5,22,2020,https://www.formula1.com/en/results/2020/races/1050/spain/race-result,Spain,Lewis Hamilton,Mercedes,1,25.0,66.0,CLAS
 48,94,5,14,2020,https://www.formula1.com/en/results/2020/races/1050/spain/race-result,Spain,Max Verstappen,Red Bull,2,18.0,66.0,CLAS
 48,83,5,22,2020,https://www.formula1.com/en/results/2020/races/1050/spain/race-result,Spain,Valtteri Bottas,Mercedes,3,16.0,66.0,CLAS
@@ -1319,66 +1319,66 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 66,111,8,11,2021,https://www.formula1.com/en/results/2021/races/1070/france/race-result,France,Nicholas Latifi,Williams,18,0.0,52.0,CLAS
 66,115,8,28,2021,https://www.formula1.com/en/results/2021/races/1070/france/race-result,France,Mick Schumacher,Haas,19,0.0,52.0,CLAS
 66,116,8,28,2021,https://www.formula1.com/en/results/2021/races/1070/france/race-result,France,Nikita Mazepin,Haas,20,0.0,52.0,CLAS
-67,94,10,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Max Verstappen,Red Bull,1,25.0,71.0,CLAS
-67,57,10,22,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lewis Hamilton,Mercedes,2,19.0,71.0,CLAS
-67,83,10,22,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Valtteri Bottas,Mercedes,3,15.0,71.0,CLAS
-67,75,10,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sergio Perez,Red Bull,4,12.0,71.0,CLAS
-67,108,10,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lando Norris,McLaren,5,10.0,70.0,CLAS
-67,93,10,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Carlos Sainz,Ferrari,6,8.0,70.0,CLAS
-67,106,10,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Charles Leclerc,Ferrari,7,6.0,70.0,CLAS
-67,103,10,33,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lance Stroll,Aston Martin,8,4.0,70.0,CLAS
-67,12,10,34,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Fernando Alonso,Alpine,9,2.0,70.0,CLAS
-67,114,10,32,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Yuki Tsunoda,AlphaTauri,10,1.0,70.0,CLAS
-67,6,10,30,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo,11,0.0,70.0,CLAS
-67,60,10,33,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sebastian Vettel,Aston Martin,12,0.0,70.0,CLAS
-67,79,10,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Daniel Ricciardo,McLaren,13,0.0,70.0,CLAS
-67,101,10,34,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Esteban Ocon,Alpine,14,0.0,70.0,CLAS
-67,102,10,30,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo,15,0.0,70.0,CLAS
-67,115,10,28,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Mick Schumacher,Haas,16,0.0,69.0,CLAS
-67,111,10,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nicholas Latifi,Williams,17,0.0,68.0,CLAS
-67,116,10,28,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nikita Mazepin,Haas,18,0.0,68.0,CLAS
-67,110,10,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,George Russell,Williams,19,0.0,36.0,NC
-67,104,10,32,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Pierre Gasly,AlphaTauri,20,0.0,1.0,NC
-68,94,9,14,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Max Verstappen,Red Bull,1,26.0,71.0,CLAS
-68,83,9,22,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Valtteri Bottas,Mercedes,2,18.0,71.0,CLAS
-68,108,9,2,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Lando Norris,McLaren,3,15.0,71.0,CLAS
-68,57,9,22,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Lewis Hamilton,Mercedes,4,12.0,71.0,CLAS
-68,93,9,1,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Carlos Sainz,Ferrari,5,10.0,71.0,CLAS
-68,75,9,14,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Sergio Perez,Red Bull,6,8.0,71.0,CLAS
-68,79,9,2,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Daniel Ricciardo,McLaren,7,6.0,71.0,CLAS
-68,106,9,1,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Charles Leclerc,Ferrari,8,4.0,71.0,CLAS
-68,104,9,32,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Pierre Gasly,AlphaTauri,9,2.0,71.0,CLAS
-68,12,9,34,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Fernando Alonso,Alpine,10,1.0,70.0,CLAS
-68,110,9,11,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,George Russell,Williams,11,0.0,70.0,CLAS
-68,114,9,32,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Yuki Tsunoda,AlphaTauri,12,0.0,70.0,CLAS
-68,103,9,33,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Lance Stroll,Aston Martin,13,0.0,70.0,CLAS
-68,102,9,30,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Antonio Giovinazzi,Alfa Romeo,14,0.0,70.0,CLAS
-68,6,9,30,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Kimi Räikkönen,Alfa Romeo,15,0.0,70.0,CLAS
-68,111,9,11,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Nicholas Latifi,Williams,16,0.0,70.0,CLAS
-68,60,9,33,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Sebastian Vettel,Aston Martin,17,0.0,69.0,CLAS
-68,115,9,28,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Mick Schumacher,Haas,18,0.0,69.0,CLAS
-68,116,9,28,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Nikita Mazepin,Haas,19,0.0,69.0,CLAS
-68,101,9,34,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Esteban Ocon,Alpine,20,0.0,0.0,NC
-69,57,10,22,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,25.0,52.0,CLAS
-69,106,10,1,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,2,18.0,52.0,CLAS
-69,83,10,22,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,3,15.0,52.0,CLAS
-69,108,10,2,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Lando Norris,McLaren,4,12.0,52.0,CLAS
-69,79,10,2,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Daniel Ricciardo,McLaren,5,10.0,52.0,CLAS
-69,93,10,1,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,6,8.0,52.0,CLAS
-69,12,10,34,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Fernando Alonso,Alpine,7,6.0,52.0,CLAS
-69,103,10,33,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,8,4.0,52.0,CLAS
-69,101,10,34,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,9,2.0,52.0,CLAS
-69,114,10,32,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Yuki Tsunoda,AlphaTauri,10,1.0,52.0,CLAS
-69,104,10,32,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Pierre Gasly,AlphaTauri,11,0.0,52.0,CLAS
-69,110,10,11,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,George Russell,Williams,12,0.0,51.0,CLAS
-69,102,10,30,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Antonio Giovinazzi,Alfa Romeo,13,0.0,51.0,CLAS
-69,111,10,11,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Nicholas Latifi,Williams,14,0.0,51.0,CLAS
-69,6,10,30,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Kimi Räikkönen,Alfa Romeo,15,0.0,51.0,CLAS
-69,75,10,14,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,16,0.0,51.0,CLAS
-69,116,10,28,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Nikita Mazepin,Haas,17,0.0,51.0,CLAS
-69,115,10,28,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Mick Schumacher,Haas,18,0.0,51.0,CLAS
-69,60,10,33,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Sebastian Vettel,Aston Martin,19,0.0,40.0,NC
-69,94,10,14,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,20,0.0,0.0,NC
+67,94,22,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Max Verstappen,Red Bull,1,25.0,71.0,CLAS
+67,57,22,22,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lewis Hamilton,Mercedes,2,19.0,71.0,CLAS
+67,83,22,22,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Valtteri Bottas,Mercedes,3,15.0,71.0,CLAS
+67,75,22,14,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sergio Perez,Red Bull,4,12.0,71.0,CLAS
+67,108,22,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lando Norris,McLaren,5,10.0,70.0,CLAS
+67,93,22,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Carlos Sainz,Ferrari,6,8.0,70.0,CLAS
+67,106,22,1,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Charles Leclerc,Ferrari,7,6.0,70.0,CLAS
+67,103,22,33,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Lance Stroll,Aston Martin,8,4.0,70.0,CLAS
+67,12,22,34,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Fernando Alonso,Alpine,9,2.0,70.0,CLAS
+67,114,22,32,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Yuki Tsunoda,AlphaTauri,10,1.0,70.0,CLAS
+67,6,22,30,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Kimi Räikkönen,Alfa Romeo,11,0.0,70.0,CLAS
+67,60,22,33,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Sebastian Vettel,Aston Martin,12,0.0,70.0,CLAS
+67,79,22,2,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Daniel Ricciardo,McLaren,13,0.0,70.0,CLAS
+67,101,22,34,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Esteban Ocon,Alpine,14,0.0,70.0,CLAS
+67,102,22,30,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Antonio Giovinazzi,Alfa Romeo,15,0.0,70.0,CLAS
+67,115,22,28,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Mick Schumacher,Haas,16,0.0,69.0,CLAS
+67,111,22,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nicholas Latifi,Williams,17,0.0,68.0,CLAS
+67,116,22,28,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Nikita Mazepin,Haas,18,0.0,68.0,CLAS
+67,110,22,11,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,George Russell,Williams,19,0.0,36.0,NC
+67,104,22,32,2021,https://www.formula1.com/en/results/2021/races/1092/styria/race-result,Styria,Pierre Gasly,AlphaTauri,20,0.0,1.0,NC
+68,94,10,14,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Max Verstappen,Red Bull,1,26.0,71.0,CLAS
+68,83,10,22,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Valtteri Bottas,Mercedes,2,18.0,71.0,CLAS
+68,108,10,2,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Lando Norris,McLaren,3,15.0,71.0,CLAS
+68,57,10,22,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Lewis Hamilton,Mercedes,4,12.0,71.0,CLAS
+68,93,10,1,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Carlos Sainz,Ferrari,5,10.0,71.0,CLAS
+68,75,10,14,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Sergio Perez,Red Bull,6,8.0,71.0,CLAS
+68,79,10,2,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Daniel Ricciardo,McLaren,7,6.0,71.0,CLAS
+68,106,10,1,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Charles Leclerc,Ferrari,8,4.0,71.0,CLAS
+68,104,10,32,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Pierre Gasly,AlphaTauri,9,2.0,71.0,CLAS
+68,12,10,34,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Fernando Alonso,Alpine,10,1.0,70.0,CLAS
+68,110,10,11,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,George Russell,Williams,11,0.0,70.0,CLAS
+68,114,10,32,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Yuki Tsunoda,AlphaTauri,12,0.0,70.0,CLAS
+68,103,10,33,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Lance Stroll,Aston Martin,13,0.0,70.0,CLAS
+68,102,10,30,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Antonio Giovinazzi,Alfa Romeo,14,0.0,70.0,CLAS
+68,6,10,30,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Kimi Räikkönen,Alfa Romeo,15,0.0,70.0,CLAS
+68,111,10,11,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Nicholas Latifi,Williams,16,0.0,70.0,CLAS
+68,60,10,33,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Sebastian Vettel,Aston Martin,17,0.0,69.0,CLAS
+68,115,10,28,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Mick Schumacher,Haas,18,0.0,69.0,CLAS
+68,116,10,28,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Nikita Mazepin,Haas,19,0.0,69.0,CLAS
+68,101,10,34,2021,https://www.formula1.com/en/results/2021/races/1071/austria/race-result,Austria,Esteban Ocon,Alpine,20,0.0,0.0,NC
+69,57,9,22,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,25.0,52.0,CLAS
+69,106,9,1,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,2,18.0,52.0,CLAS
+69,83,9,22,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Valtteri Bottas,Mercedes,3,15.0,52.0,CLAS
+69,108,9,2,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Lando Norris,McLaren,4,12.0,52.0,CLAS
+69,79,9,2,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Daniel Ricciardo,McLaren,5,10.0,52.0,CLAS
+69,93,9,1,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,6,8.0,52.0,CLAS
+69,12,9,34,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Fernando Alonso,Alpine,7,6.0,52.0,CLAS
+69,103,9,33,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,8,4.0,52.0,CLAS
+69,101,9,34,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,9,2.0,52.0,CLAS
+69,114,9,32,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Yuki Tsunoda,AlphaTauri,10,1.0,52.0,CLAS
+69,104,9,32,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Pierre Gasly,AlphaTauri,11,0.0,52.0,CLAS
+69,110,9,11,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,George Russell,Williams,12,0.0,51.0,CLAS
+69,102,9,30,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Antonio Giovinazzi,Alfa Romeo,13,0.0,51.0,CLAS
+69,111,9,11,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Nicholas Latifi,Williams,14,0.0,51.0,CLAS
+69,6,9,30,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Kimi Räikkönen,Alfa Romeo,15,0.0,51.0,CLAS
+69,75,9,14,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,16,0.0,51.0,CLAS
+69,116,9,28,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Nikita Mazepin,Haas,17,0.0,51.0,CLAS
+69,115,9,28,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Mick Schumacher,Haas,18,0.0,51.0,CLAS
+69,60,9,33,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Sebastian Vettel,Aston Martin,19,0.0,40.0,NC
+69,94,9,14,2021,https://www.formula1.com/en/results/2021/races/1072/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,20,0.0,0.0,NC
 70,101,12,34,2021,https://www.formula1.com/en/results/2021/races/1073/hungary/race-result,Hungary,Esteban Ocon,Alpine,1,25.0,70.0,CLAS
 70,60,12,33,2021,https://www.formula1.com/en/results/2021/races/1073/hungary/race-result,Hungary,Sebastian Vettel,Aston Martin,2,0.0,70.0,DQ
 70,57,12,22,2021,https://www.formula1.com/en/results/2021/races/1073/hungary/race-result,Hungary,Lewis Hamilton,Mercedes,2,18.0,70.0,CLAS
@@ -1797,46 +1797,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 90,114,7,32,2022,https://www.formula1.com/en/results/2022/races/1113/canada/race-result,Canada,Yuki Tsunoda,AlphaTauri,18,0.0,47.0,NC
 90,115,7,28,2022,https://www.formula1.com/en/results/2022/races/1113/canada/race-result,Canada,Mick Schumacher,Haas,19,0.0,18.0,NC
 90,75,7,14,2022,https://www.formula1.com/en/results/2022/races/1113/canada/race-result,Canada,Sergio Perez,Red Bull,20,0.0,7.0,NC
-91,93,10,1,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,1,25.0,52.0,CLAS
-91,75,10,14,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,2,18.0,52.0,CLAS
-91,57,10,22,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,3,16.0,52.0,CLAS
-91,106,10,1,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,4,12.0,52.0,CLAS
-91,12,10,34,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Fernando Alonso,Alpine,5,10.0,52.0,CLAS
-91,108,10,2,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Lando Norris,McLaren,6,8.0,52.0,CLAS
-91,94,10,14,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,7,6.0,52.0,CLAS
-91,115,10,28,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Mick Schumacher,Haas,8,4.0,52.0,CLAS
-91,60,10,33,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Sebastian Vettel,Aston Martin,9,2.0,52.0,CLAS
-91,87,10,28,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,10,1.0,52.0,CLAS
-91,103,10,33,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,11,0.0,52.0,CLAS
-91,111,10,11,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Nicholas Latifi,Williams,12,0.0,52.0,CLAS
-91,79,10,2,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Daniel Ricciardo,McLaren,13,0.0,52.0,CLAS
-91,114,10,32,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Yuki Tsunoda,AlphaTauri,14,0.0,52.0,CLAS
-91,101,10,34,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,15,0.0,37.0,NC
-91,104,10,32,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Pierre Gasly,AlphaTauri,16,0.0,26.0,NC
-91,83,10,30,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Valtteri Bottas,Alfa Romeo,17,0.0,20.0,NC
-91,110,10,22,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,George Russell,Mercedes,18,0.0,0.0,NC
-91,117,10,30,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Zhou Guanyu,Alfa Romeo,19,0.0,0.0,NC
-91,109,10,11,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Alexander Albon,Williams,20,0.0,0.0,NC
-92,106,9,1,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Charles Leclerc,Ferrari,1,25.0,71.0,CLAS
-92,94,9,14,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Max Verstappen,Red Bull,2,19.0,71.0,CLAS
-92,57,9,22,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Lewis Hamilton,Mercedes,3,15.0,71.0,CLAS
-92,110,9,22,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,George Russell,Mercedes,4,12.0,71.0,CLAS
-92,101,9,34,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Esteban Ocon,Alpine,5,10.0,71.0,CLAS
-92,115,9,28,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Mick Schumacher,Haas,6,8.0,70.0,CLAS
-92,108,9,2,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Lando Norris,McLaren,7,6.0,70.0,CLAS
-92,87,9,28,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Kevin Magnussen,Haas,8,4.0,70.0,CLAS
-92,79,9,2,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Daniel Ricciardo,McLaren,9,2.0,70.0,CLAS
-92,12,9,34,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Fernando Alonso,Alpine,10,1.0,70.0,CLAS
-92,83,9,30,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Valtteri Bottas,Alfa Romeo,11,0.0,70.0,CLAS
-92,109,9,11,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Alexander Albon,Williams,12,0.0,70.0,CLAS
-92,103,9,33,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Lance Stroll,Aston Martin,13,0.0,70.0,CLAS
-92,117,9,30,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Zhou Guanyu,Alfa Romeo,14,0.0,70.0,CLAS
-92,104,9,32,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Pierre Gasly,AlphaTauri,15,0.0,70.0,CLAS
-92,114,9,32,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Yuki Tsunoda,AlphaTauri,16,0.0,70.0,CLAS
-92,60,9,33,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Sebastian Vettel,Aston Martin,17,0.0,70.0,CLAS
-92,93,9,1,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Carlos Sainz,Ferrari,18,0.0,56.0,NC
-92,111,9,11,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Nicholas Latifi,Williams,19,0.0,48.0,NC
-92,75,9,14,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Sergio Perez,Red Bull,20,0.0,24.0,NC
+91,93,9,1,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,1,25.0,52.0,CLAS
+91,75,9,14,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,2,18.0,52.0,CLAS
+91,57,9,22,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,3,16.0,52.0,CLAS
+91,106,9,1,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,4,12.0,52.0,CLAS
+91,12,9,34,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Fernando Alonso,Alpine,5,10.0,52.0,CLAS
+91,108,9,2,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Lando Norris,McLaren,6,8.0,52.0,CLAS
+91,94,9,14,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,7,6.0,52.0,CLAS
+91,115,9,28,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Mick Schumacher,Haas,8,4.0,52.0,CLAS
+91,60,9,33,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Sebastian Vettel,Aston Martin,9,2.0,52.0,CLAS
+91,87,9,28,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,10,1.0,52.0,CLAS
+91,103,9,33,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,11,0.0,52.0,CLAS
+91,111,9,11,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Nicholas Latifi,Williams,12,0.0,52.0,CLAS
+91,79,9,2,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Daniel Ricciardo,McLaren,13,0.0,52.0,CLAS
+91,114,9,32,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Yuki Tsunoda,AlphaTauri,14,0.0,52.0,CLAS
+91,101,9,34,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,15,0.0,37.0,NC
+91,104,9,32,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Pierre Gasly,AlphaTauri,16,0.0,26.0,NC
+91,83,9,30,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Valtteri Bottas,Alfa Romeo,17,0.0,20.0,NC
+91,110,9,22,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,George Russell,Mercedes,18,0.0,0.0,NC
+91,117,9,30,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Zhou Guanyu,Alfa Romeo,19,0.0,0.0,NC
+91,109,9,11,2022,https://www.formula1.com/en/results/2022/races/1114/great-britain/race-result,Great Britain,Alexander Albon,Williams,20,0.0,0.0,NC
+92,106,10,1,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Charles Leclerc,Ferrari,1,25.0,71.0,CLAS
+92,94,10,14,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Max Verstappen,Red Bull,2,19.0,71.0,CLAS
+92,57,10,22,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Lewis Hamilton,Mercedes,3,15.0,71.0,CLAS
+92,110,10,22,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,George Russell,Mercedes,4,12.0,71.0,CLAS
+92,101,10,34,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Esteban Ocon,Alpine,5,10.0,71.0,CLAS
+92,115,10,28,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Mick Schumacher,Haas,6,8.0,70.0,CLAS
+92,108,10,2,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Lando Norris,McLaren,7,6.0,70.0,CLAS
+92,87,10,28,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Kevin Magnussen,Haas,8,4.0,70.0,CLAS
+92,79,10,2,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Daniel Ricciardo,McLaren,9,2.0,70.0,CLAS
+92,12,10,34,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Fernando Alonso,Alpine,10,1.0,70.0,CLAS
+92,83,10,30,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Valtteri Bottas,Alfa Romeo,11,0.0,70.0,CLAS
+92,109,10,11,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Alexander Albon,Williams,12,0.0,70.0,CLAS
+92,103,10,33,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Lance Stroll,Aston Martin,13,0.0,70.0,CLAS
+92,117,10,30,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Zhou Guanyu,Alfa Romeo,14,0.0,70.0,CLAS
+92,104,10,32,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Pierre Gasly,AlphaTauri,15,0.0,70.0,CLAS
+92,114,10,32,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Yuki Tsunoda,AlphaTauri,16,0.0,70.0,CLAS
+92,60,10,33,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Sebastian Vettel,Aston Martin,17,0.0,70.0,CLAS
+92,93,10,1,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Carlos Sainz,Ferrari,18,0.0,56.0,NC
+92,111,10,11,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Nicholas Latifi,Williams,19,0.0,48.0,NC
+92,75,10,14,2022,https://www.formula1.com/en/results/2022/races/1115/austria/race-result,Austria,Sergio Perez,Red Bull,20,0.0,24.0,NC
 93,94,8,14,2022,https://www.formula1.com/en/results/2022/races/1116/france/race-result,France,Max Verstappen,Red Bull,1,25.0,53.0,CLAS
 93,57,8,22,2022,https://www.formula1.com/en/results/2022/races/1116/france/race-result,France,Lewis Hamilton,Mercedes,2,18.0,53.0,CLAS
 93,110,8,22,2022,https://www.formula1.com/en/results/2022/races/1116/france/race-result,France,George Russell,Mercedes,3,15.0,53.0,CLAS
@@ -2217,46 +2217,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 111,118,7,32,2023,https://www.formula1.com/en/results/2023/races/1212/canada/race-result,Canada,Nyck De Vries,AlphaTauri,18,0.0,69.0,CLAS
 111,110,7,22,2023,https://www.formula1.com/en/results/2023/races/1212/canada/race-result,Canada,George Russell,Mercedes,19,0.0,53.0,NC
 111,119,7,11,2023,https://www.formula1.com/en/results/2023/races/1212/canada/race-result,Canada,Logan Sargeant,Williams,20,0.0,6.0,NC
-112,94,9,14,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Max Verstappen,Red Bull,1,26.0,71.0,CLAS
-112,106,9,1,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Charles Leclerc,Ferrari,2,18.0,71.0,CLAS
-112,75,9,14,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Sergio Perez,Red Bull,3,15.0,71.0,CLAS
-112,108,9,2,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Lando Norris,McLaren,4,12.0,71.0,CLAS
-112,12,9,33,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Fernando Alonso,Aston Martin,5,10.0,71.0,CLAS
-112,93,9,1,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Carlos Sainz,Ferrari,6,8.0,71.0,CLAS
-112,110,9,22,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,George Russell,Mercedes,7,6.0,71.0,CLAS
-112,57,9,22,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Lewis Hamilton,Mercedes,8,4.0,71.0,CLAS
-112,103,9,33,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Lance Stroll,Aston Martin,9,2.0,71.0,CLAS
-112,104,9,34,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Pierre Gasly,Alpine,10,1.0,71.0,CLAS
-112,109,9,11,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Alexander Albon,Williams,11,0.0,71.0,CLAS
-112,117,9,30,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Zhou Guanyu,Alfa Romeo,12,0.0,70.0,CLAS
-112,119,9,11,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Logan Sargeant,Williams,13,0.0,70.0,CLAS
-112,101,9,34,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Esteban Ocon,Alpine,14,0.0,70.0,CLAS
-112,83,9,30,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Valtteri Bottas,Alfa Romeo,15,0.0,70.0,CLAS
-112,120,9,2,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Oscar Piastri,McLaren,16,0.0,70.0,CLAS
-112,118,9,32,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Nyck De Vries,AlphaTauri,17,0.0,70.0,CLAS
-112,87,9,28,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Kevin Magnussen,Haas,18,0.0,70.0,CLAS
-112,114,9,32,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Yuki Tsunoda,AlphaTauri,19,0.0,70.0,CLAS
-112,70,9,28,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Nico Hulkenberg,Haas,20,0.0,12.0,NC
-113,94,10,14,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,1,26.0,52.0,CLAS
-113,108,10,2,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Lando Norris,McLaren,2,18.0,52.0,CLAS
-113,57,10,22,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,3,15.0,52.0,CLAS
-113,120,10,2,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Oscar Piastri,McLaren,4,12.0,52.0,CLAS
-113,110,10,22,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,George Russell,Mercedes,5,10.0,52.0,CLAS
-113,75,10,14,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,6,8.0,52.0,CLAS
-113,12,10,33,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Fernando Alonso,Aston Martin,7,6.0,52.0,CLAS
-113,109,10,11,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Alexander Albon,Williams,8,4.0,52.0,CLAS
-113,106,10,1,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,9,2.0,52.0,CLAS
-113,93,10,1,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,10,1.0,52.0,CLAS
-113,119,10,11,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Logan Sargeant,Williams,11,0.0,52.0,CLAS
-113,83,10,30,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Valtteri Bottas,Alfa Romeo,12,0.0,52.0,CLAS
-113,70,10,28,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Nico Hulkenberg,Haas,13,0.0,52.0,CLAS
-113,103,10,33,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,14,0.0,52.0,CLAS
-113,117,10,30,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Zhou Guanyu,Alfa Romeo,15,0.0,52.0,CLAS
-113,114,10,32,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Yuki Tsunoda,AlphaTauri,16,0.0,52.0,CLAS
-113,118,10,32,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Nyck De Vries,AlphaTauri,17,0.0,52.0,CLAS
-113,104,10,34,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Pierre Gasly,Alpine,18,0.0,46.0,CLAS
-113,87,10,28,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,19,0.0,31.0,NC
-113,101,10,34,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,20,0.0,9.0,NC
+112,94,10,14,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Max Verstappen,Red Bull,1,26.0,71.0,CLAS
+112,106,10,1,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Charles Leclerc,Ferrari,2,18.0,71.0,CLAS
+112,75,10,14,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Sergio Perez,Red Bull,3,15.0,71.0,CLAS
+112,108,10,2,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Lando Norris,McLaren,4,12.0,71.0,CLAS
+112,12,10,33,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Fernando Alonso,Aston Martin,5,10.0,71.0,CLAS
+112,93,10,1,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Carlos Sainz,Ferrari,6,8.0,71.0,CLAS
+112,110,10,22,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,George Russell,Mercedes,7,6.0,71.0,CLAS
+112,57,10,22,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Lewis Hamilton,Mercedes,8,4.0,71.0,CLAS
+112,103,10,33,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Lance Stroll,Aston Martin,9,2.0,71.0,CLAS
+112,104,10,34,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Pierre Gasly,Alpine,10,1.0,71.0,CLAS
+112,109,10,11,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Alexander Albon,Williams,11,0.0,71.0,CLAS
+112,117,10,30,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Zhou Guanyu,Alfa Romeo,12,0.0,70.0,CLAS
+112,119,10,11,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Logan Sargeant,Williams,13,0.0,70.0,CLAS
+112,101,10,34,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Esteban Ocon,Alpine,14,0.0,70.0,CLAS
+112,83,10,30,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Valtteri Bottas,Alfa Romeo,15,0.0,70.0,CLAS
+112,120,10,2,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Oscar Piastri,McLaren,16,0.0,70.0,CLAS
+112,118,10,32,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Nyck De Vries,AlphaTauri,17,0.0,70.0,CLAS
+112,87,10,28,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Kevin Magnussen,Haas,18,0.0,70.0,CLAS
+112,114,10,32,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Yuki Tsunoda,AlphaTauri,19,0.0,70.0,CLAS
+112,70,10,28,2023,https://www.formula1.com/en/results/2023/races/1213/austria/race-result,Austria,Nico Hulkenberg,Haas,20,0.0,12.0,NC
+113,94,9,14,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,1,26.0,52.0,CLAS
+113,108,9,2,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Lando Norris,McLaren,2,18.0,52.0,CLAS
+113,57,9,22,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,3,15.0,52.0,CLAS
+113,120,9,2,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Oscar Piastri,McLaren,4,12.0,52.0,CLAS
+113,110,9,22,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,George Russell,Mercedes,5,10.0,52.0,CLAS
+113,75,9,14,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,6,8.0,52.0,CLAS
+113,12,9,33,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Fernando Alonso,Aston Martin,7,6.0,52.0,CLAS
+113,109,9,11,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Alexander Albon,Williams,8,4.0,52.0,CLAS
+113,106,9,1,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,9,2.0,52.0,CLAS
+113,93,9,1,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,10,1.0,52.0,CLAS
+113,119,9,11,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Logan Sargeant,Williams,11,0.0,52.0,CLAS
+113,83,9,30,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Valtteri Bottas,Alfa Romeo,12,0.0,52.0,CLAS
+113,70,9,28,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Nico Hulkenberg,Haas,13,0.0,52.0,CLAS
+113,103,9,33,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,14,0.0,52.0,CLAS
+113,117,9,30,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Zhou Guanyu,Alfa Romeo,15,0.0,52.0,CLAS
+113,114,9,32,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Yuki Tsunoda,AlphaTauri,16,0.0,52.0,CLAS
+113,118,9,32,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Nyck De Vries,AlphaTauri,17,0.0,52.0,CLAS
+113,104,9,34,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Pierre Gasly,Alpine,18,0.0,46.0,CLAS
+113,87,9,28,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,19,0.0,31.0,NC
+113,101,9,34,2023,https://www.formula1.com/en/results/2023/races/1214/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,20,0.0,9.0,NC
 114,94,12,14,2023,https://www.formula1.com/en/results/2023/races/1215/hungary/race-result,Hungary,Max Verstappen,Red Bull,1,26.0,70.0,CLAS
 114,108,12,2,2023,https://www.formula1.com/en/results/2023/races/1215/hungary/race-result,Hungary,Lando Norris,McLaren,2,18.0,70.0,CLAS
 114,75,12,14,2023,https://www.formula1.com/en/results/2023/races/1215/hungary/race-result,Hungary,Sergio Perez,Red Bull,3,15.0,70.0,CLAS
@@ -2695,46 +2695,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 135,109,5,11,2024,https://www.formula1.com/en/results/2024/races/1238/spain/race-result,Spain,Alexander Albon,Williams,18,0.0,65.0,CLAS
 135,114,5,35,2024,https://www.formula1.com/en/results/2024/races/1238/spain/race-result,Spain,Yuki Tsunoda,Racing Bulls,19,0.0,65.0,CLAS
 135,119,5,11,2024,https://www.formula1.com/en/results/2024/races/1238/spain/race-result,Spain,Logan Sargeant,Williams,20,0.0,64.0,CLAS
-136,110,9,22,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,George Russell,Mercedes,1,25.0,71.0,CLAS
-136,120,9,2,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Oscar Piastri,McLaren,2,18.0,71.0,CLAS
-136,93,9,1,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Carlos Sainz,Ferrari,3,15.0,71.0,CLAS
-136,57,9,22,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Lewis Hamilton,Mercedes,4,12.0,71.0,CLAS
-136,94,9,14,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Max Verstappen,Red Bull,5,10.0,71.0,CLAS
-136,70,9,28,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Nico Hulkenberg,Haas,6,8.0,71.0,CLAS
-136,75,9,14,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Sergio Perez,Red Bull,7,6.0,71.0,CLAS
-136,87,9,28,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Kevin Magnussen,Haas,8,4.0,71.0,CLAS
-136,79,9,35,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Daniel Ricciardo,Racing Bulls,9,2.0,71.0,CLAS
-136,104,9,34,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Pierre Gasly,Alpine,10,1.0,71.0,CLAS
-136,106,9,1,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Charles Leclerc,Ferrari,11,0.0,71.0,CLAS
-136,101,9,34,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Esteban Ocon,Alpine,12,0.0,71.0,CLAS
-136,103,9,33,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Lance Stroll,Aston Martin,13,0.0,70.0,CLAS
-136,114,9,35,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Yuki Tsunoda,Racing Bulls,14,0.0,70.0,CLAS
-136,109,9,11,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Alexander Albon,Williams,15,0.0,70.0,CLAS
-136,83,9,3,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Valtteri Bottas,Sauber,16,0.0,70.0,CLAS
-136,117,9,3,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Zhou Guanyu,Sauber,17,0.0,70.0,CLAS
-136,12,9,33,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Fernando Alonso,Aston Martin,18,0.0,70.0,CLAS
-136,119,9,11,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Logan Sargeant,Williams,19,0.0,69.0,CLAS
-136,108,9,2,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Lando Norris,McLaren,20,0.0,64.0,CLAS
-137,57,10,22,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,25.0,52.0,CLAS
-137,94,10,14,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,2,18.0,52.0,CLAS
-137,108,10,2,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Lando Norris,McLaren,3,15.0,52.0,CLAS
-137,120,10,2,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Oscar Piastri,McLaren,4,12.0,52.0,CLAS
-137,93,10,1,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,5,11.0,52.0,CLAS
-137,70,10,28,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Nico Hulkenberg,Haas,6,8.0,52.0,CLAS
-137,103,10,33,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,7,6.0,52.0,CLAS
-137,12,10,33,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Fernando Alonso,Aston Martin,8,4.0,52.0,CLAS
-137,109,10,11,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Alexander Albon,Williams,9,2.0,52.0,CLAS
-137,114,10,35,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Yuki Tsunoda,Racing Bulls,10,1.0,52.0,CLAS
-137,119,10,11,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Logan Sargeant,Williams,11,0.0,52.0,CLAS
-137,87,10,28,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,12,0.0,52.0,CLAS
-137,79,10,35,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Daniel Ricciardo,Racing Bulls,13,0.0,51.0,CLAS
-137,106,10,1,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,14,0.0,51.0,CLAS
-137,83,10,3,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Valtteri Bottas,Sauber,15,0.0,51.0,CLAS
-137,101,10,34,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,16,0.0,50.0,CLAS
-137,75,10,14,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,17,0.0,50.0,CLAS
-137,117,10,3,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Zhou Guanyu,Sauber,18,0.0,50.0,CLAS
-137,110,10,22,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,George Russell,Mercedes,19,0.0,33.0,NC
-137,104,10,34,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Pierre Gasly,Alpine,20,0.0,0.0,NC
+136,110,10,22,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,George Russell,Mercedes,1,25.0,71.0,CLAS
+136,120,10,2,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Oscar Piastri,McLaren,2,18.0,71.0,CLAS
+136,93,10,1,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Carlos Sainz,Ferrari,3,15.0,71.0,CLAS
+136,57,10,22,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Lewis Hamilton,Mercedes,4,12.0,71.0,CLAS
+136,94,10,14,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Max Verstappen,Red Bull,5,10.0,71.0,CLAS
+136,70,10,28,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Nico Hulkenberg,Haas,6,8.0,71.0,CLAS
+136,75,10,14,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Sergio Perez,Red Bull,7,6.0,71.0,CLAS
+136,87,10,28,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Kevin Magnussen,Haas,8,4.0,71.0,CLAS
+136,79,10,35,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Daniel Ricciardo,Racing Bulls,9,2.0,71.0,CLAS
+136,104,10,34,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Pierre Gasly,Alpine,10,1.0,71.0,CLAS
+136,106,10,1,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Charles Leclerc,Ferrari,11,0.0,71.0,CLAS
+136,101,10,34,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Esteban Ocon,Alpine,12,0.0,71.0,CLAS
+136,103,10,33,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Lance Stroll,Aston Martin,13,0.0,70.0,CLAS
+136,114,10,35,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Yuki Tsunoda,Racing Bulls,14,0.0,70.0,CLAS
+136,109,10,11,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Alexander Albon,Williams,15,0.0,70.0,CLAS
+136,83,10,3,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Valtteri Bottas,Sauber,16,0.0,70.0,CLAS
+136,117,10,3,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Zhou Guanyu,Sauber,17,0.0,70.0,CLAS
+136,12,10,33,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Fernando Alonso,Aston Martin,18,0.0,70.0,CLAS
+136,119,10,11,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Logan Sargeant,Williams,19,0.0,69.0,CLAS
+136,108,10,2,2024,https://www.formula1.com/en/results/2024/races/1239/austria/race-result,Austria,Lando Norris,McLaren,20,0.0,64.0,CLAS
+137,57,9,22,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Lewis Hamilton,Mercedes,1,25.0,52.0,CLAS
+137,94,9,14,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,2,18.0,52.0,CLAS
+137,108,9,2,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Lando Norris,McLaren,3,15.0,52.0,CLAS
+137,120,9,2,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Oscar Piastri,McLaren,4,12.0,52.0,CLAS
+137,93,9,1,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Carlos Sainz,Ferrari,5,11.0,52.0,CLAS
+137,70,9,28,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Nico Hulkenberg,Haas,6,8.0,52.0,CLAS
+137,103,9,33,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,7,6.0,52.0,CLAS
+137,12,9,33,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Fernando Alonso,Aston Martin,8,4.0,52.0,CLAS
+137,109,9,11,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Alexander Albon,Williams,9,2.0,52.0,CLAS
+137,114,9,35,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Yuki Tsunoda,Racing Bulls,10,1.0,52.0,CLAS
+137,119,9,11,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Logan Sargeant,Williams,11,0.0,52.0,CLAS
+137,87,9,28,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Kevin Magnussen,Haas,12,0.0,52.0,CLAS
+137,79,9,35,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Daniel Ricciardo,Racing Bulls,13,0.0,51.0,CLAS
+137,106,9,1,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,14,0.0,51.0,CLAS
+137,83,9,3,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Valtteri Bottas,Sauber,15,0.0,51.0,CLAS
+137,101,9,34,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Esteban Ocon,Alpine,16,0.0,50.0,CLAS
+137,75,9,14,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Sergio Perez,Red Bull,17,0.0,50.0,CLAS
+137,117,9,3,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Zhou Guanyu,Sauber,18,0.0,50.0,CLAS
+137,110,9,22,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,George Russell,Mercedes,19,0.0,33.0,NC
+137,104,9,34,2024,https://www.formula1.com/en/results/2024/races/1240/great-britain/race-result,Great Britain,Pierre Gasly,Alpine,20,0.0,0.0,NC
 138,120,12,2,2024,https://www.formula1.com/en/results/2024/races/1241/hungary/race-result,Hungary,Oscar Piastri,McLaren,1,25.0,70.0,CLAS
 138,108,12,2,2024,https://www.formula1.com/en/results/2024/races/1241/hungary/race-result,Hungary,Lando Norris,McLaren,2,18.0,70.0,CLAS
 138,57,12,22,2024,https://www.formula1.com/en/results/2024/races/1241/hungary/race-result,Hungary,Lewis Hamilton,Mercedes,3,15.0,70.0,CLAS
@@ -3174,46 +3174,46 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 159,108,7,2,2025,https://www.formula1.com/en/results/2025/races/1263/canada/race-result,Canada,Lando Norris,McLaren,18,0.0,66.0,CLAS
 159,121,7,35,2025,https://www.formula1.com/en/results/2025/races/1263/canada/race-result,Canada,Liam Lawson,Racing Bulls,19,0.0,53.0,NC
 159,109,7,11,2025,https://www.formula1.com/en/results/2025/races/1263/canada/race-result,Canada,Alexander Albon,Williams,20,0.0,46.0,NC
-160,108,9,2,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Lando Norris,McLaren,1,25.0,70.0,CLAS
-160,120,9,2,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Oscar Piastri,McLaren,2,18.0,70.0,CLAS
-160,106,9,1,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Charles Leclerc,Ferrari,3,15.0,70.0,CLAS
-160,57,9,1,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Lewis Hamilton,Ferrari,4,12.0,70.0,CLAS
-160,110,9,22,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,George Russell,Mercedes,5,10.0,70.0,CLAS
-160,121,9,35,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Liam Lawson,Racing Bulls,6,8.0,70.0,CLAS
-160,12,9,33,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Fernando Alonso,Aston Martin,7,6.0,69.0,CLAS
-160,126,9,36,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Gabriel Bortoleto,Kick Sauber,8,4.0,69.0,CLAS
-160,70,9,36,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Nico Hulkenberg,Kick Sauber,9,2.0,69.0,CLAS
-160,101,9,28,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Esteban Ocon,Haas,10,1.0,69.0,CLAS
-160,122,9,28,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Oliver Bearman,Haas,11,0.0,69.0,CLAS
-160,127,9,35,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Isack Hadjar,Racing Bulls,12,0.0,69.0,CLAS
-160,104,9,34,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Pierre Gasly,Alpine,13,0.0,69.0,CLAS
-160,103,9,33,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Lance Stroll,Aston Martin,14,0.0,69.0,CLAS
-160,123,9,34,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Franco Colapinto,Alpine,15,0.0,69.0,CLAS
-160,114,9,14,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Yuki Tsunoda,Red Bull,16,0.0,68.0,CLAS
-160,109,9,11,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Alexander Albon,Williams,17,0.0,15.0,NC
-160,94,9,14,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Max Verstappen,Red Bull,18,0.0,0.0,NC
-160,125,9,22,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Kimi Antonelli,Mercedes,19,0.0,0.0,NC
-160,93,9,11,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Carlos Sainz,Williams,20,0.0,0.0,NC
-161,108,10,2,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Lando Norris,McLaren,1,25.0,52.0,CLAS
-161,120,10,2,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Oscar Piastri,McLaren,2,18.0,52.0,CLAS
-161,70,10,36,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Nico Hulkenberg,Kick Sauber,3,15.0,52.0,CLAS
-161,57,10,1,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Lewis Hamilton,Ferrari,4,12.0,52.0,CLAS
-161,94,10,14,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,5,10.0,52.0,CLAS
-161,104,10,34,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Pierre Gasly,Alpine,6,8.0,52.0,CLAS
-161,103,10,33,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,7,6.0,52.0,CLAS
-161,109,10,11,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Alexander Albon,Williams,8,4.0,52.0,CLAS
-161,12,10,33,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Fernando Alonso,Aston Martin,9,2.0,52.0,CLAS
-161,110,10,22,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,George Russell,Mercedes,10,1.0,52.0,CLAS
-161,122,10,28,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Oliver Bearman,Haas,11,0.0,52.0,CLAS
-161,93,10,11,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Carlos Sainz,Williams,12,0.0,52.0,CLAS
-161,101,10,28,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Esteban Ocon,Haas,13,0.0,52.0,CLAS
-161,106,10,1,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,14,0.0,52.0,CLAS
-161,114,10,14,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Yuki Tsunoda,Red Bull,15,0.0,51.0,CLAS
-161,125,10,22,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Kimi Antonelli,Mercedes,16,0.0,23.0,NC
-161,127,10,35,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Isack Hadjar,Racing Bulls,17,0.0,17.0,NC
-161,126,10,36,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Gabriel Bortoleto,Kick Sauber,18,0.0,3.0,NC
-161,121,10,35,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Liam Lawson,Racing Bulls,19,0.0,0.0,NC
-161,123,10,34,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Franco Colapinto,Alpine,20,0.0,0.0,NC
+160,108,10,2,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Lando Norris,McLaren,1,25.0,70.0,CLAS
+160,120,10,2,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Oscar Piastri,McLaren,2,18.0,70.0,CLAS
+160,106,10,1,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Charles Leclerc,Ferrari,3,15.0,70.0,CLAS
+160,57,10,1,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Lewis Hamilton,Ferrari,4,12.0,70.0,CLAS
+160,110,10,22,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,George Russell,Mercedes,5,10.0,70.0,CLAS
+160,121,10,35,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Liam Lawson,Racing Bulls,6,8.0,70.0,CLAS
+160,12,10,33,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Fernando Alonso,Aston Martin,7,6.0,69.0,CLAS
+160,126,10,36,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Gabriel Bortoleto,Kick Sauber,8,4.0,69.0,CLAS
+160,70,10,36,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Nico Hulkenberg,Kick Sauber,9,2.0,69.0,CLAS
+160,101,10,28,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Esteban Ocon,Haas,10,1.0,69.0,CLAS
+160,122,10,28,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Oliver Bearman,Haas,11,0.0,69.0,CLAS
+160,127,10,35,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Isack Hadjar,Racing Bulls,12,0.0,69.0,CLAS
+160,104,10,34,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Pierre Gasly,Alpine,13,0.0,69.0,CLAS
+160,103,10,33,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Lance Stroll,Aston Martin,14,0.0,69.0,CLAS
+160,123,10,34,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Franco Colapinto,Alpine,15,0.0,69.0,CLAS
+160,114,10,14,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Yuki Tsunoda,Red Bull,16,0.0,68.0,CLAS
+160,109,10,11,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Alexander Albon,Williams,17,0.0,15.0,NC
+160,94,10,14,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Max Verstappen,Red Bull,18,0.0,0.0,NC
+160,125,10,22,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Kimi Antonelli,Mercedes,19,0.0,0.0,NC
+160,93,10,11,2025,https://www.formula1.com/en/results/2025/races/1264/austria/race-result,Austria,Carlos Sainz,Williams,20,0.0,0.0,NC
+161,108,9,2,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Lando Norris,McLaren,1,25.0,52.0,CLAS
+161,120,9,2,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Oscar Piastri,McLaren,2,18.0,52.0,CLAS
+161,70,9,36,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Nico Hulkenberg,Kick Sauber,3,15.0,52.0,CLAS
+161,57,9,1,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Lewis Hamilton,Ferrari,4,12.0,52.0,CLAS
+161,94,9,14,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Max Verstappen,Red Bull,5,10.0,52.0,CLAS
+161,104,9,34,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Pierre Gasly,Alpine,6,8.0,52.0,CLAS
+161,103,9,33,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Lance Stroll,Aston Martin,7,6.0,52.0,CLAS
+161,109,9,11,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Alexander Albon,Williams,8,4.0,52.0,CLAS
+161,12,9,33,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Fernando Alonso,Aston Martin,9,2.0,52.0,CLAS
+161,110,9,22,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,George Russell,Mercedes,10,1.0,52.0,CLAS
+161,122,9,28,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Oliver Bearman,Haas,11,0.0,52.0,CLAS
+161,93,9,11,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Carlos Sainz,Williams,12,0.0,52.0,CLAS
+161,101,9,28,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Esteban Ocon,Haas,13,0.0,52.0,CLAS
+161,106,9,1,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Charles Leclerc,Ferrari,14,0.0,52.0,CLAS
+161,114,9,14,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Yuki Tsunoda,Red Bull,15,0.0,51.0,CLAS
+161,125,9,22,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Kimi Antonelli,Mercedes,16,0.0,23.0,NC
+161,127,9,35,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Isack Hadjar,Racing Bulls,17,0.0,17.0,NC
+161,126,9,36,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Gabriel Bortoleto,Kick Sauber,18,0.0,3.0,NC
+161,121,9,35,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Liam Lawson,Racing Bulls,19,0.0,0.0,NC
+161,123,9,34,2025,https://www.formula1.com/en/results/2025/races/1277/great-britain/race-result,Great Britain,Franco Colapinto,Alpine,20,0.0,0.0,NC
 162,120,13,2,2025,https://www.formula1.com/en/results/2025/races/1265/belgium/race-result,Belgium,Oscar Piastri,McLaren,1,25.0,44.0,CLAS
 162,108,13,2,2025,https://www.formula1.com/en/results/2025/races/1265/belgium/race-result,Belgium,Lando Norris,McLaren,2,18.0,44.0,CLAS
 162,106,13,1,2025,https://www.formula1.com/en/results/2025/races/1265/belgium/race-result,Belgium,Charles Leclerc,Ferrari,3,15.0,44.0,CLAS
@@ -3334,3 +3334,123 @@ race_id,driver_id,circuit_id,team_id,year,race_url,circuit_name,driver_name,team
 167,101,15,28,2025,https://www.formula1.com/en/results/2025/races/1270/singapore/race-result,Singapore,Esteban Ocon,Haas,18,0.0,61.0,CLAS
 167,104,15,34,2025,https://www.formula1.com/en/results/2025/races/1270/singapore/race-result,Singapore,Pierre Gasly,Alpine,19,0.0,61.0,CLAS
 167,70,15,36,2025,https://www.formula1.com/en/results/2025/races/1270/singapore/race-result,Singapore,Nico Hulkenberg,Kick Sauber,20,0.0,61.0,CLAS
+168,94,18,14,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Max Verstappen,Red Bull,1,25.0,56.0,CLAS
+168,108,18,2,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Lando Norris,McLaren,2,18.0,56.0,CLAS
+168,106,18,1,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Charles Leclerc,Ferrari,3,15.0,56.0,CLAS
+168,57,18,1,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Lewis Hamilton,Ferrari,4,12.0,56.0,CLAS
+168,120,18,2,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Oscar Piastri,McLaren,5,10.0,56.0,CLAS
+168,110,18,22,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,George Russell,Mercedes,6,8.0,56.0,CLAS
+168,114,18,14,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Yuki Tsunoda,Red Bull,7,6.0,56.0,CLAS
+168,70,18,36,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Nico Hulkenberg,Kick Sauber,8,4.0,56.0,CLAS
+168,122,18,28,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Oliver Bearman,Haas,9,2.0,56.0,CLAS
+168,12,18,33,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Fernando Alonso,Aston Martin,10,1.0,56.0,CLAS
+168,121,18,35,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Liam Lawson,Racing Bulls,11,0.0,56.0,CLAS
+168,103,18,33,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Lance Stroll,Aston Martin,12,0.0,56.0,CLAS
+168,125,18,22,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Kimi Antonelli,Mercedes,13,0.0,56.0,CLAS
+168,109,18,11,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Alexander Albon,Williams,14,0.0,56.0,CLAS
+168,101,18,28,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Esteban Ocon,Haas,15,0.0,56.0,CLAS
+168,127,18,35,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Isack Hadjar,Racing Bulls,16,0.0,56.0,CLAS
+168,123,18,34,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Franco Colapinto,Alpine,17,0.0,55.0,CLAS
+168,126,18,36,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Gabriel Bortoleto,Kick Sauber,18,0.0,55.0,CLAS
+168,104,18,34,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Pierre Gasly,Alpine,19,0.0,55.0,CLAS
+168,93,18,11,2025,https://www.formula1.com/en/results/2025/races/1271/united-states/race-result,United States,Carlos Sainz,Williams,20,0.0,5.0,NC
+169,108,19,2,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Lando Norris,McLaren,1,25.0,71.0,CLAS
+169,106,19,1,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Charles Leclerc,Ferrari,2,18.0,71.0,CLAS
+169,94,19,14,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Max Verstappen,Red Bull,3,15.0,71.0,CLAS
+169,122,19,28,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Oliver Bearman,Haas,4,12.0,71.0,CLAS
+169,120,19,2,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Oscar Piastri,McLaren,5,10.0,71.0,CLAS
+169,125,19,22,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Kimi Antonelli,Mercedes,6,8.0,71.0,CLAS
+169,110,19,22,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,George Russell,Mercedes,7,6.0,71.0,CLAS
+169,57,19,1,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Lewis Hamilton,Ferrari,8,4.0,71.0,CLAS
+169,101,19,28,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Esteban Ocon,Haas,9,2.0,71.0,CLAS
+169,126,19,36,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Gabriel Bortoleto,Kick Sauber,10,1.0,71.0,CLAS
+169,114,19,14,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Yuki Tsunoda,Red Bull,11,0.0,71.0,CLAS
+169,109,19,11,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Alexander Albon,Williams,12,0.0,70.0,CLAS
+169,127,19,35,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Isack Hadjar,Racing Bulls,13,0.0,70.0,CLAS
+169,103,19,33,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Lance Stroll,Aston Martin,14,0.0,70.0,CLAS
+169,104,19,34,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Pierre Gasly,Alpine,15,0.0,70.0,CLAS
+169,123,19,34,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Franco Colapinto,Alpine,16,0.0,70.0,CLAS
+169,93,19,11,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Carlos Sainz,Williams,17,0.0,67.0,CLAS
+169,12,19,33,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Fernando Alonso,Aston Martin,18,0.0,34.0,NC
+169,70,19,36,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Nico Hulkenberg,Kick Sauber,19,0.0,25.0,NC
+169,121,19,35,2025,https://www.formula1.com/en/results/2025/races/1272/mexico/race-result,Mexico,Liam Lawson,Racing Bulls,20,0.0,5.0,NC
+170,108,20,2,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Lando Norris,McLaren,1,25.0,71.0,CLAS
+170,125,20,22,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Kimi Antonelli,Mercedes,2,18.0,71.0,CLAS
+170,94,20,14,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Max Verstappen,Red Bull,3,15.0,71.0,CLAS
+170,110,20,22,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,George Russell,Mercedes,4,12.0,71.0,CLAS
+170,120,20,2,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Oscar Piastri,McLaren,5,10.0,71.0,CLAS
+170,122,20,28,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Oliver Bearman,Haas,6,8.0,71.0,CLAS
+170,121,20,35,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Liam Lawson,Racing Bulls,7,6.0,71.0,CLAS
+170,127,20,35,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Isack Hadjar,Racing Bulls,8,4.0,71.0,CLAS
+170,70,20,36,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Nico Hulkenberg,Kick Sauber,9,2.0,71.0,CLAS
+170,104,20,34,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Pierre Gasly,Alpine,10,1.0,71.0,CLAS
+170,109,20,11,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Alexander Albon,Williams,11,0.0,71.0,CLAS
+170,101,20,28,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Esteban Ocon,Haas,12,0.0,71.0,CLAS
+170,93,20,11,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Carlos Sainz,Williams,13,0.0,71.0,CLAS
+170,12,20,33,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Fernando Alonso,Aston Martin,14,0.0,71.0,CLAS
+170,123,20,34,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Franco Colapinto,Alpine,15,0.0,71.0,CLAS
+170,103,20,33,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Lance Stroll,Aston Martin,16,0.0,71.0,CLAS
+170,114,20,14,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Yuki Tsunoda,Red Bull,17,0.0,71.0,CLAS
+170,57,20,1,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Lewis Hamilton,Ferrari,18,0.0,37.0,NC
+170,106,20,1,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Charles Leclerc,Ferrari,19,0.0,5.0,NC
+170,126,20,36,2025,https://www.formula1.com/en/results/2025/races/1273/brazil/race-result,Brazil,Gabriel Bortoleto,Kick Sauber,20,0.0,0.0,NC
+171,94,34,14,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Max Verstappen,Red Bull,1,25.0,50.0,CLAS
+171,110,34,22,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,George Russell,Mercedes,2,18.0,50.0,CLAS
+171,125,34,22,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Kimi Antonelli,Mercedes,3,15.0,50.0,CLAS
+171,106,34,1,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Charles Leclerc,Ferrari,4,12.0,50.0,CLAS
+171,93,34,11,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Carlos Sainz,Williams,5,10.0,50.0,CLAS
+171,127,34,35,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Isack Hadjar,Racing Bulls,6,8.0,50.0,CLAS
+171,70,34,36,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Nico Hulkenberg,Kick Sauber,7,6.0,50.0,CLAS
+171,57,34,1,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Lewis Hamilton,Ferrari,8,4.0,50.0,CLAS
+171,101,34,28,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Esteban Ocon,Haas,9,2.0,50.0,CLAS
+171,122,34,28,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Oliver Bearman,Haas,10,1.0,50.0,CLAS
+171,12,34,33,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Fernando Alonso,Aston Martin,11,0.0,50.0,CLAS
+171,114,34,14,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Yuki Tsunoda,Red Bull,12,0.0,50.0,CLAS
+171,104,34,34,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Pierre Gasly,Alpine,13,0.0,50.0,CLAS
+171,121,34,35,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Liam Lawson,Racing Bulls,14,0.0,49.0,CLAS
+171,123,34,34,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Franco Colapinto,Alpine,15,0.0,49.0,CLAS
+171,109,34,11,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Alexander Albon,Williams,16,0.0,35.0,NC
+171,126,34,36,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Gabriel Bortoleto,Kick Sauber,17,0.0,2.0,NC
+171,103,34,33,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Lance Stroll,Aston Martin,18,0.0,0.0,NC
+171,108,34,2,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Lando Norris,McLaren,19,0.0,0.0,DQ
+171,120,34,2,2025,https://www.formula1.com/en/results/2025/races/1274/las-vegas/race-result,Las Vegas,Oscar Piastri,McLaren,20,0.0,0.0,DQ
+172,94,31,14,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Max Verstappen,Red Bull,1,25.0,57.0,CLAS
+172,120,31,2,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Oscar Piastri,McLaren,2,18.0,57.0,CLAS
+172,93,31,11,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Carlos Sainz,Williams,3,15.0,57.0,CLAS
+172,108,31,2,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Lando Norris,McLaren,4,12.0,57.0,CLAS
+172,125,31,22,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Kimi Antonelli,Mercedes,5,10.0,57.0,CLAS
+172,110,31,22,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,George Russell,Mercedes,6,8.0,57.0,CLAS
+172,12,31,33,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Fernando Alonso,Aston Martin,7,6.0,57.0,CLAS
+172,106,31,1,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Charles Leclerc,Ferrari,8,4.0,57.0,CLAS
+172,121,31,35,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Liam Lawson,Racing Bulls,9,2.0,57.0,CLAS
+172,114,31,14,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Yuki Tsunoda,Red Bull,10,1.0,57.0,CLAS
+172,109,31,11,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Alexander Albon,Williams,11,0.0,57.0,CLAS
+172,57,31,1,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Lewis Hamilton,Ferrari,12,0.0,57.0,CLAS
+172,126,31,36,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Gabriel Bortoleto,Kick Sauber,13,0.0,57.0,CLAS
+172,123,31,34,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Franco Colapinto,Alpine,14,0.0,56.0,CLAS
+172,101,31,28,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Esteban Ocon,Haas,15,0.0,56.0,CLAS
+172,104,31,34,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Pierre Gasly,Alpine,16,0.0,56.0,CLAS
+172,103,31,33,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Lance Stroll,Aston Martin,17,0.0,55.0,CLAS
+172,127,31,35,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Isack Hadjar,Racing Bulls,18,0.0,55.0,CLAS
+172,122,31,28,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Oliver Bearman,Haas,19,0.0,41.0,NC
+172,70,31,36,2025,https://www.formula1.com/en/results/2025/races/1275/qatar/race-result,Qatar,Nico Hulkenberg,Kick Sauber,20,0.0,6.0,NC
+173,94,21,14,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Max Verstappen,Red Bull,1,25.0,58.0,CLAS
+173,120,21,2,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Oscar Piastri,McLaren,2,18.0,58.0,CLAS
+173,108,21,2,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Lando Norris,McLaren,3,15.0,58.0,CLAS
+173,106,21,1,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Charles Leclerc,Ferrari,4,12.0,58.0,CLAS
+173,110,21,22,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,George Russell,Mercedes,5,10.0,58.0,CLAS
+173,12,21,33,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Fernando Alonso,Aston Martin,6,8.0,58.0,CLAS
+173,101,21,28,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Esteban Ocon,Haas,7,6.0,58.0,CLAS
+173,57,21,1,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Lewis Hamilton,Ferrari,8,4.0,58.0,CLAS
+173,70,21,36,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Nico Hulkenberg,Kick Sauber,9,2.0,58.0,CLAS
+173,103,21,33,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Lance Stroll,Aston Martin,10,1.0,58.0,CLAS
+173,126,21,36,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Gabriel Bortoleto,Kick Sauber,11,0.0,58.0,CLAS
+173,122,21,28,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Oliver Bearman,Haas,12,0.0,58.0,CLAS
+173,93,21,11,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Carlos Sainz,Williams,13,0.0,58.0,CLAS
+173,114,21,14,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Yuki Tsunoda,Red Bull,14,0.0,58.0,CLAS
+173,125,21,22,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Kimi Antonelli,Mercedes,15,0.0,58.0,CLAS
+173,109,21,11,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Alexander Albon,Williams,16,0.0,58.0,CLAS
+173,127,21,35,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Isack Hadjar,Racing Bulls,17,0.0,57.0,CLAS
+173,121,21,35,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Liam Lawson,Racing Bulls,18,0.0,57.0,CLAS
+173,104,21,34,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Pierre Gasly,Alpine,19,0.0,57.0,CLAS
+173,123,21,34,2025,https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/race-result,Abu Dhabi,Franco Colapinto,Alpine,20,0.0,57.0,CLAS
