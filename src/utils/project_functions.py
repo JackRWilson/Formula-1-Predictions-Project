@@ -8,7 +8,7 @@
 
 import pandas as pd
 import numpy as np
-import time, os, sys
+import time, os, sys, re
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -1019,15 +1019,23 @@ def find_circuit_info(gp_str, country_str, id_map):
 
 
 def clean_circuit_name(name):
-        
-        if not isinstance(name, str):
-            return name
-        
-        # Normalize to NFKC to standardize characters
-        name = unicodedata.normalize('NFKC', name)
-        
-        # Keep letters, spaces, hyphens
-        return ''.join(
-            c for c in name
-            if (c.isalpha() or c in [' ', '-'])
-        ).strip()
+    """
+    Clean circuit name to remove non-alphabetic characters while keeping spaces and hyphens
+    
+    """
+    if not isinstance(name, str):
+        return name
+
+    # Normalize to NFKC to standardize Unicode characters
+    name = unicodedata.normalize('NFKC', name)
+    
+    # Remove daggers and asterisks
+    name = name.replace('†', '').replace('*', '')
+    
+    # Remove anything thats not a letter, space, or hyphen
+    name = re.sub(r"[^A-Za-zÀ-ÿāăąćęěğıńōśşžżžŒœȘșȚț\s\-\']", "", name)
+    
+    # Replace multiple spaces or hyphens with a single space
+    name = re.sub(r'\s+', ' ', name)
+    name = name.strip()
+    return name
