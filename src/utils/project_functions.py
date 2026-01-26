@@ -13,6 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from sklearn.linear_model import LinearRegression
+import unicodedata
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
@@ -967,6 +968,8 @@ def impute_pit_times(row, pit_stops_bound):
 def has_year_after_2018(season_str, target_start=2018):
     
     # Split by comma to handle multiple ranges
+    if not isinstance(season_str, str):
+        season_str = str(season_str)
     ranges = season_str.split(',')
     
     for range_part in ranges:
@@ -1013,3 +1016,18 @@ def find_circuit_info(gp_str, country_str, id_map):
     
     # If still no match found
     return "no match", "no match"
+
+
+def clean_circuit_name(name):
+        
+        if not isinstance(name, str):
+            return name
+        
+        # Normalize to NFKC to standardize characters
+        name = unicodedata.normalize('NFKC', name)
+        
+        # Keep letters, spaces, hyphens
+        return ''.join(
+            c for c in name
+            if (c.isalpha() or c in [' ', '-'])
+        ).strip()
