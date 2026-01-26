@@ -10,7 +10,7 @@ Autodromo Internazionale Enzo e Dino Ferrari,Race circuit,Anti-clockwise,4.909,1
 Algarve International Circuit,Race circuit,Clockwise,4.653,15,26,Portugal
 Nürburgring,Race circuit,Clockwise,5.148,15,25,Eifel
 Autodromo Internazionale del Mugello,Race circuit,Clockwise,5.245,15,24,Tuscany
-Yas Marina Circuit,Race circuit,Anti-clockwise,5.281,15,21,Abu Dhabi
+Yas Marina Circuit,Race circuit,Anti-clockwise,5.281,16,21,Abu Dhabi
 Autodromo José Carlos Pace,Race circuit,Anti-clockwise,4.309,15,20,Brazil
 Autódromo Hermanos Rodríguez,Race circuit,Clockwise,4.304,17,19,Mexico
 Circuit of the Americas,Race circuit,Anti-clockwise,5.513,20,18,United States
@@ -26,8 +26,9 @@ Red Bull Ring,Race circuit,Clockwise,4.318,10,9,Austria
 Circuit Paul Ricard,Race circuit,Clockwise,5.842,15,8,France
 Circuit Gilles-Villeneuve,Street circuit,Clockwise,4.361,14,7,Canada
 Circuit de Monaco,Street circuit,Clockwise,3.337,19,6,Monaco
+Madring,Street circuit,Clockwise,5.474,22,5,Spain
 Circuit de Barcelona-Catalunya,Race circuit,Clockwise,4.657,14,5,Spain
 Baku City Circuit,Street circuit,Anti-clockwise,6.003,20,4,Azerbaijan
 Shanghai International Circuit,Race circuit,Clockwise,5.451,16,3,China
 Bahrain International Circuit,Race circuit,Clockwise,5.412,15,2,Bahrain
-Albert Park Circuit,Street circuit,Clockwise,5.278,14,1,Australia
+Albert Park Circuit,Street circuit,Clockwise,5.278,16,1,Australia
