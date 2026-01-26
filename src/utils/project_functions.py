@@ -1020,7 +1020,7 @@ def find_circuit_info(gp_str, country_str, id_map):
 
 def clean_circuit_name(name):
     """
-    Clean circuit name to remove non-alphabetic characters while keeping spaces and hyphens
+    Clean circuit name to remove special characters while keeping letters, spaces, hyphens, and international letters with accents
     
     """
     if not isinstance(name, str):
@@ -1032,10 +1032,14 @@ def clean_circuit_name(name):
     # Remove daggers and asterisks
     name = name.replace('†', '').replace('*', '')
     
-    # Remove anything thats not a letter, space, or hyphen
-    name = re.sub(r"[^A-Za-zÀ-ÿāăąćęěğıńōśşžżžŒœȘșȚț\s\-\']", "", name)
+    # Keep only letters (including international), spaces, and hyphens
+    cleaned = ''.join(
+        char for char in name 
+        if char.isalpha() or char in (' ', '-')
+    )
     
     # Replace multiple spaces or hyphens with a single space
-    name = re.sub(r'\s+', ' ', name)
-    name = name.strip()
-    return name
+    cleaned = re.sub(r'\s+', ' ', cleaned)
+    cleaned = cleaned.strip()
+    
+    return cleaned
