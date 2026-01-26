@@ -861,3 +861,36 @@ def clean_circuits():
     # Save file
     circuits.to_csv(save_path, encoding='utf-8', index=False)
     print("   Circuits cleaned")
+
+
+# --------------------------------------------------------------------------------
+# Locations
+
+def clean_locations():
+
+    print("   Cleaning Locations...")
+
+    # Init variables
+    raw_file_name = 'locations_raw.csv'
+    clean_file_name = 'circuits_clean.csv'
+    load_path = os.path.join(DATA_FOLDER_PATH, raw_file_name)
+    save_path = os.path.join(CLEAN_FOLDER_PATH, clean_file_name)
+    
+    # Load file
+    locations = pd.read_csv(load_path)
+
+    # Remove unnecessary data
+    locations = locations[['cleaned_name', 'elevation']]
+    locations = locations.dropna(subset=['elevation'])
+    locations = locations.rename(columns={'cleaned_name': 'name'})
+
+    # Add missing row
+    row = pd.DataFrame({'name': ['Bahrain International Outer Circuit'], 'elevation': [9]})
+    locations = pd.concat([locations, row], ignore_index=True)
+
+    # Correct datatypes
+    locations['elevation'] = locations['elevation'].astype(float)
+
+    # Save file
+    locations.to_csv(save_path, encoding='utf-8', index=False)
+    print("   Locations cleaned")
