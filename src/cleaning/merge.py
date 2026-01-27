@@ -24,11 +24,11 @@ INTERMEDIATE_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/intermediate')
 # Neutral merges
 
 def neutral_merge():
+    
     print("   Creating neutral DataFrame...")
     
     # Load data
     races_2018 = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2018+.csv'))
-    races_2001 = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2001-2017.csv'))
     practices = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'practice_results_clean.csv'))
     pit_stops = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'pit_stops_clean.csv'))
     flags = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'flags_clean.csv'))
@@ -36,7 +36,7 @@ def neutral_merge():
     locations = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'locations_clean.csv'))
     rounds = pd.read_csv(os.path.join(DATA_FOLDER_PATH, 'rounds_raw.csv'))
 
-    # Make merges
+    # Merge
     f1_data_m1 = races_2018.merge(rounds, on='race_url', how='left')
     f1_data_m2 = f1_data_m1.merge(practices, on=['race_id', 'driver_id'], how='left')
     f1_data_m3 = f1_data_m2.merge(pit_stops, on=['race_id', 'driver_id'], how='left')
@@ -47,3 +47,27 @@ def neutral_merge():
     # Save merged data
     f1_data_m6.to_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_neutral_merges.csv'), encoding='utf-8', index=False)
     print("   Neutral DataFrame created")
+
+
+# --------------------------------------------------------------------------------
+# Pre-qualifying
+
+def pre_qual_merge():
+
+    print("   Creating Pre-Qualifying DataFrame...")
+
+    # Load data
+    f1_data_m6 = pd.read_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_neutral_merges.csv'))
+    starting_grid = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'starting_grid_clean.csv'))
+    qualifying = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'qualifying_results_clean.csv'))
+    weather_fp3 = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'weather_fp3_clean.csv'))
+    weather_qualifying = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'weather_qualifying_clean.csv'))
+    laps = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'laps_clean.csv'))
+
+    # Merge
+    f1_data_mq1 = f1_data_m6.merge(weather_fp3, on='race_id', how='left')
+    f1_data_mq2 = f1_data_mq1.merge(laps, on=['race_id', 'driver_id'], how='left')
+
+    # Save merged data
+    f1_data_mq2.to_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_pre_qual_raw.csv'), encoding='utf-8', index=False)
+    print("   Pre-Qualifying DataFrame created")
