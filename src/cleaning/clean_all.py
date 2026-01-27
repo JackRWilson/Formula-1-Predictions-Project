@@ -12,6 +12,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.cleaning.clean_raw import *
+from src.cleaning.merge import *
 
 
 # --------------------------------------------------------------------------------
@@ -33,6 +34,13 @@ def clean_all():
     clean_circuits()
     clean_locations()
     print("Raw data cleaned\n")
+
+    # Merge
+    print("\nMerging data...")
+    neutral_merge()
+    pre_qual_merge()
+    pre_race_merge()
+    print("Data merged\n")
 
 
 if __name__ == "__main__":

@@ -12,8 +12,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
-#from src.utils.utils import
-#from src.utils.project_functions import
 
 DATA_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/raw')
 CLEAN_FOLDER_PATH = os.path.join(PROJECT_ROOT, 'data/clean')
@@ -58,10 +56,7 @@ def pre_qual_merge():
 
     # Load data
     f1_data_m6 = pd.read_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_neutral_merges.csv'))
-    starting_grid = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'starting_grid_clean.csv'))
-    qualifying = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'qualifying_results_clean.csv'))
     weather_fp3 = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'weather_fp3_clean.csv'))
-    weather_qualifying = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'weather_qualifying_clean.csv'))
     laps = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'laps_clean.csv'))
 
     # Merge
@@ -71,3 +66,28 @@ def pre_qual_merge():
     # Save merged data
     f1_data_mq2.to_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_pre_qual_raw.csv'), encoding='utf-8', index=False)
     print("   Pre-Qualifying DataFrame created")
+
+
+# --------------------------------------------------------------------------------
+# Pre-race
+
+def pre_race_merge():
+
+    print("   Creating Pre-Race DataFrame...")
+
+    # Load data
+    f1_data_m6 = pd.read_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_neutral_merges.csv'))
+    starting_grid = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'starting_grid_clean.csv'))
+    qualifying = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'qualifying_results_clean.csv'))
+    weather_qualifying = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'weather_qualifying_clean.csv'))
+    laps = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'laps_clean.csv'))
+
+    # Merge
+    f1_data_mr1 = f1_data_m6.merge(starting_grid, on=['race_id', 'driver_id'], how='left')
+    f1_data_mr2 = f1_data_mr1.merge(qualifying, on=['race_id', 'driver_id'], how='left')
+    f1_data_mr3 = f1_data_mr2.merge(weather_qualifying, on='race_id', how='left')
+    f1_data_mr4 = f1_data_mr3.merge(laps, on=['race_id', 'driver_id'], how='left')
+
+    # Save merged data
+    f1_data_mr4.to_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_pre_race_raw.csv'), encoding='utf-8', index=False)
+    print("   Pre-Race DataFrame created")
