@@ -36,13 +36,11 @@ def clean_id_map():
     id_map = load_id_map(load_path)
     
     # Ensure Austria and Styria have the same circuit ID
-    global id_map_styria
     if 'Styria' in id_map and 'Austria' in id_map:
         id_map_styria = id_map['Styria']
         id_map['Styria'] = id_map['Austria']
 
     # Ensure Great Britain and 70th Anniversary have the same circuit ID
-    global id_map_anniversary
     if '70th Anniversary' in id_map and 'Great Britain' in id_map:
         id_map_anniversary = id_map['70th Anniversary']
         id_map['70th Anniversary'] = id_map['Great Britain']
@@ -119,9 +117,10 @@ def clean_results_2018():
     
     # Load file
     races_2018 = pd.read_csv(load_path)
+    circuit_id_map = load_id_map(os.path.join(DATA_FOLDER_PATH, 'circuit_id_map.pkl'))
 
-    # Fix circuit id
-    races_2018['circuit_id'] = races_2018['circuit_id'].replace({id_map_styria: 10, id_map_anniversary: 9})
+    # Update circuit_id to the most recent value
+    races_2018['circuit_id'] = races_2018['circuit_name'].map(circuit_id_map).fillna(races_2018['circuit_id'])
 
     # Initialize new columns
     end_positions = []
