@@ -1,6 +1,6 @@
 # Jack Wilson
 # 1/17/2026
-# This file runs the full project pipeline, combining scraping, cleaning, merging, and modeling
+# This file runs the full project pipeline, combining scraping, merging, cleaning, and modeling
 
 # --------------------------------------------------------------------------------
 
@@ -12,15 +12,19 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.scraping.scrape_all import scrape_all
+from src.cleaning.clean_all import clean_all
 
 
 # --------------------------------------------------------------------------------
 
-def main():
+def pipeline():
 
     # Scraping
     scrape_all()
 
+    # Cleaning
+    clean_all()
+
 
 if __name__ == "__main__":
-    main()
+    pipeline()
