@@ -26,7 +26,7 @@ def clean_pre_qual():
     print("   Cleaning pre-qualifying data...")
 
     # Load
-    pre_qual_df = pd.read_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_pre_qual_raw.csv'))
+    pre_qual_df = pd.read_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_pre_qual_raw.csv'), low_memory=False)
     races_2001 = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2001-2017.csv'))
 
     # Calculate rolling average finish and cumulative metrics
@@ -139,8 +139,12 @@ def clean_pre_qual():
         participated_col = f'participated_FP{session_num}'
         position_col = f'position_FP{session_num}'
         
-        # Impute False for participated_FP* if lap_count_FP* is NA
-        pre_qual_enhanced.loc[pre_qual_enhanced[lap_count_col].isna(), participated_col] = pre_qual_enhanced.loc[pre_qual_enhanced[lap_count_col].isna(), participated_col].fillna(False)
+        # Impute False for participated_FP* if lap_count_FP* is NA (avoiding FutureWarning)
+        mask = pre_qual_enhanced[lap_count_col].isna()
+        pre_qual_enhanced.loc[mask, participated_col] = False
+        
+        # Ensure dtype is correct (bool)
+        pre_qual_enhanced[participated_col] = pre_qual_enhanced[participated_col].astype(bool)
 
         # Impute 0 for NA rows in lap_count_FP*
         pre_qual_enhanced[lap_count_col] = pre_qual_enhanced[lap_count_col].fillna(0)
@@ -342,9 +346,9 @@ def clean_pre_qual():
     
     # Save
     pre_qual_shape = pre_qual_clean.shape
-    print(f"   Shape: {pre_qual_shape}")
     pre_qual_clean.to_csv(os.path.join(FINAL_FOLDER_PATH, 'f1_data_pre_qual_clean.csv'), encoding='utf-8', index=False)
-    print("   Pre-qualifying data cleaned")
+    print(f"   Shape: {pre_qual_shape}")
+    print("   Pre-qualifying data cleaned\n")
 
 
 # --------------------------------------------------------------------------------
@@ -355,7 +359,7 @@ def clean_pre_race():
     print("   Cleaning pre-race data...")
 
     # Load
-    pre_race_df = pd.read_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_pre_race_raw.csv'))
+    pre_race_df = pd.read_csv(os.path.join(INTERMEDIATE_FOLDER_PATH, 'f1_data_pre_race_raw.csv'), low_memory=False)
     races_2001 = pd.read_csv(os.path.join(CLEAN_FOLDER_PATH, 'race_results_clean_2001-2017.csv'))
 
     # Calculate rolling average finish and cumulative metrics
@@ -468,8 +472,12 @@ def clean_pre_race():
         participated_col = f'participated_FP{session_num}'
         position_col = f'position_FP{session_num}'
         
-        # Impute False for participated_FP* if lap_count_FP* is NA
-        pre_race_enhanced.loc[pre_race_enhanced[lap_count_col].isna(), participated_col] = pre_race_enhanced.loc[pre_race_enhanced[lap_count_col].isna(), participated_col].fillna(False)
+        # Impute False for participated_FP* if lap_count_FP* is NA (avoiding FutureWarning)
+        mask = pre_race_enhanced[lap_count_col].isna()
+        pre_race_enhanced.loc[mask, participated_col] = False
+
+        # Ensure dtype is correct (bool)
+        pre_race_enhanced[participated_col] = pre_race_enhanced[participated_col].astype(bool)
 
         # Impute 0 for NA rows in lap_count_FP*
         pre_race_enhanced[lap_count_col] = pre_race_enhanced[lap_count_col].fillna(0)
@@ -762,6 +770,6 @@ def clean_pre_race():
 
     # Save
     pre_race_shape = pre_race_clean.shape
-    print(f"   Shape: {pre_race_shape}")
     pre_race_clean.to_csv(os.path.join(FINAL_FOLDER_PATH, 'f1_data_pre_race_clean.csv'), encoding='utf-8', index=False)
+    print(f"   Shape: {pre_race_shape}")
     print("   Pre-race data cleaned")
