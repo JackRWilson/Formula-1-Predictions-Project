@@ -22,8 +22,7 @@ if PROJECT_ROOT not in sys.path:
 def _close_workbook_xlwings(file_path):
     """
     If the workbook is open in Excel, connect via xlwings, save, and close.
-    Often works when win32com path matching fails (e.g. OneDrive paths).
-    No-op if xlwings not installed or file not open. Requires: pip install xlwings
+    Only call when Excel is already running (xw.apps can hang otherwise).
     """
     try:
         import xlwings as xw
@@ -51,13 +50,21 @@ def _close_workbook_xlwings(file_path):
 def _close_workbook_in_excel(file_path):
     """
     If the workbook is open in Excel (Windows), close it so the file can be read/written.
+    Only runs when Excel is already running (never starts Excel, so no hang when file is closed).
     Tries xlwings first (if installed), then win32com. Saves before closing.
     """
-    if _close_workbook_xlwings(file_path):
-        return
     try:
         import win32com.client
     except ImportError:
+        return
+    xl = None
+    try:
+        xl = win32com.client.GetActiveObject("Excel.Application")
+    except Exception:
+        return
+    if xl is None:
+        return
+    if _close_workbook_xlwings(file_path):
         return
     target_abs = os.path.abspath(file_path)
     target_norm = os.path.normcase(target_abs)
@@ -66,16 +73,6 @@ def _close_workbook_in_excel(file_path):
         target_real = os.path.realpath(target_abs)
     except OSError:
         target_real = target_abs
-    xl = None
-    try:
-        xl = win32com.client.GetActiveObject("Excel.Application")
-    except Exception:
-        try:
-            xl = win32com.client.Dispatch("Excel.Application")
-        except Exception:
-            return
-    if xl is None:
-        return
     try:
         if xl.Workbooks.Count == 0:
             return
@@ -132,11 +129,12 @@ def _close_workbook_in_excel(file_path):
 def create_driver_pred_list(output_path=None):
     """
     Create or overwrite driver_pred_list.xlsx with:
-    - 'list' sheet: index 1-22, name/team columns with data validation from drivers/teams sheets
+    - 'list' sheet: index 1-22, name/team/grand_prix columns with data validation from drivers/teams/races sheets
     - 'drivers' sheet: unique driver names from f1_data_pre_qual_clean.csv (no header)
     - 'teams' sheet: unique team names from f1_data_pre_qual_clean.csv (no header)
-    Driver and team lists are refreshed from the CSV each time.
-    If the workbook already exists, existing name/team values in the "list" sheet are preserved.
+    - 'races' sheet: unique grand prix (circuit) names from f1_data_pre_qual_clean.csv (no header)
+    Driver, team, and race lists are refreshed from the CSV each time.
+    If the workbook already exists, existing name/team/grand_prix values in the "list" sheet are preserved.
     """
     if output_path is None:
         output_path = os.path.join(current_dir, "driver_pred_list.xlsx")
@@ -150,6 +148,7 @@ def create_driver_pred_list(output_path=None):
 
     drivers = sorted(df["driver_name"].dropna().unique().tolist())
     teams = sorted(df["team_name"].dropna().unique().tolist())
+    races = sorted(df["circuit_name"].dropna().unique().tolist())
 
     wb = Workbook()
     wb.remove(wb.active)
@@ -157,6 +156,7 @@ def create_driver_pred_list(output_path=None):
     ws_list = wb.create_sheet("list", 0)
     ws_drivers = wb.create_sheet("drivers", 1)
     ws_teams = wb.create_sheet("teams", 2)
+    ws_races = wb.create_sheet("races", 3)
 
     # --- list sheet ---
     ws_list["A1"] = "index"
@@ -164,9 +164,11 @@ def create_driver_pred_list(output_path=None):
         ws_list.cell(row=i + 1, column=1, value=i)
     ws_list["B1"] = "name"
     ws_list["C1"] = "team"
+    ws_list["D1"] = "grand_prix"
 
     n_drivers = len(drivers)
     n_teams = len(teams)
+    n_races = len(races)
     dv_name = DataValidation(
         type="list",
         formula1=f"drivers!$A$1:$A${n_drivers}",
@@ -181,15 +183,25 @@ def create_driver_pred_list(output_path=None):
         showErrorMessage=False,
         showDropDown=False,  # False = show dropdown arrow in Excel
     )
+    dv_grand_prix = DataValidation(
+        type="list",
+        formula1=f"races!$A$1:$A${n_races}",
+        allow_blank=True,
+        showErrorMessage=False,
+        showDropDown=False,  # False = show dropdown arrow in Excel
+    )
     ws_list.add_data_validation(dv_name)
     ws_list.add_data_validation(dv_team)
+    ws_list.add_data_validation(dv_grand_prix)
     for row in range(2, 24):
         dv_name.add(f"B{row}")
         dv_team.add(f"C{row}")
+        dv_grand_prix.add(f"D{row}")
 
     default_width = 10
     ws_list.column_dimensions["B"].width = default_width * 2
     ws_list.column_dimensions["C"].width = default_width * 2
+    ws_list.column_dimensions["D"].width = default_width * 2
 
     # --- drivers sheet (no header) ---
     for r, name in enumerate(drivers, start=1):
@@ -198,6 +210,10 @@ def create_driver_pred_list(output_path=None):
     # --- teams sheet (no header) ---
     for r, name in enumerate(teams, start=1):
         ws_teams.cell(row=r, column=1, value=name)
+
+    # --- races sheet (no header) ---
+    for r, name in enumerate(races, start=1):
+        ws_races.cell(row=r, column=1, value=name)
 
     # Preserve existing name/team entries on "list" sheet if file already exists
     max_retries = 3
@@ -214,6 +230,7 @@ def create_driver_pred_list(output_path=None):
                     for row in range(2, 24):
                         ws_list.cell(row=row, column=2, value=existing_list.cell(row=row, column=2).value)
                         ws_list.cell(row=row, column=3, value=existing_list.cell(row=row, column=3).value)
+                        ws_list.cell(row=row, column=4, value=existing_list.cell(row=row, column=4).value)
                 existing_wb.close()
             break
         except (PermissionError, OSError) as e:
