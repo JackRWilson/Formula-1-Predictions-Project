@@ -9,7 +9,7 @@
 import pandas as pd
 import numpy as np
 import time, os, sys, re, json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -1058,18 +1058,18 @@ def update_run_stage(stage):
     
     """
     # Specify constants and check stage
-    LAST_RUN_FILE = ".last_run.json"
+    LAST_RUN_PATH = os.path.join(PROJECT_ROOT, "src", "pipeline", ".last_run.json")
     valid_stages = ["scrape", "clean", "model"]
     if stage not in valid_stages:
         raise ValueError(f"Stage must be one of {valid_stages}. Got '{stage}'.")
 
-    timestamp = datetime.now(datetime.UTC).isoformat(sep=" ", timespec="seconds")
+    timestamp = datetime.now(timezone.utc).isoformat(sep=" ", timespec="seconds")
 
     # Check if file exists and load data
-    if not os.path.isfile(LAST_RUN_FILE):
+    if not os.path.isfile(LAST_RUN_PATH):
         data = {stg: "" for stg in valid_stages}
     else:
-        with open(LAST_RUN_FILE, "r", encoding="utf-8") as f:
+        with open(LAST_RUN_PATH, "r", encoding="utf-8") as f:
             try:
                 data = json.load(f)
                 
@@ -1084,11 +1084,11 @@ def update_run_stage(stage):
     data[stage] = timestamp
 
     # Save back to file
-    with open(LAST_RUN_FILE, "w", encoding="utf-8") as f:
+    with open(LAST_RUN_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
 
 
-def read_run_stage(stage, time_diff_hours=6):
+def read_run_stage(stage, time_diff_hours=2.5):
     """
     Check if stage has been run within the last 'time_diff_hours'
     Returns True if the stage should be run
@@ -1098,18 +1098,18 @@ def read_run_stage(stage, time_diff_hours=6):
     
     """
     # Specify constants and check stage
-    LAST_RUN_FILE = ".last_run.json"
+    LAST_RUN_PATH = os.path.join(PROJECT_ROOT, "src", "pipeline", ".last_run.json")
     valid_stages = {"scrape", "clean", "model"}
     if stage not in valid_stages:
         raise ValueError(f"Stage must be one of {valid_stages}. Got '{stage}'.")
 
     # Check if file exists
-    if not os.path.isfile(LAST_RUN_FILE):
+    if not os.path.isfile(LAST_RUN_PATH):
         return True
 
     # Read JSON file and get timestamp for the stage
     try:
-        with open(LAST_RUN_FILE, "r", encoding="utf-8") as f:
+        with open(LAST_RUN_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
     except (json.JSONDecodeError, FileNotFoundError):
         return True
@@ -1121,7 +1121,7 @@ def read_run_stage(stage, time_diff_hours=6):
     # Parse saved timestamp
     try:
         last_ts = datetime.fromisoformat(last_ts_str)
-        now = datetime.now()
+        now = datetime.now(timezone.utc)
     except Exception:
         return True
 

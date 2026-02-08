@@ -15,15 +15,15 @@ from src.scraping.scrape_f1_site import *
 from src.scraping.scrape_fastf1 import *
 from src.scraping.scrape_wikipedia import *
 from src.scraping.scrape_photon import *
-from src.utils.project_functions import update_run_stage, read_run_stage
+from src.utils.project_functions import read_run_stage, update_run_stage
 
 
 # --------------------------------------------------------------------------------
 
-def scrape_all(timestamp = False):
+def scrape_all(timestamp=False):
     if timestamp is True:
         if read_run_stage('scrape') is False:
-            print("No updates needed")
+            print("\nNo scraping updates needed")
             return
         else:
             # Run scraping WITH timestamp checks
