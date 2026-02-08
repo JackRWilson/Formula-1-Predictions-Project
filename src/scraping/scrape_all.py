@@ -15,7 +15,7 @@ from src.scraping.scrape_f1_site import *
 from src.scraping.scrape_fastf1 import *
 from src.scraping.scrape_wikipedia import *
 from src.scraping.scrape_photon import *
-from src.utils.project_functions import read_run_stage, update_run_stage
+from src.utils.utils import read_run_stage, update_run_stage
 
 
 # --------------------------------------------------------------------------------

@@ -14,7 +14,7 @@ if PROJECT_ROOT not in sys.path:
 from src.cleaning.clean_raw import *
 from src.cleaning.merge import *
 from src.cleaning.clean_merged import *
-from src.utils.project_functions import read_run_stage, update_run_stage
+from src.utils.utils import read_run_stage, update_run_stage
 
 
 # --------------------------------------------------------------------------------
