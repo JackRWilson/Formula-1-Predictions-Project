@@ -8,14 +8,16 @@
 
 import pandas as pd
 import numpy as np
-import os, time, tempfile, shutil
-import pickle
-import requests
-import time
+import os, sys, time, tempfile, shutil, pickle, requests, json
+from datetime import datetime, timedelta, timezone
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from urllib.parse import quote
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(current_dir))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 
 # ==============================================================================================
@@ -548,3 +550,89 @@ def get_location_data(place, city, country):
         return 'error'
     except (KeyError, IndexError):
         return 'error'
+
+
+# ==============================================================================================
+# 6. Update / Read Timestamp File
+# ==============================================================================================
+
+def update_run_stage(stage):
+    """
+    Create or update the .last_run.json file with current timestamp for the given stage
+    Stage must be one of: "scrape", "clean", or "model"
+    If the file does not exist, initializes all stages as keys and their values as empty strings
+    
+    """
+    # Specify constants and check stage
+    LAST_RUN_PATH = os.path.join(PROJECT_ROOT, "src", "pipeline", ".last_run.json")
+    valid_stages = ["scrape", "clean", "model"]
+    if stage not in valid_stages:
+        raise ValueError(f"Stage must be one of {valid_stages}. Got '{stage}'.")
+
+    timestamp = datetime.now(timezone.utc).isoformat(sep=" ", timespec="seconds")
+
+    # Check if file exists and load data
+    if not os.path.isfile(LAST_RUN_PATH):
+        data = {stg: "" for stg in valid_stages}
+    else:
+        with open(LAST_RUN_PATH, "r", encoding="utf-8") as f:
+            try:
+                data = json.load(f)
+                
+                # Ensure all stage keys present
+                for stg in valid_stages:
+                    if stg not in data:
+                        data[stg] = ""
+            except json.JSONDecodeError:
+                data = {stg: "" for stg in valid_stages}
+
+    # Update stage timestamp
+    data[stage] = timestamp
+
+    # Save back to file
+    with open(LAST_RUN_PATH, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
+
+
+def read_run_stage(stage, time_diff_hours=2.5):
+    """
+    Check if stage has been run within the last 'time_diff_hours'
+    Returns True if the stage should be run
+        - The file doesnt exist
+        - More than 'time_diff_hours' has passed since last run
+    Returns False if not enough time has passed
+    
+    """
+    # Specify constants and check stage
+    LAST_RUN_PATH = os.path.join(PROJECT_ROOT, "src", "pipeline", ".last_run.json")
+    valid_stages = {"scrape", "clean", "model"}
+    if stage not in valid_stages:
+        raise ValueError(f"Stage must be one of {valid_stages}. Got '{stage}'.")
+
+    # Check if file exists
+    if not os.path.isfile(LAST_RUN_PATH):
+        return True
+
+    # Read JSON file and get timestamp for the stage
+    try:
+        with open(LAST_RUN_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError):
+        return True
+
+    last_ts_str = data.get(stage, None)
+    if not last_ts_str:
+        return True
+
+    # Parse saved timestamp
+    try:
+        last_ts = datetime.fromisoformat(last_ts_str)
+        now = datetime.now(timezone.utc)
+    except Exception:
+        return True
+
+    # Compare to now
+    if (now - last_ts) >= timedelta(hours=time_diff_hours):
+        return True
+    else:
+        return False
