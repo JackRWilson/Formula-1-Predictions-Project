@@ -7,3 +7,4 @@ attribute_list.txt
 attribute_list.xlsx
 /data/raw_backup
 notebooks/testing.ipynb
+src/pipeline/.last_run.json
