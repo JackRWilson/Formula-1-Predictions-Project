@@ -15,38 +15,75 @@ from src.scraping.scrape_f1_site import *
 from src.scraping.scrape_fastf1 import *
 from src.scraping.scrape_wikipedia import *
 from src.scraping.scrape_photon import *
+from src.utils.project_functions import update_run_stage, read_run_stage
 
 
 # --------------------------------------------------------------------------------
 
-def scrape_all():
+def scrape_all(timestamp = False):
+    if timestamp is True:
+        if read_run_stage('scrape') is False:
+            print("No updates needed")
+            return
+        else:
+            # Run scraping WITH timestamp checks
+            # F1 Site 2001-2017
+            scrape_2001_links()
+            scrape_2001_results()
+            scrape_2016_pits()
 
-    # F1 Site 2001-2017
-    scrape_2001_links()
-    scrape_2001_results()
-    scrape_2016_pits()
+            # F1 Site 2018+
+            scrape_2018_links()
+            scrape_2018_results()
+            scrape_2018_practices()
+            scrape_2018_qualifying()
+            scrape_2018_starting_grid()
+            scrape_2018_pit_stops()
+            scrape_2018_fastest_laps()
+            scrape_2018_driver_codes()
+            
+            # FastF1
+            collect_fastf1_data()
+            aggregate_laps()
+            aggregate_weather()
+            aggregate_flags()
 
-    # F1 Site 2018+
-    scrape_2018_links()
-    scrape_2018_results()
-    scrape_2018_practices()
-    scrape_2018_qualifying()
-    scrape_2018_starting_grid()
-    scrape_2018_pit_stops()
-    scrape_2018_fastest_laps()
-    scrape_2018_driver_codes()
-    
-    # FastF1
-    collect_fastf1_data()
-    aggregate_laps()
-    aggregate_weather()
-    aggregate_flags()
+            # Wikipedia
+            scrape_circuits()
 
-    # Wikipedia
-    scrape_circuits()
+            # Photon
+            scrape_location()
 
-    # Photon
-    scrape_location()
+            # Update timestamp file
+            update_run_stage('scrape')
+    else:
+        # Run scraping WITHOUT timestamp checks
+        # F1 Site 2001-2017
+        scrape_2001_links()
+        scrape_2001_results()
+        scrape_2016_pits()
+
+        # F1 Site 2018+
+        scrape_2018_links()
+        scrape_2018_results()
+        scrape_2018_practices()
+        scrape_2018_qualifying()
+        scrape_2018_starting_grid()
+        scrape_2018_pit_stops()
+        scrape_2018_fastest_laps()
+        scrape_2018_driver_codes()
+        
+        # FastF1
+        collect_fastf1_data()
+        aggregate_laps()
+        aggregate_weather()
+        aggregate_flags()
+
+        # Wikipedia
+        scrape_circuits()
+
+        # Photon
+        scrape_location()
 
 
 if __name__ == "__main__":
