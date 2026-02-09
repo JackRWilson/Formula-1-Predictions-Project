@@ -124,7 +124,7 @@ def _close_workbook_in_excel(file_path):
 # --------------------------------------------------------------------------------
 # Create Excel
 
-def create_driver_pred_list(output_path=None):
+def create_driver_pred_list():
     """
     Create or overwrite driver_pred_list.xlsx with:
     - 'list' sheet: index 1-22, name/team/grand_prix columns with data validation from drivers/teams/races sheets
@@ -136,11 +136,10 @@ def create_driver_pred_list(output_path=None):
     
     """
     # Get file paths and laod data
-    if output_path is None:
-        output_path = os.path.join(current_dir, "driver_pred_list.xlsx")
-    _close_workbook_in_excel(output_path)
+    OUTPUT_PATH = os.path.join(PROJECT_ROOT, "driver_pred_list.xlsx")
+    _close_workbook_in_excel(OUTPUT_PATH)
     time.sleep(0.5)
-    file_existed = os.path.isfile(output_path)
+    file_existed = os.path.isfile(OUTPUT_PATH)
     csv_path = os.path.join(PROJECT_ROOT, "data", "final", "f1_data_pre_qual_clean.csv")
     df = pd.read_csv(csv_path, low_memory=False)
 
@@ -221,7 +220,7 @@ def create_driver_pred_list(output_path=None):
             if file_existed:
                 with warnings.catch_warnings():
                     warnings.filterwarnings("ignore", category=UserWarning, message=".*Data Validation.*")
-                    existing_wb = load_workbook(output_path, read_only=False, data_only=True)
+                    existing_wb = load_workbook(OUTPUT_PATH, read_only=False, data_only=True)
                 if "list" in existing_wb.sheetnames:
                     existing_list = existing_wb["list"]
                     for row in range(2, 24):
@@ -232,7 +231,7 @@ def create_driver_pred_list(output_path=None):
             break
         except (PermissionError, OSError):
             if attempt < max_retries - 1:
-                _close_workbook_in_excel(output_path)
+                _close_workbook_in_excel(OUTPUT_PATH)
                 time.sleep(retry_delay)
             continue
         except Exception:
@@ -244,16 +243,16 @@ def create_driver_pred_list(output_path=None):
         try:
             with warnings.catch_warnings():
                 warnings.filterwarnings("ignore", category=UserWarning, message=".*Data Validation.*")
-                wb.save(output_path)
+                wb.save(OUTPUT_PATH)
             print("\nUpdated prediction list\n" if file_existed else "\nPrediction list created\n")
-            return output_path
+            return OUTPUT_PATH
         except (PermissionError, OSError):
             if attempt < max_retries - 1:
-                _close_workbook_in_excel(output_path)
+                _close_workbook_in_excel(OUTPUT_PATH)
                 time.sleep(retry_delay)
             else:
-                dir_name = os.path.dirname(output_path)
-                base_name = os.path.basename(output_path)
+                dir_name = os.path.dirname(OUTPUT_PATH)
+                base_name = os.path.basename(OUTPUT_PATH)
                 name_no_ext, ext = os.path.splitext(base_name)
                 fallback_path = os.path.join(dir_name, f"{name_no_ext}_new{ext}")
                 try:
