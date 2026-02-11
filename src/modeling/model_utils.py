@@ -45,7 +45,7 @@ def load_prediction_input(from_file=True, grand_prix=None):
     """
     if from_file:
         # Read from pred_list.xlsx
-        pred_list_path = os.path.join(PROJECT_ROOT, "driver_pred_list.xlsx")
+        pred_list_path = os.path.join(PROJECT_ROOT, "src", "modeling", "driver_pred_list.xlsx")
         if not os.path.exists(pred_list_path):
             raise FileNotFoundError(f"driver_pred_list.xlsx not found at {pred_list_path}")
         
