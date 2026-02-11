@@ -13,6 +13,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 from src.scraping.scrape_all import scrape_all
 from src.cleaning.clean_all import clean_all
+from src.modeling.model_all import model_all
 
 
 # --------------------------------------------------------------------------------
@@ -24,6 +25,9 @@ def pipeline():
 
     # Cleaning
     clean_all(timestamp=True)
+
+    # Modeling
+    model_all(from_file=True, train_new_model=True, save_results=True, verbose=False, timestamp=True)
 
 
 if __name__ == "__main__":
