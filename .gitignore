@@ -8,4 +8,4 @@ attribute_list.xlsx
 /data/raw_backup
 notebooks/testing.ipynb
 src/pipeline/.last_run.json
-/catboost_info
+catboost_info/
