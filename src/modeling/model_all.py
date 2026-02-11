@@ -58,7 +58,7 @@ def model_all(from_file=True, grand_prix=None, train_new_model=True,
     results = {}
 
     # Pre-qualifying predictions (practice only)
-    print("Making pre-qualifying predictions (practice data only)...")
+    print("\nMaking pre-qualifying predictions (practice data only)...")
     driver_tables_pre_qual, race_outcome_pre_qual = model_pre_qual(
         from_file=from_file,
         grand_prix=grand_prix,
@@ -68,9 +68,7 @@ def model_all(from_file=True, grand_prix=None, train_new_model=True,
     results["pre_qual"] = (driver_tables_pre_qual, race_outcome_pre_qual)
 
     # Pre-race predictions (practice + qualifying)
-    print("\n" + "="*70)
-    print("Making pre-race predictions (practice + qualifying)...")
-    print("="*70)
+    print("\nMaking pre-race predictions (practice + qualifying)...")
     driver_tables_pre_race, race_outcome_pre_race = model_pre_race(
         from_file=from_file,
         grand_prix=grand_prix,
