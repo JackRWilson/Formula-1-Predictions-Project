@@ -9,3 +9,5 @@ attribute_list.xlsx
 notebooks/testing.ipynb
 src/pipeline/.last_run.json
 catboost_info/
+src/modeling/model_pre_qual.cbm
+src/modeling/model_pre_race.cbm
